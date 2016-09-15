@@ -1,0 +1,15 @@
+typings
+dist
+src/app/**/*.js
+src/app/**/*.js.map
+src/lib
+node_modules
+jspm_packages
+bower_components
+package
+pkg.zip
+src/electron
+electron/Wingman-*
+electron/dist
+electron/node_modules
+publish
