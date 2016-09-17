@@ -1,0 +1,51 @@
+<div class="row ws-select">
+    <div class="ws-select-title ws-blue-i" [style.color]="wsColTitle">{{wsName}}</div>
+    <!--Button-->
+    <div *ngIf="true" class="ws-select-click-area" (click)="toggleList()">
+        <a class="ws-select-button" >
+            <i *ngIf="!showingList" class="material-icons ws-toggle-button" [style.color]="wsColText">keyboard_arrow_down</i>
+            <i *ngIf="showingList" class="material-icons ws-toggle-button" [style.color]="wsColText">keyboard_arrow_up</i>
+            <div [style.color]="wsColText">{{displayText}}</div>
+        </a>
+    </div>
+    <!--List-->
+    <div class="column">
+        <!--Single-->
+        <div 
+        class="ws-list"
+        *ngIf="!wsMultiple && showingList">
+            <div
+            class="ws-list-item" 
+            *ngFor="let item of wsItems" 
+            (click)="setItem(item)">
+                <label class="ws-list-item-label">{{getItemName(item)}}</label>
+            </div>
+        </div>
+        <!--Multiple-->
+        <div
+        class="ws-list" 
+        *ngIf="wsMultiple && showingList">
+            <div
+            class="ws-list-item"
+            *ngFor="let item of wsItems; let i = index" 
+            (click)="toggleItem(i)">
+                <label 
+                    *ngIf="item.isActive" 
+                    class="ws-list-item-label">{{getItemName(item)}}</label>
+
+                <label 
+                    *ngIf="!item.isActive" 
+                    class="ws-list-item-label-inactive">{{getItemName(item)}}</label>
+
+                <i 
+                    *ngIf="item.isActive" 
+                    class="material-icons" 
+                    style="color: white; float: right">check_box</i>
+                <i 
+                    *ngIf="!item.isActive" 
+                    class="material-icons" 
+                    style="color: grey; float: right">check_box_outline_blank</i>
+            </div>
+        </div>
+    </div>
+</div>

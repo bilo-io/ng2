@@ -1,0 +1,16 @@
+<div class="ws-modal" *ngIf="isShowing">
+    <div class="ws-modal-content">
+        <div class="ws-modal-title">
+            {{wsTitle}}
+        </div>
+
+        <div class="ws-modal-message">
+            {{wsMessage}}
+        </div> 
+
+        <div class="ws-modal-buttons-container">
+            <a class="ws-modal-button-confirm" (click)="confirm()">{{wsConfirm}}</a>
+            <a class="ws-modal-button-dismiss" (click)="dismiss()">{{wsDismiss}}</a>
+        </div>
+    </div>
+</div>

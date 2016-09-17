@@ -1,0 +1,86 @@
+// Dimensions
+$dim-navbar-height: 4rem;
+$dim-title-size: 2rem;
+$dim-font-size: 1rem;
+// Colors
+$col-background: #1e1e1e;
+$col-primary: #00ADEE;
+$col-text: #fefefe;
+
+*{
+-webkit-app-region: no-drag;
+}
+
+.back-col {
+    background-color: $col-background;
+}
+
+
+.navbar {
+    -webkit-app-region: drag;
+    background-color: $col-background;
+    color: $col-text;
+    position: fixed;
+    width: 100%;
+    height: $dim-navbar-height;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    // box-shadow: 0px 0px 8px darkgrey;
+}
+
+.navbar-title {
+    position: relative; 
+    font-size: 2rem;  
+    margin-top: 0.5rem;
+    color: $col-text;
+}
+
+.navbar-title-light {
+    position: relative; 
+    font-size: $dim-title-size;
+    font-weight: lighter;  
+    margin-top: 0.5rem; 
+    color: $col-text;
+}
+
+.navbar-env-details {
+    position: absolute;
+    top: $dim-navbar-height;
+    right: 0;
+    background: #1e1e1e;
+    color: white;
+    width: 400px;
+    height: 36rem;
+    overflow: auto;
+    box-shadow: 2px 2px 5px #888888;
+    padding: {
+        left: 1rem;
+        top: 1rem;
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
+
+.navbar-options-button {
+    position: relative;
+    float: right;
+    color: white;
+    margin-top: 1rem;
+    width: $dim-navbar-height;
+    height: $dim-navbar-height;
+}
+
+
+.navbar-select {
+    // position: absolute;
+    margin: {
+        left: 2rem;
+        right: 2rem;
+    }
+    float: right;
+    min-width: 10rem;
+    height: 4rem;
+    // bottom: 0;
+    // right: $dim-navbar-height * 3;
+}

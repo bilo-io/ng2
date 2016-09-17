@@ -1,0 +1,31 @@
+<label class="ws-blue-i">{{wsName}}</label>
+<div class="modes-container">
+    <!--Button-->
+    <div class="ws-modes-click-area">
+        <a class="ws-modes-toggle-button" (click)="toggleList()">
+            <i *ngIf="!showingList" class="material-icons ws-toggle-button">keyboard_arrow_down</i>
+            <i *ngIf="showingList" class="material-icons ws-toggle-button">keyboard_arrow_up</i>
+        </a>
+        <a 
+            class="mode-icon" 
+            title="{{item.name}}" 
+            (click)="toggleMode(i)" 
+            *ngFor="let item of wsItems; let i = index">
+            <i class="material-icons" [style.color]="item.color">{{item.iconName}}</i>
+        </a>
+    </div>
+    <!--List-->
+    <div 
+        class="ws-modes-list" 
+        *ngIf="showingList">
+        <div
+            class="ws-modes-list-item"
+            *ngFor="let item of wsItems; let i = index"
+            (click)="toggleMode(i)">
+            <i class="material-icons" style="float: right" [style.color]="item.color">{{item.iconName}}</i>
+            <div *ngIf="item.isActive" style="color: white">{{item.name}}</div>
+            <div *ngIf="!item.isActive" style="color: gray">{{item.name}}</div>
+        </div>
+
+    </div>
+</div>

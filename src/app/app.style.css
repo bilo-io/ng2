@@ -1,0 +1,226 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background: white;
+  overflow: hidden;
+}
+
+.app-background {
+  background-color: #1e1e1e;
+}
+
+.component-title {
+  font-size: 1.5rem;
+}
+
+.main-panel {
+  position: absolute;
+  width: 75%;
+  left: 25%;
+  height: 100%;
+}
+
+.side-panel {
+  position: absolute;
+  top: 4rem;
+  width: 25%;
+  height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.side-panel-header {
+  position: relative;
+  width: 100%;
+  height: 4rem;
+}
+
+.back-dark {
+  background-color: #333333;
+  color: white;
+}
+
+.back-light {
+  background-color: ws-light;
+  color: #333333;
+}
+
+.bottom-buttons {
+  position: relative;
+  bottom: 2rem;
+  width: 100%;
+  bottom: 0px;
+}
+
+.alert-view {
+  padding: 6rem;
+  height: 100%;
+}
+
+.alert-message {
+  font-size: 1.8rem;
+}
+
+.resend-button {
+  margin-top: 0.9rem;
+  margin-bottom: 4rem;
+}
+
+.ws-fab-left-panel {
+  position: absolute;
+  top: 6rem;
+  margin-left: -30;
+}
+
+.ws-fab-bottom-right {
+  position: absolute;
+  bottom: 2rem;
+  float: right;
+}
+
+.input-label {
+  font-size: 0.8rem;
+}
+
+.bottom-button-left {
+  float: left;
+  position: relative;
+  left: 0px;
+}
+
+.bottom-button-right {
+  float: right;
+  position: relative;
+  right: 0px;
+}
+
+.alert-list-item {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 3rem;
+  border-width: 0px 0px 1px 0px;
+  border-color: #333333;
+  border-style: solid;
+  font-size: 1rem;
+}
+
+.right-1 {
+  margin-left: 2.5rem;
+}
+
+.right-2 {
+  margin-left: 5rem;
+}
+
+.back-dark-3 {
+  background-color: #333333;
+}
+
+.back-dark-2 {
+  background-color: #252526;
+}
+
+.back-dark-1 {
+  background-color: ws-dark-1;
+}
+
+.fill-width {
+  position: relative;
+  width: 100%;
+}
+
+.ws-blue {
+  background-color: #00ADEE;
+}
+
+.app-title {
+  font-size: 2rem;
+  color: white;
+}
+
+.loader {
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.ws-blue-a {
+  color: #00ADEE;
+}
+
+.ws-icon-button {
+  margin-top: 2rem;
+}
+
+.back-button {
+  position: relative;
+  margin-left: -1.2rem;
+  margin-top: 5rem;
+}
+
+.ws-blue-i {
+  color: #00ADEE;
+}
+
+.ws-green-i {
+  color: #0397AC;
+}
+
+.ws-yellow-i {
+  color: #F3CA35;
+}
+
+.ws-light-i {
+  color: #E4E4E4;
+}
+
+.ws-card {
+  background: #E4E4E4;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+}
+
+.ws-card-1 {
+  background: #E4E4E4;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.ws-card-1:hover {
+  background: #E4E4E4;
+  border-radius: 4px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.ws-card-2 {
+  background: #E4E4E4;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.ws-card-3 {
+  background: #E4E4E4;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.ws-card-4 {
+  background: #E4E4E4;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.ws-card-5 {
+  background: #E4E4E4;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}

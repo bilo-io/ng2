@@ -1,0 +1,237 @@
+$ws-dark-3: #333333;
+$ws-dark-2: #252526;
+$ws-dark-1: #1e1e1e;
+$ws-light: #E4E4E4;
+$ws-blue: #00ADEE;
+$wimt-yellow: #F3CA35;
+$wimt-green: #0397AC;
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+.main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: white;
+    overflow: hidden;
+}
+
+.app-background {
+    background-color: $ws-dark-1;
+}
+
+.component-title {
+    font-size: 1.5rem;
+}
+
+.main-panel {
+    position: absolute;
+    width: 75%;
+    left: 25%;
+    height: 100%;
+    // padding-top: 5rem;
+}
+
+.side-panel {
+    position: absolute;
+    top: 4rem;
+    width: 25%;
+    height: calc(100vh - 4rem);
+    overflow-y: auto;   
+}
+
+.side-panel-header {
+    position: relative;
+    width: 100%;
+    height: 4rem;
+}
+
+.back-dark {
+    background-color: $ws-dark-3;
+    color: white;
+}
+
+.back-light {
+    background-color: ws-light;
+    color: $ws-dark-3;
+}
+
+.bottom-buttons{
+    position: relative;
+    bottom: 2rem;
+    width: 100%;
+    bottom: 0px;
+}
+
+.alert-view {
+    padding: 6rem;
+    height: 100%;
+}
+
+.alert-message {
+    font-size: 1.8rem;
+}
+
+.resend-button {
+    margin-top: 0.9rem;
+    margin-bottom: 4rem;
+}
+
+.ws-fab-left-panel{
+    position: absolute;
+    top: 6rem;
+    margin-left: -30;
+}
+
+.ws-fab-bottom-right{
+    position: absolute;
+    bottom: 2rem;
+    float: right;
+}
+
+.input-label {
+    font-size: 0.8rem;
+}
+
+.bottom-button-left {
+    float: left;
+    position: relative;
+    left: 0px;
+}
+
+.bottom-button-right {
+    float: right;
+    position: relative;
+    right: 0px;
+}
+
+.alert-list-item {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 3rem;
+    border-width: 0px 0px 1px 0px;
+    border-color: $ws-dark-3;
+    border-style: solid;
+    font-size: 1rem;
+}
+
+.right-1{
+    margin-left: 2.5rem;
+}
+
+.right-2{
+    margin-left: 5rem;
+}
+
+.back-dark-3 {
+    background-color: $ws-dark-3;
+}
+
+.back-dark-2 {
+    
+    background-color: $ws-dark-2;
+}
+
+.back-dark-1 {
+    background-color: ws-dark-1;
+}
+
+.fill-width {
+    position: relative;
+    width: 100%;
+}
+
+.ws-blue {
+    background-color: $ws-blue;
+}
+
+.app-title {
+    font-size: 2rem;
+    color: white;
+}
+
+.loader {
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.ws-blue-a {
+    color: #00ADEE;
+}
+
+.ws-icon-button {
+    margin-top: 2rem;
+}
+
+.back-button {
+    position: relative;
+    margin-left: -1.2rem;
+    margin-top: 5rem;
+}
+
+.ws-blue-i {
+    color: $ws-blue;
+}
+
+.ws-green-i {
+    color: $wimt-green;
+}
+
+.ws-yellow-i {
+    color: $wimt-yellow;
+}
+
+.ws-light-i {
+    color: $ws-light;
+}
+
+.ws-card {
+    background: $ws-light;
+    border-radius: 4px;
+    display: inline-block;
+    // height: 300px;
+    margin: 1rem;
+    position: relative;
+    // width: 300px;
+}
+
+.ws-card-1 {
+    background: $ws-light;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(black, 0.12), 0 1px 2px rgba(black, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.ws-card-1:hover {
+    background: $ws-light;
+    border-radius: 4px;
+    box-shadow: 0 14px 28px rgba(black, 0.25), 0 10px 10px rgba(black, 0.22);
+}
+
+.ws-card-2 {
+    background: $ws-light;
+    box-shadow: 0 3px 6px rgba(black, 0.16), 0 3px 6px rgba(black, 0.23);
+}
+
+.ws-card-3 {
+    background: $ws-light;
+    box-shadow: 0 10px 20px rgba(black, 0.19), 0 6px 6px rgba(black, 0.23);
+}
+
+.ws-card-4 {
+    background: $ws-light;
+    box-shadow: 0 14px 28px rgba(black, 0.25), 0 10px 10px rgba(black, 0.22);
+}
+
+.ws-card-5 {
+    background: $ws-light;
+    box-shadow: 0 19px 38px rgba(black, 0.30), 0 15px 12px rgba(black, 0.22);
+}

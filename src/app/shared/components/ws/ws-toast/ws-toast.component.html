@@ -1,0 +1,18 @@
+<div class="toast-container row">
+    <div *ngIf="toasts.length > 0">
+        <div *ngFor="let toast of toasts">
+            <div *ngIf="toast.isShowing" class="toast-content {{toast.style}}">
+
+                    <i *ngIf="toast.style==='toast-success'" class="material-icons toast-icon">check</i>
+                    <i *ngIf="toast.style==='toast-warning'" class="material-icons toast-icon">warning</i>
+                    <i *ngIf="toast.style==='toast-error'" class="material-icons toast-icon">error</i>
+
+                    <i *ngIf="toast.style==='toast-default'" class="material-icons toast-icon">info_outline</i>
+                    <i *ngIf="toast.style==='toast-dark'" class="material-icons toast-icon">info_outline</i>
+                    <i *ngIf="toast.style==='toast-light'" class="material-icons toast-icon">info_outline</i>
+
+                {{toast.message}}
+            </div>
+        </div>
+    </div>
+</div>

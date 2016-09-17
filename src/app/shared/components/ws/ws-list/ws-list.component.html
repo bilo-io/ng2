@@ -1,0 +1,14 @@
+<div>
+    <label *ngIf="wsName" style="color: white">{{wsName}}</label>
+    <!--Single-->
+    <div *ngIf="!wsMultiple" class="ws-list-ul">
+        <div 
+            class="ws-list-li"
+            *ngFor="let item of wsItems; let i = index" 
+            (click)="updateItem(item)">
+            <!--<div *ngIf="item.name" class="column">-->
+                {{item.name}}
+            <!--</div>-->
+        </div>
+    </div>
+</div>

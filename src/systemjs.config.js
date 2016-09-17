@@ -25,6 +25,7 @@
       // other libraries
       'rxjs':                       'lib:rxjs',
       'angular2-in-memory-web-api': 'lib:angular2-in-memory-web-api',
+      'leaflet': 'lib:leaflet'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -38,7 +39,11 @@
       'angular2-in-memory-web-api': {
         main: './index.js',
         defaultExtension: 'js'
-      }
+      },
+      'leaflet': {
+        main: 'dist/leaflet',
+        defaultExtension: 'js'
+      },
     }
   });
 })(this);

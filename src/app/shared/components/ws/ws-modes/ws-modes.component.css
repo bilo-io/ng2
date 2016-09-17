@@ -1,0 +1,110 @@
+.modes-container {
+  position: relative;
+  width: 100%;
+  color: white;
+  padding: 0;
+  background: transparent;
+  margin-bottom: 1rem;
+}
+
+.mode-icon {
+  position: relative;
+  height: 2rem;
+  width: 2rem;
+  background: transparent;
+  display: inline-block;
+  border: 0;
+  vertical-align: center;
+  padding-top: 0rem;
+}
+
+.ws-modes-click-area {
+  position: relative;
+  margin-top: 1rem;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  border-bottom: 1px solid white;
+  border-left: 0px solid transparent;
+  border-right: 0px solid transparent;
+  border-top: 0px solid transparent;
+}
+
+.ws-modes-list {
+  position: relative;
+  width: 100%;
+  background-color: #1e1e1e;
+  margin-top: 0px;
+  border-bottom: 1px solid #00ADEE;
+  border-left: 1px solid #00ADEE;
+  border-right: 1px solid #00ADEE;
+  border-top: 0px solid transparent;
+}
+
+.ws-modes-list-item {
+  position: relative;
+  height: 3rem;
+  padding-top: 0.75rem;
+  padding-left: 1rem;
+  padding-bottom: 0.75rem;
+  padding-right: 1rem;
+  color: white;
+  background-color: transparent;
+  border-bottom: 0px solid lightgray;
+  border-left: 0px solid transparent;
+  border-right: 0px solid transparent;
+  border-top: 0px solid transparent;
+}
+
+.ws-modes-list-item:hover {
+  background-color: #2f2f2f;
+  color: #00ADEE;
+}
+
+.ws-modes-list-item-label {
+  position: relative;
+  height: 3rem;
+  font-size: 1rem;
+  text-align: left;
+  color: white;
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ws-modes-list-item-check {
+  position: relative;
+  height: 2rem;
+  width: 2rem;
+  margin-right: 1rem;
+}
+
+.ws-modes-button {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  position: relative;
+  height: 2rem;
+  color: white;
+  background-color: transparent;
+  text-align: left;
+  padding-top: 0.5rem;
+  font-size: 1.05rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  float: right;
+}
+
+.ws-toggle-button {
+  float: right;
+  height: 2rem;
+  width: 2rem;
+  background-color: transparent;
+  color: white;
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.125rem;
+  margin-top: -0.5rem;
+  z-index: 1;
+}

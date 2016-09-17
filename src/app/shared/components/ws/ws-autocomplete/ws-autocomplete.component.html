@@ -1,0 +1,12 @@
+<div class="row">
+    <input 
+        type="text"
+        [(ngModel)]="searchText" 
+        (ngModelChange)="filterItems()"
+        placeholder="{{wsHint}}">
+    <ws-list
+        [hidden]="searchText.length == 0 || !showingList"
+        [wsItems]="filteredItems"
+        (wsItemChanged$)="selectedItem($event)">
+    </ws-list>
+</div>

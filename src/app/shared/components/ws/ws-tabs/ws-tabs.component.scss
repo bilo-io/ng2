@@ -1,0 +1,27 @@
+.ws-tab-container {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+}
+
+.ws-tab {
+    flex-grow: 1;
+    text-align: center;
+    height: 3em;
+    padding: 1em;
+    cursor: pointer;
+
+    color: rgba(255,255,255,0.7);
+    &:hover {
+        color: #00adee;
+    }
+
+}
+
+.ws-tab-active {
+    text-align: center;
+    color: #00adee;
+    border: {
+        bottom: 4px solid #00adee;
+    }
+}

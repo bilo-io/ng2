@@ -1,0 +1,14 @@
+Toast-Demo
+<div class="row" style="color: #1c1c1c; background-color: white; min-height: 10rem; padding: 2rem;">
+    <p>
+        <a class="ws-btn ws-success" (click)="toaster.success('Success')">Success</a>
+        <a class="ws-btn ws-warning" (click)="toaster.warning('Warning')">Warning</a>
+        <a class="ws-btn ws-error" (click)="toaster.error('Error')">Error</a>
+    </p>
+    <br>
+    <p>
+        <a class="ws-btn ws-toast" (click)="toaster.show('Default')">Default</a>
+        <a class="ws-btn ws-light" (click)="toaster.notify('Light', true)">Light</a>
+        <a class="ws-btn ws-dark" (click)="toaster.notify('Dark', false)">Dark</a>
+    </p>
+</div>

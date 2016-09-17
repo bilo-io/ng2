@@ -1,0 +1,12 @@
+<h1>tabs-demo</h1>
+<div class="row">
+    
+    <!--Tabs-->
+    <ws-tabs [tabs]="tabs" (wsChanged$)="switchTab($event)"></ws-tabs>
+    
+    <!--Content-->
+    <div>
+        {{selectedTab}}
+    </div>
+
+</div>

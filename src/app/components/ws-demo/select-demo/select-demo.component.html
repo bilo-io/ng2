@@ -1,0 +1,46 @@
+<br/>
+<h1>select-demo</h1>
+
+<div class="row" style="margin: 2rem">
+    <div class="column" style="position: relative; width: 50%">
+        <div class="ws-card-1 row" style="padding: 1rem 1rem 1rem 1rem">
+            <a (click)="showCode1 = !showCode1" style="float: right"><i class="material-icons">code</i></a>
+            <div *ngIf="showCode1">
+                <p class="ws-code">
+                    {{code1}}
+                </p>
+            </div>
+            <br>
+            <ws-select
+                [wsName]="'Single'"
+                [wsHint]="'Select an item'"
+                [wsItems]="items"
+                [wsColTitle]="'#00ADEE'"
+                [wsColText]="'black'"
+                [wsColBack]="'transparent'">
+            </ws-select>
+        </div>
+
+        <br>
+
+        <div class="ws-card-2 row" style="padding: 1rem 1rem 1rem 1rem">
+            <a (click)="showCode2 = !showCode2" style="float: right"><i class="material-icons">code</i></a>
+            <div *ngIf="showCode2">
+                <p class="ws-code">
+                    {{code2}}
+                </p>
+            </div>
+            <br>
+        <ws-select
+            [wsName]="'Multiple'"
+            [wsHint]="'Select multiple items'"
+            [wsItems]="items"
+            [wsColTitle]="'#00ADEE'"
+            [wsColText]="'black'"
+            [wsColBack]="'transparent'"
+            [wsMultiple]="true">
+        </ws-select>
+        </div>
+        
+    </div>
+</div>
