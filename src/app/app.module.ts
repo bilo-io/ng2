@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { routing } from './app.routing';
 // Shared Components
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
-// import { MapComponent } from './shared/components/map/map.component';
+import { MapComponent } from './shared/components/map/map.component';
 import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
 // Services
 import { AppService } from './app.service';
@@ -69,7 +69,7 @@ import { Component2 } from './components/component-2/component-2.component';
         AppComponent,
         NavbarComponent,
         SidenavComponent,
-        // MapComponent,
+        MapComponent,
         Component1,
         Component2,
         WsDemoComponent,  
