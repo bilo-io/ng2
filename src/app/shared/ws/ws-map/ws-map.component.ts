@@ -1,14 +1,14 @@
 import { Component, Inject, Input, Output } from '@angular/core';
 import { Point, LineString, Polygon } from '../../models/geojson.models';
-import { MapService, MapState, MapPoint, MapLine, MapPolygon, MapLayer, MapLayerType } from './map.service';
+import { WsMapService, MapState, MapPoint, MapLine, MapPolygon, MapLayer, MapLayerType } from './ws-map.service';
 import * as L from 'leaflet';
 
 @Component({
     moduleId: module.id,
-    selector: 'map',
-    templateUrl: 'map.component.html',
+    selector: 'ws-map',
+    templateUrl: 'ws-map.component.html',
     styleUrls: [
-        'map.component.css',
+        'ws-map.component.css',
         '../../../app.style.css'
     ]
 })
@@ -37,7 +37,7 @@ export class MapComponent {
     public markerStart: any = {};
     public markerEnd: any = {};
 
-    constructor( @Inject(MapService) public mapService: MapService) { }
+    constructor( @Inject(WsMapService) public mapService: WsMapService) { }
 
     //{ Initialisation    
     ngOnInit() {
@@ -103,7 +103,7 @@ export class MapComponent {
         let pinSize = [32, 32];
         let pinAnchor = [16, 32];
 
-        L.Icon.Default.imagePath = 'app/shared/ws/ws-map/map-markers';
+        L.Icon.Default.imagePath = 'app/shared/ws/ws-map/ws-map-markers';
         this.markerPinGreen = L.icon({
             iconUrl: L.Icon.Default.imagePath + '/map-pin-green.png',
             shadowUrl: L.Icon.Default.imagePath + '/marker-shadow.png',

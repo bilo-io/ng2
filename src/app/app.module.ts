@@ -5,14 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { routing } from './app.routing';
 // Shared Components
 import { NavbarComponent } from './shared/ws/ws-navbar/navbar.component';
-import { MapComponent } from './shared/ws/ws-map/map.component';
+import { MapComponent } from './shared/ws/ws-map/ws-map.component';
 import { SidenavComponent } from './shared/ws/ws-sidenav/sidenav.component';
 // Services
 import { AppService } from './app.service';
 import { GeocoderService } from './shared/services/geocoder.service';
-import { MapService } from './shared/ws/ws-map/map.service';
-import { SidenavService } from './shared/ws/ws-sidenav/sidenav.service';
-// Ws
+
+// Ws Components
 import { WsModule } from './shared/ws/ws.module';
 import { WsAutocompleteComponent } from './shared/ws/ws-autocomplete/ws-autocomplete.component';
 import { WsBBoxComponent } from './shared/ws/ws-bbox/ws-bbox.component';
@@ -30,9 +29,11 @@ import { WsSwitchComponent } from './shared/ws/ws-switch/ws-switch.component';
 import { WsTabsComponent } from './shared/ws/ws-tabs/ws-tabs.component';
 import { WsToastComponent } from './shared/ws/ws-toast/ws-toast.component';
 import { WsToggleComponent } from './shared/ws/ws-toggle/ws-toggle.component';
-// Services
+// Ws Services
 import { WsToastService } from './shared/ws/ws-toast/ws-toast.service';
 import { WsModalService } from './shared/ws/ws-modal/ws-modal.service';
+import { WsMapService } from './shared/ws/ws-map/ws-map.service';
+import { SidenavService } from './shared/ws/ws-sidenav/sidenav.service';
 // Ws demo
 import { WsDemoComponent } from './components/ws-demo/ws-demo.component';
 import { AutocompleteDemoComponent } from './components/ws-demo/autocomplete-demo/autocomplete-demo.component';
@@ -59,7 +60,7 @@ import { Component2 } from './components/component-2/component-2.component';
     ],
     providers: [
         AppService,
-        MapService,
+        WsMapService,
         GeocoderService,
         SidenavService,
         WsToastService,

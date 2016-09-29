@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
-import { MapService } from './shared/ws/ws-map/map.service';
+import { WsMapService } from './shared/ws/ws-map/ws-map.service';
 
 @Injectable()
 export class AppService {
-    constructor(@Inject(MapService) public map: MapService) {}
+    constructor(@Inject(WsMapService) public map: WsMapService) {}
 } 

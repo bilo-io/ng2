@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { WsBBoxComponent } from '../../../shared/ws/ws-bbox/ws-bbox.component';
 import { WsPoint } from '../../../shared/ws/ws-point/ws-point.component';
-import { MapComponent } from '../../../shared/ws/ws-map/map.component';
-import { MapService, MapPoint } from '../../../shared/ws/ws-map/map.service';
+import { MapComponent } from '../../../shared/ws/ws-map/ws-map.component';
+import { WsMapService, MapPoint } from '../../../shared/ws/ws-map/ws-map.service';
 
 @Component({
     moduleId: module.id,
@@ -15,7 +15,7 @@ import { MapService, MapPoint } from '../../../shared/ws/ws-map/map.service';
     ]
 })
 export class BBoxDemoComponent {
-    constructor( @Inject(MapService) public map: MapService) { }
+    constructor( @Inject(WsMapService) public map: WsMapService) { }
     
     updateTopLeft(point: WsPoint) {
         let mapPoint: MapPoint = new MapPoint('TopLeft: ' + point.name, point.point, '#00ADEE');

@@ -38,7 +38,7 @@ export enum MapLayerType {
     Polygons
 }
 @Injectable()
-export class MapService {
+export class WsMapService {
     public styles: string[] = [];
     public lines: any[] = [];
     public stops: any[] = [];
