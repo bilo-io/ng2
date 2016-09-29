@@ -1,19 +1,19 @@
 import { Component, Inject, Window, provide } from '@angular/core';
-import { SidenavComponent } from '../ws-sidenav/sidenav.component';
-import { SidenavService } from '../ws-sidenav/sidenav.service';
+import { WsSidenavComponent } from '../ws-sidenav/ws-sidenav.component';
+import { WsSidenavService } from '../ws-sidenav/ws-sidenav.service';
 import { WsSelectComponent, WsSelectItem } from '../ws-select/ws-select.component';
 import { AppService } from '../../../app.service';
 
 @Component({
     moduleId: module.id,
-    selector: 'navbar',
-    templateUrl: 'navbar.component.html',
+    selector: 'ws-navbar',
+    templateUrl: 'ws-navbar.component.html',
     styleUrls: [
-        'navbar.component.css',
+        'ws-navbar.component.css',
         '../../../app.style.css'
     ]
 })
-export class NavbarComponent {
+export class WsNavbarComponent {
     public settings;
     public showingEnvDetails: boolean = false;
     public showingDownloadDetails: boolean = false;
@@ -24,7 +24,7 @@ export class NavbarComponent {
 
     constructor(
         @Inject(AppService) public app: AppService,
-        @Inject(SidenavService) public sidenav: SidenavService) {
+        @Inject(WsSidenavService) public sidenav: WsSidenavService) {
         this.initAppService();
     }
 

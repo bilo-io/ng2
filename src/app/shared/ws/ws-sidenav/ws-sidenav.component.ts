@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { SidenavService } from './sidenav.service';
+import { WsSidenavService } from './ws-sidenav.service';
 import { AppService } from '../../../app.service';
 
 interface INavItem {
@@ -16,18 +16,18 @@ class NavItem implements INavItem {
 
 @Component({
     moduleId: module.id,
-    selector: 'sidenav',
-    templateUrl: 'sidenav.component.html',
+    selector: 'ws-sidenav',
+    templateUrl: 'ws-sidenav.component.html',
     styleUrls: [
-        'sidenav.component.css',
+        'ws-sidenav.component.css',
         '../../../app.style.css'
     ]
 })
-export class SidenavComponent {
+export class WsSidenavComponent {
     private items: NavItem[] = [];
     private activeItem: NavItem; 
     constructor(
-        @Inject(SidenavService) public sidenav: SidenavService,
+        @Inject(WsSidenavService) public sidenav: WsSidenavService,
         @Inject(AppService) public app: AppService) {
         this.initMenuItems();
     }

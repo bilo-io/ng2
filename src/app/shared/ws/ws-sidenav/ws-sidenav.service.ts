@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class SidenavService {
+export class WsSidenavService {
     isOn: boolean = false;
     constructor() {
     }

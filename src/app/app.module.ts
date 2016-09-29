@@ -3,14 +3,9 @@ import { Http, HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { routing } from './app.routing';
-// Shared Components
-import { NavbarComponent } from './shared/ws/ws-navbar/navbar.component';
-import { MapComponent } from './shared/ws/ws-map/ws-map.component';
-import { SidenavComponent } from './shared/ws/ws-sidenav/sidenav.component';
 // Services
 import { AppService } from './app.service';
 import { GeocoderService } from './shared/services/geocoder.service';
-
 // Ws Components
 import { WsModule } from './shared/ws/ws.module';
 import { WsAutocompleteComponent } from './shared/ws/ws-autocomplete/ws-autocomplete.component';
@@ -20,10 +15,13 @@ import { WsDateTimeComponent } from './shared/ws/ws-datetime/ws-datetime.compone
 import { WsListComponent } from './shared/ws/ws-list/ws-list.component';
 import { WsLoaderComponent } from './shared/ws/ws-loader/ws-loader.component';
 import { WsLoaderLabelComponent } from './shared/ws/ws-loader-label/ws-loader-label.component';
+import { WsMapComponent } from './shared/ws/ws-map/ws-map.component';
 import { WsModalComponent } from './shared/ws/ws-modal/ws-modal.component';
 import { WsModesComponent } from './shared/ws/ws-modes/ws-modes.component';
+import { WsNavbarComponent } from './shared/ws/ws-navbar/navbar.component';
 import { WsPointComponent } from './shared/ws/ws-point/ws-point.component';
 import { WsSelectComponent } from './shared/ws/ws-select/ws-select.component';
+import { WsSidenavComponent } from './shared/ws/ws-sidenav/ws-sidenav.component';
 import { WsSpinnerComponent } from './shared/ws/ws-spinner/ws-spinner.component';
 import { WsSwitchComponent } from './shared/ws/ws-switch/ws-switch.component';
 import { WsTabsComponent } from './shared/ws/ws-tabs/ws-tabs.component';
@@ -33,7 +31,7 @@ import { WsToggleComponent } from './shared/ws/ws-toggle/ws-toggle.component';
 import { WsToastService } from './shared/ws/ws-toast/ws-toast.service';
 import { WsModalService } from './shared/ws/ws-modal/ws-modal.service';
 import { WsMapService } from './shared/ws/ws-map/ws-map.service';
-import { SidenavService } from './shared/ws/ws-sidenav/sidenav.service';
+import { WsSidenavService } from './shared/ws/ws-sidenav/ws-sidenav.service';
 // Ws demo
 import { WsDemoComponent } from './components/ws-demo/ws-demo.component';
 import { AutocompleteDemoComponent } from './components/ws-demo/autocomplete-demo/autocomplete-demo.component';
@@ -62,15 +60,12 @@ import { Component2 } from './components/component-2/component-2.component';
         AppService,
         WsMapService,
         GeocoderService,
-        SidenavService,
+        WsSidenavService,
         WsToastService,
         WsModalService
     ],
     declarations: [
         AppComponent,
-        NavbarComponent,
-        SidenavComponent,
-        MapComponent,
         Component1,
         Component2,
         WsDemoComponent,  
@@ -93,10 +88,13 @@ import { Component2 } from './components/component-2/component-2.component';
         WsListComponent,
         WsLoaderComponent,
         WsLoaderLabelComponent,
+        WsMapComponent,
         WsModalComponent,
         WsModesComponent,
+        WsNavbarComponent,
         WsPointComponent,
         WsSelectComponent,
+        WsSidenavComponent,
         WsSpinnerComponent,
         WsSwitchComponent,
         WsTabsComponent,

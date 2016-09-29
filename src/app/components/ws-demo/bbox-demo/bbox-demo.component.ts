@@ -1,18 +1,14 @@
 import { Component, Inject } from '@angular/core';
 import { WsBBoxComponent } from '../../../shared/ws/ws-bbox/ws-bbox.component';
 import { WsPoint } from '../../../shared/ws/ws-point/ws-point.component';
-import { MapComponent } from '../../../shared/ws/ws-map/ws-map.component';
+import { WsMapComponent } from '../../../shared/ws/ws-map/ws-map.component';
 import { WsMapService, MapPoint } from '../../../shared/ws/ws-map/ws-map.service';
 
 @Component({
     moduleId: module.id,
     selector: 'bbox-demo',
     templateUrl: 'bbox-demo.component.html',
-    styleUrls: ['bbox-demo.component.css'],
-    directives: [
-        WsBBoxComponent,
-        MapComponent
-    ]
+    styleUrls: ['bbox-demo.component.css']
 })
 export class BBoxDemoComponent {
     constructor( @Inject(WsMapService) public map: WsMapService) { }

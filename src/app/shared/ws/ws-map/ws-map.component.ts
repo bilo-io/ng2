@@ -12,7 +12,7 @@ import * as L from 'leaflet';
         '../../../app.style.css'
     ]
 })
-export class MapComponent {
+export class WsMapComponent {
     @Input() mapStyle: string;
     public id: string;
     // public mapBoundsZoom: L.BoundsZ
