@@ -1,7 +1,7 @@
 import { Component, Inject, Window, provide } from '@angular/core';
-import { SidenavComponent } from '../sidenav/sidenav.component';
-import { SidenavService } from '../sidenav/sidenav.service';
-import { WsSelectComponent, WsSelectItem } from '../ws/ws-select/ws-select.component';
+import { SidenavComponent } from '../ws-sidenav/sidenav.component';
+import { SidenavService } from '../ws-sidenav/sidenav.service';
+import { WsSelectComponent, WsSelectItem } from '../ws-select/ws-select.component';
 import { AppService } from '../../../app.service';
 
 @Component({

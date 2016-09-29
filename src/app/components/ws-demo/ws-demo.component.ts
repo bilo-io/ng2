@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { WsListComponent } from '../../shared/components/ws/ws-list/ws-list.component';
-import { WsItem } from '../../shared/components/ws/ws.models';
+import { WsListComponent } from '../../shared/ws/ws-list/ws-list.component';
+import { WsItem } from '../../shared/ws/ws.models';
 import { AppService } from './../../app.service';
 // Ws Demo Components
 import { AutocompleteDemoComponent } from './autocomplete-demo/autocomplete-demo.component';
@@ -21,7 +21,7 @@ import { TestingComponent } from './testing/testing.component';
     styleUrls: [
         'ws-demo.component.css',
         '../../app.style.css',
-        '../../shared/components/ws/ws.style.css'
+        '../../shared/ws/ws.style.css'
     ]
 })
 export class WsDemoComponent {

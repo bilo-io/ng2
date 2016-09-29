@@ -14,11 +14,8 @@ export class WsModeItem {
     templateUrl: 'ws-modes.component.html',
     styleUrls: [
         'ws-modes.component.css',
-        '../../../../app.style.css',
+        '../../../app.style.css',
         '../ws.style.css'
-    ],
-    directives: [
-        NgClass
     ]
 })
 export class WsModesComponent {

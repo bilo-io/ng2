@@ -1,13 +1,13 @@
 import { Component, Inject } from '@angular/core';
-import { WsModalService } from '../../../shared/components/ws/ws-modal/ws-modal.service';
-import { WsModalComponent } from '../../../shared/components/ws/ws-modal/ws-modal.component';
+import { WsModalService } from '../../../shared/ws/ws-modal/ws-modal.service';
+import { WsModalComponent } from '../../../shared/ws/ws-modal/ws-modal.component';
 @Component({
     moduleId: module.id,
     selector: 'modal-demo',
     templateUrl: 'modal-demo.component.html',
     styleUrls: [
         'modal-demo.component.css',
-        '../../../shared/components/ws/ws.style.css'
+        '../../../shared/ws/ws.style.css'
     ],
     directives: [
         WsModalComponent

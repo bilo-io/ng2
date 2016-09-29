@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
-import { WsPointComponent, WsPoint } from '../../../shared/components/ws/ws-point/ws-point.component';
-import { MapComponent } from '../../../shared/components/map/map.component';
-import { MapService, MapPoint } from '../../../shared/components/map/map.service';
+import { WsPointComponent, WsPoint } from '../../../shared/ws/ws-point/ws-point.component';
+import { MapComponent } from '../../../shared/ws/ws-map/map.component';
+import { MapService, MapPoint } from '../../../shared/ws/ws-map/map.service';
 
 @Component({
     moduleId: module.id,

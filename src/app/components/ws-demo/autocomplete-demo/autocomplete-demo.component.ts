@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { WsAutocompleteComponent } from '../../../shared/components/ws/ws-autocomplete/ws-autocomplete.component';
-import { WsItem } from '../../../shared/components/ws/ws.models';
+import { WsAutocompleteComponent } from '../../../shared/ws/ws-autocomplete/ws-autocomplete.component';
+import { WsItem } from '../../../shared/ws/ws.models';
 
 @Component({
     moduleId: module.id,

@@ -1,15 +1,12 @@
 import { Component, Input, Output, EventEmitter, SimpleChange } from '@angular/core';
 import { WsPointComponent, WsPoint } from '../ws-point/ws-point.component';
-import { Point } from '../../../models/geojson.models';
+import { Point } from '../../models/geojson.models';
 
 @Component({
     moduleId: module.id,
     selector: 'ws-bbox',
     templateUrl: 'ws-bbox.component.html',
-    styleUrls: ['ws-bbox.component.css'],
-    directives: [
-        WsPointComponent
-    ]
+    styleUrls: ['ws-bbox.component.css']
 })
 export class WsBBoxComponent {
     @Output() change = new EventEmitter<string>();

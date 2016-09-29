@@ -6,10 +6,7 @@ import { WsItem } from '../ws.models';
     moduleId: module.id,
     selector: 'ws-autocomplete',
     templateUrl: 'ws-autocomplete.component.html',
-    styleUrls: ['ws-autocomplete.component.css'],
-    directives: [
-        WsListComponent
-    ]
+    styleUrls: ['ws-autocomplete.component.css']
 })
 export class WsAutocompleteComponent {
     @Input() noResultText: string = 'No items match your query';

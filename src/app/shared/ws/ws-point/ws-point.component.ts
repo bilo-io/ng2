@@ -1,7 +1,7 @@
 import { Component, Input, Output, Inject, EventEmitter } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { Point } from '../../../models/geojson.models';
-import { GeocoderService } from '../../../services/geocoder.service';
+import { Point } from '../../models/geojson.models';
+import { GeocoderService } from '../../services/geocoder.service';
 import { WsListComponent } from '../ws-list/ws-list.component';
 import { WsItem } from '../ws.models'; 
 
@@ -18,8 +18,8 @@ export class WsPoint {
     styleUrls: [
         'ws-point.component.css',
         '../ws.style.css',
-        '../../../../app.style.css',
-        '../../../styles/materialize.override.css'
+        '../../../app.style.css',
+        '../../styles/materialize.override.css'
     ]
 })
 export class WsPointComponent {

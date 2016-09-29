@@ -1,4 +1,4 @@
-import { Point } from '../../models/geojson.models';
+import { Point } from '../models/geojson.models';
 
 export class WsBBox {
     constructor(

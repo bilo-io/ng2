@@ -5,10 +5,7 @@ import { WsLoaderComponent } from '../ws-loader/ws-loader.component';
     moduleId: module.id,
     selector: 'ws-loader-label',
     templateUrl: 'ws-loader-label.component.html',
-    styleUrls: ['ws-loader-label.component.css'],
-    directives: [
-        WsLoaderComponent
-    ]
+    styleUrls: ['ws-loader-label.component.css']
 })
 export class WsLoaderLabelComponent {
     @Input() public wsText: string = 'ws-loader-label component';

@@ -2,7 +2,6 @@ import { Component, Inject, Input, Output } from '@angular/core';
 import { Point, LineString, Polygon } from '../../models/geojson.models';
 import { MapService, MapState, MapPoint, MapLine, MapPolygon, MapLayer, MapLayerType } from './map.service';
 import * as L from 'leaflet';
-// import 'leaflet-contextmenu';
 
 @Component({
     moduleId: module.id,
@@ -104,7 +103,7 @@ export class MapComponent {
         let pinSize = [32, 32];
         let pinAnchor = [16, 32];
 
-        L.Icon.Default.imagePath = 'app/shared/components/map/map-markers';
+        L.Icon.Default.imagePath = 'app/shared/ws/ws-map/map-markers';
         this.markerPinGreen = L.icon({
             iconUrl: L.Icon.Default.imagePath + '/map-pin-green.png',
             shadowUrl: L.Icon.Default.imagePath + '/marker-shadow.png',

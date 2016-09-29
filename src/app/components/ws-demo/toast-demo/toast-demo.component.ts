@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { WsToastComponent } from '../../../shared/components/ws/ws-toast/ws-toast.component';
-import { WsToastService } from '../../../shared/components/ws/ws-toast/ws-toast.service';
+import { WsToastComponent } from '../../../shared/ws/ws-toast/ws-toast.component';
+import { WsToastService } from '../../../shared/ws/ws-toast/ws-toast.service';
 
 @Component({
     moduleId: module.id,
@@ -8,7 +8,7 @@ import { WsToastService } from '../../../shared/components/ws/ws-toast/ws-toast.
     templateUrl: 'toast-demo.component.html',
     styleUrls: [
         'toast-demo.component.css',
-        '../../../shared/components/ws/ws.style.css'
+        '../../../shared/ws/ws.style.css'
     ],
     directives: [
         WsToastComponent

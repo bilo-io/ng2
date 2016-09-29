@@ -6,10 +6,7 @@ import { WsItem } from '../ws.models.ts';
     moduleId: module.id,
     selector: 'ws-tabs',
     templateUrl: 'ws-tabs.component.html',
-    styleUrls: ['ws-tabs.component.css'],
-    directives: [
-        NgClass
-    ]
+    styleUrls: ['ws-tabs.component.css']
 })
 export class WsTabsComponent {
     @Input() tabs: WsItem[] = [];
