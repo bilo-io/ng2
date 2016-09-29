@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { WsBBoxComponent } from '../../../shared/ws/ws-bbox/ws-bbox.component';
-import { WsPoint } from '../../../shared/ws/ws-point/ws-point.component';
-import { WsMapComponent } from '../../../shared/ws/ws-map/ws-map.component';
-import { WsMapService, MapPoint } from '../../../shared/ws/ws-map/ws-map.service';
+import { WsBBoxComponent } from '../../ws/ws-bbox/ws-bbox.component';
+import { WsPoint } from '../../ws/ws-point/ws-point.component';
+import { WsMapComponent } from '../../ws/ws-map/ws-map.component';
+import { WsMapService, MapPoint } from '../../ws/ws-map/ws-map.service';
 
 @Component({
     moduleId: module.id,

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { WsTabsComponent } from '../../../shared/ws/ws-tabs/ws-tabs.component';
-import { WsItem } from '../../../shared/ws/ws.models';
+import { WsTabsComponent } from '../../ws/ws-tabs/ws-tabs.component';
+import { WsItem } from '../../ws/ws.models';
 
 @Component({
     moduleId: module.id,

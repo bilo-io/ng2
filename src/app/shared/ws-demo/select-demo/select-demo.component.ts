@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WsSelectComponent, WsSelectItem } from '../../../shared/ws/ws-select/ws-select.component';
+import { WsSelectComponent, WsSelectItem } from '../../ws/ws-select/ws-select.component';
 
 @Component({
     moduleId: module.id,

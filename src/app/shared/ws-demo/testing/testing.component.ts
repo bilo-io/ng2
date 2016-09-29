@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WsSwitchComponent } from '../../../shared/ws/ws-switch/ws-switch.component';
+import { WsSwitchComponent } from '../../ws/ws-switch/ws-switch.component';
 import { Mode } from '../../../api/tapi/tapi.models';
 
 @Component({
