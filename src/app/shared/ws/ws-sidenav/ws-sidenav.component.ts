@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { WsSidenavService } from './ws-sidenav.service';
 import { AppService } from '../../../app.service';
+import { WsItem } from '../ws.models';
 
 interface INavItem {
     name: string;
@@ -33,9 +34,9 @@ export class WsSidenavComponent {
     }
 
     initMenuItems() {
-        this.items.push(new NavItem('Map', 'timeline', '/component-1'));
-        this.items.push(new NavItem('About', 'language', '/component-2'));
-        this.items.push(new NavItem('Ws Components', '', '/ws-demo'))
+        this.items.push(new NavItem('Home', 'home', '/home'));
+        this.items.push(new NavItem('Map Demo', 'map', '/map'));
+        this.items.push(new NavItem('Ws Components', '', '/ws'))
         this.activeItem = this.items[0];
     }
     selectItem(item: NavItem) {

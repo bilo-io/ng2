@@ -1,0 +1,41 @@
+.theme-background {
+  background-color: #112233;
+}
+
+.home-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 4rem;
+  height: calc(100vh - 4rem);
+  background-color: white;
+  background-image: src("/app/components/home/Angular2Image.png");
+  padding-top: 20%;
+}
+
+.header-description {
+  padding: 1rem;
+}
+
+.home-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.big-button {
+  position: relative;
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+.color-1 {
+  background: #00adee;
+  color: white;
+}
+
+.color-2 {
+  background: #1e1e1e;
+  color: #00adee;
+}

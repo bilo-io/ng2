@@ -40,7 +40,7 @@ body {
 .ws-btn {
   border-radius: 4px;
   border-width: 0;
-  height: 4rem;
+  min-height: 4rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 1rem;

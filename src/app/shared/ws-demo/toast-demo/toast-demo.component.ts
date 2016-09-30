@@ -9,9 +9,6 @@ import { WsToastService } from '../../ws/ws-toast/ws-toast.service';
     styleUrls: [
         'toast-demo.component.css',
         '../../ws/ws.style.css'
-    ],
-    directives: [
-        WsToastComponent
     ]
 })
 export class ToastDemoComponent {

@@ -8,9 +8,6 @@ import { WsModalComponent } from '../../ws/ws-modal/ws-modal.component';
     styleUrls: [
         'modal-demo.component.css',
         '../../ws/ws.style.css'
-    ],
-    directives: [
-        WsModalComponent
     ]
 })
 export class ModalDemoComponent {

@@ -5,10 +5,7 @@ import { WsSelectComponent, WsSelectItem } from '../../ws/ws-select/ws-select.co
     moduleId: module.id,
     selector: 'select-demo',
     templateUrl: 'select-demo.component.html',
-    styleUrls: ['select-demo.component.css'],
-    directives: [
-        WsSelectComponent
-    ]
+    styleUrls: ['select-demo.component.css']
 })
 export class SelectDemoComponent {
     public items: WsSelectItem[] = [];

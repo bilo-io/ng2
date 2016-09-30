@@ -9,8 +9,8 @@ import { WsDemoModule } from './shared/ws-demo/ws-demo.module';
 import { routing } from './app.routing';
 // App Components
 import { AppComponent }   from './app.component';
-import { Component1 } from './components/component-1/component-1.component';
-import { Component2 } from './components/component-2/component-2.component';
+import { MapComponent } from './components/map/map.component';
+import { HomeComponent } from './components/home/home.component';
 // App Services
 import { AppService } from './app.service';
 import { GeocoderService } from './shared/services/geocoder.service';
@@ -26,8 +26,8 @@ import { GeocoderService } from './shared/services/geocoder.service';
     ],
     declarations: [
         AppComponent,
-        Component1,
-        Component2,
+        MapComponent,
+        HomeComponent,
     ],
     providers: [
         AppService,

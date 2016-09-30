@@ -3,7 +3,7 @@ $dim-navbar-height: 4rem;
 $dim-title-size: 2rem;
 $dim-font-size: 1rem;
 // Colors
-$col-background: #1e1e1e;
+$col-background: #181818;
 $col-primary: #00ADEE;
 $col-text: #fefefe;
 
@@ -15,8 +15,8 @@ $col-text: #fefefe;
     background-color: $col-background;
 }
 
-
 .navbar {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     -webkit-app-region: drag;
     background-color: $col-background;
     color: $col-text;
@@ -26,7 +26,7 @@ $col-text: #fefefe;
     top: 0;
     left: 0;
     z-index: 2;
-    // box-shadow: 0px 0px 8px darkgrey;
+    font-weight: lighter;
 }
 
 .navbar-title {

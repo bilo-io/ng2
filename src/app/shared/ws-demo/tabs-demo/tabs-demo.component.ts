@@ -6,10 +6,7 @@ import { WsItem } from '../../ws/ws.models';
     moduleId: module.id,
     selector: 'tabs-demo',
     templateUrl: 'tabs-demo.component.html',
-    styleUrls: ['tabs-demo.component.css'],
-    directives: [
-        WsTabsComponent
-    ]
+    styleUrls: ['tabs-demo.component.css']
 })
 export class TabsDemoComponent {
     public tabs: WsItem[] = [];
