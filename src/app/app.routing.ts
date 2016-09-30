@@ -1,10 +1,10 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// import { HeroesComponent }      from './heroes.component';
 import { MapComponent } from './components/map/map.component';
 import { HomeComponent } from './components/home/home.component';
 import { WsDemoComponent } from './shared/ws-demo/ws-demo.component';
+
 const appRoutes: Routes = [
     {
         path: '', 
