@@ -1,0 +1,26 @@
+{
+	"editor.quickSuggestions": true,
+	"editor.suggestOnTriggerCharacters": true,
+	"editor.formatOnType": true,
+	"editor.quickSuggestionsDelay": 10,
+	"editor.wrappingColumn": 1000,
+    "editor.scrollBeyondLastLine": false,
+    "editore.tabSize": 4,
+
+     // Migrated from previous "File | Auto Save" setting:
+    "files.autoSave": "afterDelay",
+    "files.exclude": {
+        "**/*.ng2.add": false,
+        "**/*.ng2.blueprints": false,
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/*.js": {
+            "when": "$(basename).ts"
+        },
+        "**/*.css": {
+            "when": "$(basename).scss"
+        },
+        "npm-debug.log" :true,
+        "**/*.js.map": true
+    }
+}

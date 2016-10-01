@@ -24,7 +24,7 @@ AskForDirectory() {
 helpText="
 
     -h|help)        shows this exact help text, :P
-    -c|component)   creates a component (.ts, .html & .css in app/components/)
+    -c|component)   creates a component (.ts, .html & .scss in app/components/)
     -d|directive)   creates a directive (.ts in app/directives/)
     -m|model)       creates a model (.ts in app/models/)
     -s|service)     creates a service (.ts in app/services/)
@@ -33,7 +33,7 @@ helpText="
 "
 #Angular 2
 ng2_component_html=`cat ./.ng2.blueprints/ng2.component.html`
-ng2_component_css=`cat ./.ng2.blueprints/ng2.component.css`
+ng2_component_css=`cat ./.ng2.blueprints/ng2.component.scss`
 ng2_component_ts=`cat ./.ng2.blueprints/ng2.component.ts`
 ng2_directive_ts=`cat ./.ng2.blueprints/ng2.directive.ts`
 ng2_service_ts=`cat ./.ng2.blueprints/ng2.service.ts`
@@ -50,22 +50,30 @@ CreateComponentFiles() {
     mkdir $name
     cd ./$name
     #CSS
-    echo "MW.ng2: Creating $name.component.css"
-    echo "$ng2_component_css" > "$name".component.css
+    echo "MW.ng2: Creating $name.component.scss"
+    echo "$ng2_component_css" > $name.component.scss
 
     #HTML
     echo "MW.ng2: Creating $name.component.html"
-    echo "$ng2_component_html" > "$name".component.html
-    sed -i -e "s/NgTemplate/${name}/g" "$name".component.html
+    echo "$ng2_component_html" > $name.component.html
+    sed -i -e "s/NgTemplate/${name}/g" $name.component.html
 
     #TS
     echo "MW.ng2: Creating $name.component.ts"
-    echo "$ng2_component_ts" > "$name".component.ts
-    sed -i -e "s/ng-component/$name/g" "$name".component.ts
-    sed -i -e "s/NgComponent/${name}Component/g" "$name".component.ts
+    echo "$ng2_component_ts" > $name.component.ts
+    sed -i -e "s/ng-component/$name/g" $name.component.ts
+    sed -i -e "s/NgComponent/${name}Component/g" $name.component.ts
 
-    # cat $name.component.ts
-    # cat $name.component.html
+    cat $name.component.ts
+    cat $name.component.html
+
+    if [ -e $name.component.ts-e ];then
+        rm $name.component.ts-e
+    fi
+
+    if [ -e $name.component.html-e ];then
+        rm $name.component.html-e
+    fi
 }
 CreateComponent() {
     clear;
@@ -87,8 +95,8 @@ CreateAppComponent() {
     name="app"
     path="app"
     #CSS
-    echo "MW.ng2: Creating $name.component.css"
-    echo $ng2_component_css > "$name".component.css
+    echo "MW.ng2: Creating $name.component.scss"
+    echo $ng2_component_css > "$name".component.scss
 
     #HTML
     echo "MW.ng2: Creating $name.component.html"
@@ -102,13 +110,46 @@ CreateAppComponent() {
     sed -i -e "s/ng-component/app/g" "$name".component.ts
     sed -i -e "s/NgComponent/AppComponent/g" "$name".component.ts
 
-    if [ -e "$name.component.ts-e" ]; then
-        rm "$name".component.ts-e
+    if [ -e $name.component.ts-e ]; then
+        rm $name.component.ts-e
     fi
-    if [ -e "$name.component.html-e" ]; then
-        rm "$name".component.html-e
+    if [ -e $name.component.html-e ]; then
+        rm $name.component.html-e
     fi
 }
+
+# SERVICES
+CreateServiceFile() {
+    name=$1
+    path=$2
+
+    #TS
+    echo "Creating $name.service.ts"
+    echo "$ng2_service_ts" > $name.service.ts
+    sed -i -e "s/ng-service/${name}/g" $name.service.ts
+    sed -i -e "s/NgService/${name}Service/g" $name.service.ts
+    
+    cat $name.service.ts
+    echo "DONE"
+    if [ -e $name.service.ts-e ];then
+        rm $name.service.ts-e
+    fi
+}
+CreateService() {
+    clear;
+    echo "MW.ng2: Service"
+    MWLine
+    #Service Path
+    path="PATH"
+    AskForDirectory 'services'
+    echo $path
+    #Service Name
+    AskForName
+    read name
+    MWLine
+    CreateServiceFile $name
+}
+
 # DIRECTIVES
 CreateDirectiveFile() {
     name=$1
@@ -120,52 +161,45 @@ CreateDirectiveFile() {
     echo "$name.directive.ts"
 }
 CreateDirective() {
-    MWLine
+    clear;
     echo "MW.ng2: Directive"
     MWLine
 
     #Directive's Path
     path="PATH"
-    AskForDirectory "directives"
+    AskForDirectory 'directives'
     echo $path
+
     #Directive Name
     AskForName
     read name
     MWLine
 
-    CreateDirectiveFile $name
+    CreateDirectiveFile $name $path
 }
 
 # MODELS
 CreateModelFile() {
     name=$1
+    path=$2
 }
 CreateModel() {
+    clear;
     echo "MW.ng2: Model"
     MWLine
+    
+    # Model Path
+    path="PATH"
+    AskForDirectory 'models'
+    echo $path
+
+    #Model Name
     echo
     name=$1
-
+    CreateModeFile $name
 }
 
-# SERVICES
-CreateServiceFile() {
-    #TS
-    echo "Creating $name.service.ts"
-    echo $ComponentFile > $name.service.ts
-    sed -i -e "s/ng-service/${name}/g" $name.service.ts
-    sed -i -e "s/NgService/${name}/g" $name.service.ts
-    cat $name.service.ts
-    MWLine
-}
-CreateService() {
-    echo "MW.ng2: Service"
-    MWLine
-    AskForName
-    read name
-    cd ./services
-    CreateServiceFile $name
-}
+# MISC
 TestNaming() {
     echo "EnterName:"
     read name
