@@ -1,5 +1,11 @@
 @import '../../shared/ws/scss/ws.scss';
-
+ 
+h1,h2,h3,h4,h5,h6 {
+     font-weight: light;
+     color: $ws-col-primary;
+     margin-top: 1em;
+     margin-bottom: 1em;
+ }
 .ws-demo-col-back {
     background: darken($ws-col-primary, 5%);
     color: $ws-col-light;
@@ -8,4 +14,16 @@
 .ws-demo-content {
     padding: 1rem;
     color: white;
+}
+
+.ws-demo-section {
+    position: relative;
+    width: 100%;
+    background: white;
+}
+
+.ws-demo-textarea {
+    position: relative;
+    width: 50%;
+    min-height: 10rem;
 }

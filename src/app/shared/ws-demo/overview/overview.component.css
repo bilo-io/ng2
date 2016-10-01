@@ -1,23 +1,19 @@
-body {
-  background: #e2e1e0;
-  text-align: center;
-}
-
 .ws-card {
-  border-radius: 4px;
   display: inline-block;
+  min-width: 100px;
+  min-height: 8rem;
+  padding: 2rem;
   margin: 1rem;
   position: relative;
+  justify-content: center;
 }
 
 .ws-card-1 {
-  border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .ws-card-1:hover {
-  border-radius: 4px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
@@ -79,4 +75,20 @@ body {
 .ws-error {
   background-color: #D42620;
   color: white;
+}
+
+.ws-dark-2 {
+  background-color: #2b2b2b;
+}
+
+.ws-dark-3 {
+  background-color: #2b2b2b;
+}
+
+.ws-demo-overview-map {
+  position: relative;
+  width: 100%;
+  height: 20rem;
+  padding-left: 2em;
+  padding-right: 2em;
 }

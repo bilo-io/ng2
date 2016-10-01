@@ -7,11 +7,14 @@ import { WsMapService, MapPoint } from '../../ws/ws-map/ws-map.service';
     moduleId: module.id,
     selector: 'point-demo',
     templateUrl: 'point-demo.component.html',
-    styleUrls: ['point-demo.component.css']
+    styleUrls: [
+        'point-demo.component.css',
+        '../ws-demo.component.css'
+    ]
 })
 export class PointDemoComponent {
-    constructor(@Inject(WsMapService) public map: WsMapService) { }
-    
+    constructor( @Inject(WsMapService) public map: WsMapService) { }
+
     updateLocation(location: WsPoint) {
         console.log('Point Demo: updatingLocation:', location);
         this.map.showPoints([new MapPoint(location.name, location.point, '#00ADEE')]);

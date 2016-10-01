@@ -1,18 +1,9 @@
-<div class="row" style="padding-top: 5rem; padding-left: 2rem; padding-right: 2rem;">
+<h3>BoundingBox</h3>
+<p>
+    The <b>WsModalComponent</b>WsBBox component emulates standard select behaviour, and is based off the WsPoint Component.
+</p>
+<div class="column">
+    <ws-bbox (topLeftChanged$)="updateTopLeft($event)" (bottomRightChanged$)="updateBottomRight($event)">
+    </ws-bbox>
 
-    <div class="column">
-
-        <div style="position: relative; width:  100%; height: 20rem;">
-            <ws-map style="position: relative; width: 100%; height: 100%;"></ws-map>
-        </div>
-        
-        <br>
-        <br>
-        
-        <ws-bbox
-            (topLeftChanged$)="updateTopLeft($event)"
-            (bottomRightChanged$)="updateBottomRight($event)">
-        </ws-bbox>
-
-    </div>
 </div>

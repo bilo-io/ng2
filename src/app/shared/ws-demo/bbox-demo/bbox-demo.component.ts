@@ -8,7 +8,10 @@ import { WsMapService, MapPoint } from '../../ws/ws-map/ws-map.service';
     moduleId: module.id,
     selector: 'bbox-demo',
     templateUrl: 'bbox-demo.component.html',
-    styleUrls: ['bbox-demo.component.css']
+    styleUrls: [
+        'bbox-demo.component.css',
+            '../ws-demo.component.css'
+    ]
 })
 export class BBoxDemoComponent {
     constructor( @Inject(WsMapService) public map: WsMapService) { }

@@ -5,6 +5,7 @@
     flex-flow: row;
     justify-content: flex-start;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background: $ws-col-primary;
 }
 
 .ws-tab {
@@ -13,18 +14,16 @@
     height: 3em;
     padding: 1em;
     cursor: pointer;
-
-    color: $ws-col-text;
+    color: $ws-col-grey-dark;
     &:hover {
-        color: $ws-col-primary;
+        color: $ws-col-grey-light;
     }
-
 }
 
 .ws-tab-active {
     text-align: center;
-    color: #00adee;
+    color: $ws-col-primary-text;
     border: {
-        bottom: 4px solid $ws-col-primary;
+        bottom: 4px solid $ws-col-primary-text;
     }
 }

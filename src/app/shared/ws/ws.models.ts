@@ -41,7 +41,7 @@ export class WsSelectItem {
 export class WsItem {
     constructor(
         public name: string,
-        public value: any,
+        public value: any = undefined,
         public image: any = '',
         public isActive: boolean = true) { }
     

@@ -1,12 +1,21 @@
-<h1>Overview</h1>
-
-<p [style.fontSize]="'1.2rem'">
-    This is an overview of the Ws Library. Here you can find several components, along with example code. For a more detailed description of a component, please click on the respective link on the left panel. Happy coding!
-</p>
-
 <autocomplete-demo></autocomplete-demo>
 <card-demo></card-demo>
-<point-demo></point-demo>
+
+<h3>GeoJson</h3>
+<p>There are several GeoJson compliant components, which you can navigate in the tabs.</p>
+<div class="ws-card-5 ws-dark-3">
+    
+    <ws-tabs [tabs]="geojsonTabs" (wsChanged$)="switchGeojsonTab($event)"></ws-tabs>
+    <div>
+        <div class="ws-demo-overview-map">
+            <ws-map></ws-map>
+        </div>
+
+        <point-demo [hidden]="geojsonTab !== 'Point'"></point-demo>
+        <bbox-demo [hidden]="geojsonTab !== 'Bounding Box'"></bbox-demo>
+    </div>
+</div>
+
 <datetime-demo></datetime-demo>
 <select-demo></select-demo>
 <loader-demo></loader-demo>

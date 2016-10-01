@@ -1,23 +1,19 @@
-body {
-  background: #e2e1e0;
-  text-align: center;
-}
-
 .ws-card {
-  border-radius: 4px;
   display: inline-block;
+  min-width: 100px;
+  min-height: 8rem;
+  padding: 2rem;
   margin: 1rem;
   position: relative;
+  justify-content: center;
 }
 
 .ws-card-1 {
-  border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .ws-card-1:hover {
-  border-radius: 4px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
@@ -81,11 +77,20 @@ body {
   color: white;
 }
 
+.ws-dark-2 {
+  background-color: #2b2b2b;
+}
+
+.ws-dark-3 {
+  background-color: #2b2b2b;
+}
+
 .ws-tab-container {
   display: flex;
   flex-flow: row;
   justify-content: flex-start;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background: #00ADEE;
 }
 
 .ws-tab {
@@ -94,15 +99,15 @@ body {
   height: 3em;
   padding: 1em;
   cursor: pointer;
-  color: #1e1e1e;
+  color: #4b515b;
 }
 
 .ws-tab:hover {
-  color: #00ADEE;
+  color: #a9b4c2;
 }
 
 .ws-tab-active {
   text-align: center;
-  color: #00adee;
-  border-bottom: 4px solid #00ADEE;
+  color: #eef1ef;
+  border-bottom: 4px solid #eef1ef;
 }

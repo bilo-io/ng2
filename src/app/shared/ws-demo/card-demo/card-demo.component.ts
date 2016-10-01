@@ -4,8 +4,11 @@ import { Component } from '@angular/core';
     moduleId: module.id,
     selector: 'card-demo',
     templateUrl: 'card-demo.component.html',
-    styleUrls: [ 'card-demo.component.css']
+    styleUrls: [
+        'card-demo.component.css',
+        '../ws-demo.component.css'
+    ]
 })
 export class CardDemoComponent {
-    constructor() {}
+    constructor() { }
 }

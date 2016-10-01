@@ -7,7 +7,8 @@ import { Mode } from '../../../api/tapi/tapi.models';
     selector: 'testing',
     templateUrl: 'testing.component.html',
     styleUrls: [
-        'testing.component.css'
+        'testing.component.css',
+        '../ws-demo.component.css'
     ]
 })
 export class TestingComponent {

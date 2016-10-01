@@ -1,7 +1,24 @@
-<h1>autocomplete-demo</h1>
-<div class="ws-card black">
-    <ws-autocomplete
-        [wsItems]="items"
+<h3>Autocomplete</h3>
+<p>
+    The <b>WsModalComponent</b>WsAutocomplete component allows filtering through an array of WsItems, and is based off the WsList component.
+</p>
+<div class="ws-demo-section" >
+    
+    <div 
+    class="ws-card ws-card-1" 
+    [style.color]="'black'">
+
+        <ws-autocomplete 
+        [wsItems]="items" 
         [noResultText]="'Could not find jackshit'">
-    </ws-autocomplete>
+        </ws-autocomplete>
+
+    </div>
+
+    <input 
+        class="ws-demo-textarea"
+        type="textarea" 
+        [ngModel]="itemsString" 
+        (ngModelChange)="updatedItems($event)">
+
 </div>

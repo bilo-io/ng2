@@ -5,7 +5,10 @@ import { WsDateTimeComponent } from '../../ws/ws-datetime/ws-datetime.component'
     moduleId: module.id,
     selector: 'datetime-demo',
     templateUrl: 'datetime-demo.component.html',
-    styleUrls: ['datetime-demo.component.css']
+    styleUrls: [
+        'datetime-demo.component.css',
+        '../ws-demo.component.css'
+    ]
 })
 export class DateTimeDemoComponent {
     constructor() {}

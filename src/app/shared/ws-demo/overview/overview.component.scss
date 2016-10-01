@@ -1,1 +1,11 @@
 @import '../../ws/scss/ws.scss';
+
+.ws-demo-overview-map {
+    position: relative; 
+    width:  100%; 
+    height: 20rem; 
+    padding: {
+        left: 2em;
+        right: 2em;
+    }
+}

@@ -13,22 +13,22 @@ import { AppService } from './../../app.service';
     ]
 })
 export class WsDemoComponent {
-    public demoState: string = 'tabs';
+    public demoState: string = 'overview';
     public demoItems: WsItem[] = [];
     constructor(@Inject(AppService) public app: AppService) {
         // this.app.setState('ws-demo');
         this.demoItems = [
             new WsItem('Overview', 'overview'),
             new WsItem('Autocomplete', 'autocomplete'),
-            new WsItem('Point', 'point'),
             new WsItem('BBox', 'bbox'),
             new WsItem('DateTime', 'datetime'),
-            new WsItem('Select', 'select'),
             new WsItem('Loader', 'loader'),
             new WsItem('Modal', 'modal'),
+            new WsItem('Point', 'point'),
+            new WsItem('Select', 'select'),
             new WsItem('Tabs', 'tabs'),
-            new WsItem('Toast', 'toast'),
-            new WsItem('Testing', 'testing')
+            new WsItem('Testing', 'testing'),
+            new WsItem('Toast', 'toast')
         ];
     }
 

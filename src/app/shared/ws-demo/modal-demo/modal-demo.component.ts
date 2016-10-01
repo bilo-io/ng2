@@ -7,7 +7,7 @@ import { WsModalComponent } from '../../ws/ws-modal/ws-modal.component';
     templateUrl: 'modal-demo.component.html',
     styleUrls: [
         'modal-demo.component.css',
-        '../../ws/scss/ws.css'
+        '../ws-demo.component.css'
     ]
 })
 export class ModalDemoComponent {

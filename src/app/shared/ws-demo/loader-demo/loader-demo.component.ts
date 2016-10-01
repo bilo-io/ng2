@@ -5,8 +5,11 @@ import { WsLoaderComponent } from '../../ws/ws-loader/ws-loader.component';
     moduleId: module.id,
     selector: 'loader-demo',
     templateUrl: 'loader-demo.component.html',
-    styleUrls: ['loader-demo.component.css']
+    styleUrls: [
+        'loader-demo.component.css',
+        '../ws-demo.component.css'
+    ]
 })
 export class LoaderDemoComponent {
-    constructor() {}
+    constructor() { }
 }
