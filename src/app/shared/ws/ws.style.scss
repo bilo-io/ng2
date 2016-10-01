@@ -5,15 +5,14 @@ $wild-blue-yonder: #a9b4c2;
 $isabelline: #eef1ef;
 $independence: #4b515b;
 
-$ws-col-primary: #00ADEE;
-$ws-col-light: #fefefe;
-$ws-col-dark: #1e1e1e;
+$ws-col-primary: #00ADEE !default;
+$ws-col-light: #fefefe !default;
+$ws-col-dark: #1e1e1e !default;
 
-$ws-col-warning: #D42620;
-$ws-col-success: #1AAF87;
+$ws-col-warning: #D42620 !default;
+$ws-col-success: #1AAF87 !default;
 
 $ws-dim-button-height: 4rem;
-
 
 body {
     background: #e2e1e0;
