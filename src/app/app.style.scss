@@ -30,10 +30,10 @@ html, body {
 
 .main-panel {
     position: absolute;
-    width: 75%;
     left: 25%;
-    height: 100%;
-    // padding-top: 5rem;
+    width: 75%;
+    height: calc(100vh - 4rem);
+    overflow-y: auto;
 }
 
 .side-panel {

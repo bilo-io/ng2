@@ -2,10 +2,13 @@
 <div class="sidenav-background" [hidden]="!sidenav.isOn" (click)="sidenav.toggle()"></div>
 <!--Full Menu-->
 <div class="sidenav" [hidden]="!sidenav.isOn">
-    <!--<label class="sidenav-title">{{activeItem.name}}</label>-->
+    
     <div class="sidenav-options">
-        <div class="collection">
-            <a class="collection-item" *ngFor="let item of items" [routerLink]="item.routerLink" (click)="sidenav.toggle(); selectItem(item)">{{item.name}}</a>
-        </div>
+        <!--<div class="collection">
+            <a class="collection-item" *ngFor="let item of wsItems" [routerLink]="item.value" (click)="sidenav.toggle(); selectItem(item)">{{item.name}}</a>
+        </div>-->
+        <ws-list 
+        [wsItems]="wsItems" 
+        (wsItemClicked$)="navigate($event)"></ws-list>
     </div>
 </div>

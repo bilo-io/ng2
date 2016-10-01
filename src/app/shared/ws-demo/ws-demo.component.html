@@ -1,4 +1,4 @@
-<div class="side-panel ws-blue">
+<div class="side-panel ws-demo-col-back">
     <ws-list
         [wsName]="'Ws Components'"
         [wsItems]="demoItems"
@@ -6,8 +6,9 @@
     </ws-list>
 </div>
 
-<div class="main-panel back-dark-2" style="padding-top: 1rem; color: white;">
+<div class="main-panel back-dark-2 ws-demo-content">
     <ws-toast></ws-toast>
+    <overview *ngIf="demoState==='overview'"></overview>
     <autocomplete-demo *ngIf="demoState==='autocomplete'"></autocomplete-demo>
     <point-demo *ngIf="demoState==='point'"></point-demo>
     <bbox-demo *ngIf="demoState==='bbox'"></bbox-demo>

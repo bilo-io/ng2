@@ -1,18 +1,26 @@
-// Coolors Palette
-$yankees-blue: #1c2d3e;
-$piction-blue: #00ADEE;
-$wild-blue-yonder: #a9b4c2;
-$isabelline: #eef1ef;
-$independence: #4b515b;
+// Layout
+$ws-dim-navbar: 4rem;
+$ws-dim-button: 4rem;
+$ws-dim-button-padding: 1rem;
+$ws-dim-border-radius: 4px;
+$ws-dim-item: 3rem;
+$ws-dim-sidenav: 24rem;
 
+// Colors
 $ws-col-primary: #00ADEE !default;
-$ws-col-light: #fefefe !default;
-$ws-col-dark: #1e1e1e !default;
+$ws-col-primary-text: #eef1ef;
+$ws-col-text: #1e1e1e  !default;
+$ws-col-back: #eef1ef !default; //fefefe
 
-$ws-col-warning: #D42620 !default;
+$ws-col-dark: #1e1e1e !default; 
+$ws-col-light: #eef1ef !default;
+$ws-col-grey-light: #a9b4c2;
+$ws-col-grey-dark: #4b515b;
+
 $ws-col-success: #1AAF87 !default;
+$ws-col-warning: darkorange !default;
+$ws-col-error: #D42620 !default;
 
-$ws-dim-button-height: 4rem;
 
 body {
     background: #e2e1e0;
@@ -20,7 +28,7 @@ body {
 }
 
 .ws-card {
-    border-radius: 4px;
+    border-radius: $ws-dim-border-radius;
     display: inline-block;
     // height: 300px;
     margin: 1rem;
@@ -29,13 +37,13 @@ body {
 }
 
 .ws-card-1 {
-    border-radius: 4px;
+    border-radius: $ws-dim-border-radius;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
 .ws-card-1:hover {
-    border-radius: 4px;
+    border-radius: $ws-dim-border-radius;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
@@ -56,15 +64,11 @@ body {
 }
 
 .ws-btn {
-    border-radius: 4px;
+    border-radius: $ws-dim-border-radius;
     border-width: 0;
-    min-height: 4rem;
-    padding: {
-        top: 1rem;
-        bottom: 1rem;
-        left: 1rem;
-        right: 1rem;
-    }
+    min-height: $ws-dim-button;
+    padding: $ws-dim-button-padding;
+
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     &:hover {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 3px 8px rgba(0, 0, 0, 0.24);
@@ -74,31 +78,31 @@ body {
 }
 
 .ws-toast {
-    background-color: #00ADEE;
-    color: white;
+    background-color: $ws-col-primary;
+    color: $ws-col-light;
 }
 
 .ws-light {
-    background-color: white;
-    color: #1c1c1c;
+    background-color: $ws-col-light;
+    color: $ws-col-dark;
 }
 
 .ws-dark {
-    background-color: #1e1e1e;
-    color: white;
+    background-color: $ws-col-dark;
+    color:  $ws-col-light;
 }
 
 .ws-success {
-    background-color: #1AAF87;
-    color: white;
+    background-color: $ws-col-success;
+    color: $ws-col-light;
 }
 
 .ws-warning {
-    background-color: darkorange;
+    background-color: $ws-col-warning;
     color: white;
 }
 
 .ws-error {
-    background-color: #CB3737;
+    background-color: $ws-col-error;
     color: white;
 }

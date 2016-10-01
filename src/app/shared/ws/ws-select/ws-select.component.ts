@@ -13,7 +13,7 @@ export class WsSelectItem {
     templateUrl: 'ws-select.component.html',
     styleUrls: [
         'ws-select.component.css',
-        '../ws.style.css'
+        '../scss/ws.css'
     ]
 })
 export class WsSelectComponent {

@@ -4,7 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { WsModule } from '../ws/ws.module';
 // Ws Demo Components
 import { WsDemoComponent } from './ws-demo.component';
+import { OverviewComponent } from './overview/overview.component';
 import { AutocompleteDemoComponent } from './autocomplete-demo/autocomplete-demo.component';
+import { CardDemoComponent } from './card-demo/card-demo.component'
 import { PointDemoComponent } from './point-demo/point-demo.component';
 import { BBoxDemoComponent } from './bbox-demo/bbox-demo.component';
 import { DateTimeDemoComponent } from './datetime-demo/datetime-demo.component';
@@ -23,7 +25,9 @@ import { TestingComponent } from './testing/testing.component';
     ],
     declarations: [
         WsDemoComponent,
+        OverviewComponent,
         AutocompleteDemoComponent,
+        CardDemoComponent,
         BBoxDemoComponent,
         DateTimeDemoComponent,
         ModalDemoComponent,
@@ -36,7 +40,9 @@ import { TestingComponent } from './testing/testing.component';
     ],
     exports: [
         WsDemoComponent,
+        OverviewComponent,
         AutocompleteDemoComponent,
+        CardDemoComponent,
         BBoxDemoComponent,
         DateTimeDemoComponent,
         ModalDemoComponent,

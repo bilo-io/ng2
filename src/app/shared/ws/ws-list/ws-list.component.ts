@@ -6,7 +6,8 @@ import { WsItem } from '../ws.models';
     selector: 'ws-list',
     templateUrl: 'ws-list.component.html',
     styleUrls: [
-        'ws-list.component.css'
+        'ws-list.component.css',
+        '../scss/ws.css'
     ]
 })
 export class WsListComponent {

@@ -8,7 +8,7 @@ import { WsToastService } from '../../ws/ws-toast/ws-toast.service';
     templateUrl: 'toast-demo.component.html',
     styleUrls: [
         'toast-demo.component.css',
-        '../../ws/ws.style.css'
+        '../../ws/scss/ws.css'
     ]
 })
 export class ToastDemoComponent {

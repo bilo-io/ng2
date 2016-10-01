@@ -1,6 +1,7 @@
-import { Component, Inject, Window, provide } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { WsSidenavComponent } from '../ws-sidenav/ws-sidenav.component';
 import { WsSidenavService } from '../ws-sidenav/ws-sidenav.service';
+import { WsItem } from './../ws.models';
 import { WsSelectComponent, WsSelectItem } from '../ws-select/ws-select.component';
 import { AppService } from '../../../app.service';
 
@@ -10,7 +11,7 @@ import { AppService } from '../../../app.service';
     templateUrl: 'ws-navbar.component.html',
     styleUrls: [
         'ws-navbar.component.css',
-        '../../../app.style.css'
+        // '../../../app.style.css'
     ]
 })
 export class WsNavbarComponent {
@@ -21,11 +22,19 @@ export class WsNavbarComponent {
     public isElectron: boolean = true;
     public mapStyles: WsSelectItem[] = [];
     public environments: WsSelectItem[] = [];
+    private sidenavItems: WsItem[] = [];
 
     constructor(
         @Inject(AppService) public app: AppService,
         @Inject(WsSidenavService) public sidenav: WsSidenavService) {
         this.initAppService();
+        this.initSidenavItems();
+    }
+
+    initSidenavItems() {
+        this.sidenavItems.push(new WsItem('Home', '/home'));
+        this.sidenavItems.push(new WsItem('Map Demo', '/map'));
+        this.sidenavItems.push(new WsItem('Ws Components', '/ws'));
     }
 
     initAppService() {

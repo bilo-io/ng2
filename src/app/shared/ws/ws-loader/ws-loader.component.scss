@@ -1,8 +1,4 @@
-$green: #008744;
-$blue: #00ADEE;
-$red: #d62d20;
-$yellow: #F3CA35;
-$white: #eee;
+@import '../scss/ws.scss';
 
 // scaling... any units
 $width: 2rem;
@@ -65,16 +61,16 @@ $width: 2rem;
 @keyframes color {
   100%,
   0% {
-    stroke: $yellow;
+    stroke: $ws-col-error;
   }
   40% {
-    stroke: $blue;
+    stroke: $ws-col-error;
   }
   66% {
-    stroke: $yellow;
+    stroke: $ws-col-error;
   }
   80%,
   90% {
-    stroke: $blue;
+    stroke: $ws-col-error;
   }
 }

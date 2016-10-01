@@ -5,7 +5,8 @@ import { Component, Input } from '@angular/core';
     selector: 'ws-loader',
     templateUrl: 'ws-loader.component.html',
     styleUrls: [
-        'ws-loader.component.css'
+        'ws-loader.component.css',
+        '../scss/ws.css'
     ]
 })
 export class WsLoaderComponent {

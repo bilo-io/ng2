@@ -42,7 +42,7 @@ export class WsItem {
     constructor(
         public name: string,
         public value: any,
-        public image: any,
+        public image: any = '',
         public isActive: boolean = true) { }
     
     toggle() {

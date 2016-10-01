@@ -6,7 +6,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     templateUrl: 'ws-checkbox.component.html',
     styleUrls: [
         'ws-checkbox.component.html',
-        '../ws.style.css'
+        '../scss/ws.css'
     ]
 })
 export class WsCheckboxComponent {

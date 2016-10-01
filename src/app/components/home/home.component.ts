@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     templateUrl: 'home.component.html',
     styleUrls: [
         'home.component.css',
-        '../../shared/ws/ws.style.css'
+        '../../shared/ws/scss/ws.css'
     ]
 })
 export class HomeComponent {

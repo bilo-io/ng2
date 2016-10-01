@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     templateUrl: 'ws-switch.component.html',
     styleUrls: [
         'ws-switch.component.css',
-        '../ws.style.css'
+        '../scss/ws.css'
     ]
 })
 export class WsSwitchComponent {

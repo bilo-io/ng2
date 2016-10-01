@@ -2,17 +2,6 @@ import { Component, Inject } from '@angular/core';
 import { WsListComponent } from '../../shared/ws/ws-list/ws-list.component';
 import { WsItem } from '../../shared/ws/ws.models';
 import { AppService } from './../../app.service';
-// Ws Demo Components
-import { AutocompleteDemoComponent } from './autocomplete-demo/autocomplete-demo.component';
-import { PointDemoComponent } from './point-demo/point-demo.component';
-import { BBoxDemoComponent } from './bbox-demo/bbox-demo.component';
-import { DateTimeDemoComponent } from './datetime-demo/datetime-demo.component';
-import { SelectDemoComponent } from './select-demo/select-demo.component';
-import { LoaderDemoComponent } from './loader-demo/loader-demo.component';
-import { ModalDemoComponent } from './modal-demo/modal-demo.component';
-import { TabsDemoComponent } from './tabs-demo/tabs-demo.component';
-import { ToastDemoComponent } from './toast-demo/toast-demo.component';
-import { TestingComponent } from './testing/testing.component';
 
 @Component({
     moduleId: module.id,
@@ -20,26 +9,26 @@ import { TestingComponent } from './testing/testing.component';
     templateUrl: 'ws-demo.component.html',
     styleUrls: [
         'ws-demo.component.css',
-        '../../app.style.css',
-        '../../shared/ws/ws.style.css'
+        '../../shared/ws/scss/ws.css'
     ]
 })
 export class WsDemoComponent {
-    public demoState: string = 'autocomplete';
+    public demoState: string = 'overview';
     public demoItems: WsItem[] = [];
     constructor(@Inject(AppService) public app: AppService) {
         // this.app.setState('ws-demo');
         this.demoItems = [
-            new WsItem('Autocomplete', 'autocomplete', undefined),
-            new WsItem('Point', 'point', undefined),
-            new WsItem('BBox', 'bbox', undefined),
-            new WsItem('DateTime', 'datetime', undefined),
-            new WsItem('Select', 'select', undefined),
-            new WsItem('Loader', 'loader', undefined),
-            new WsItem('Modal', 'modal', undefined),
-            new WsItem('Tabs', 'tabs', undefined),
-            new WsItem('Toast', 'toast', undefined),
-            new WsItem('Testing', 'testing', undefined)
+            new WsItem('Overview', 'overview'),
+            new WsItem('Autocomplete', 'autocomplete'),
+            new WsItem('Point', 'point'),
+            new WsItem('BBox', 'bbox'),
+            new WsItem('DateTime', 'datetime'),
+            new WsItem('Select', 'select'),
+            new WsItem('Loader', 'loader'),
+            new WsItem('Modal', 'modal'),
+            new WsItem('Tabs', 'tabs'),
+            new WsItem('Toast', 'toast'),
+            new WsItem('Testing', 'testing')
         ];
     }
 

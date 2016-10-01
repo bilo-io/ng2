@@ -6,7 +6,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     templateUrl: 'ws-toggle.component.html',
     styleUrls: [
         'ws-toggle.component.css',
-        '../ws.style.css'
+        '../scss/ws.css'
     ]
 })
 export class WsToggleComponent {

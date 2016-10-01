@@ -14,8 +14,7 @@ export class WsModeItem {
     templateUrl: 'ws-modes.component.html',
     styleUrls: [
         'ws-modes.component.css',
-        '../../../app.style.css',
-        '../ws.style.css'
+        '../scss/ws.css'
     ]
 })
 export class WsModesComponent {
@@ -24,9 +23,10 @@ export class WsModesComponent {
     @Input() onColor: string = '#00ADEE';
     @Input() offColor: string = 'grey';
     @Output() wsChanged$: EventEmitter<WsModeItem[]> = new EventEmitter<WsModeItem[]>();
+    
     public showingList: boolean = false;
-    constructor() { 
 
+    constructor() { 
     }
 
     ngOnInit() {

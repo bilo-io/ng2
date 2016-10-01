@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     templateUrl: 'ws-spinner.component.html',
     styleUrls: [
         'ws-spinner.component.css',
-        '../ws.style.css'
+        '../scss/ws.css'
     ]
 })
 export class WsSpinnerComponent {

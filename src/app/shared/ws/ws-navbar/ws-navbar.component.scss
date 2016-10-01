@@ -1,24 +1,26 @@
+@import '../scss/ws.scss';
+
 // Dimensions
-$dim-navbar-height: 4rem;
+$dim-navbar-height: $ws-dim-navbar;
 $dim-title-size: 2rem;
 $dim-font-size: 1rem;
 // Colors
-$col-background: #181818;
-$col-primary: #00ADEE;
-$col-text: #fefefe;
+$col-back: $ws-col-dark;
+$col-primary: $ws-col-primary;
+$col-text: $ws-col-light;
 
 *{
 -webkit-app-region: no-drag;
 }
 
 .back-col {
-    background-color: $col-background;
+    background-color: $col-back;
 }
 
 .navbar {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     -webkit-app-region: drag;
-    background-color: $col-background;
+    background-color: $col-back;
     color: $col-text;
     position: fixed;
     width: 100%;
@@ -33,7 +35,7 @@ $col-text: #fefefe;
     position: relative; 
     font-size: 2rem;  
     margin-top: 0.5rem;
-    color: $col-text;
+    color: $col-primary;
 }
 
 .navbar-title-light {
@@ -41,14 +43,14 @@ $col-text: #fefefe;
     font-size: $dim-title-size;
     font-weight: lighter;  
     margin-top: 0.5rem; 
-    color: $col-text;
+    color: $col-primary;
 }
 
 .navbar-env-details {
     position: absolute;
     top: $dim-navbar-height;
     right: 0;
-    background: #1e1e1e;
+    background: $col-back;
     color: white;
     width: 400px;
     height: 36rem;
@@ -65,7 +67,7 @@ $col-text: #fefefe;
 .navbar-options-button {
     position: relative;
     float: right;
-    color: white;
+    color: $col-text;
     margin-top: 1rem;
     width: $dim-navbar-height;
     height: $dim-navbar-height;
@@ -73,7 +75,6 @@ $col-text: #fefefe;
 
 
 .navbar-select {
-    // position: absolute;
     margin: {
         left: 2rem;
         right: 2rem;
@@ -81,6 +82,4 @@ $col-text: #fefefe;
     float: right;
     min-width: 10rem;
     height: 4rem;
-    // bottom: 0;
-    // right: $dim-navbar-height * 3;
 }

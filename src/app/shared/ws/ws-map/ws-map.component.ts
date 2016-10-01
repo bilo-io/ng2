@@ -9,7 +9,7 @@ import * as L from 'leaflet';
     templateUrl: 'ws-map.component.html',
     styleUrls: [
         'ws-map.component.css',
-        '../../../app.style.css'
+        '../scss/ws.css'
     ]
 })
 export class WsMapComponent {

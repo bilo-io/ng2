@@ -6,7 +6,10 @@ import { Point } from '../../models/geojson.models';
     moduleId: module.id,
     selector: 'ws-bbox',
     templateUrl: 'ws-bbox.component.html',
-    styleUrls: ['ws-bbox.component.css']
+    styleUrls: [
+        'ws-bbox.component.css',
+        '../scss/ws.css'
+    ]
 })
 export class WsBBoxComponent {
     @Output() change = new EventEmitter<string>();

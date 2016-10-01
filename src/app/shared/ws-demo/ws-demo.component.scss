@@ -1,3 +1,12 @@
-.theme-background {
-    background-color: #112233;
+@import '../../shared/ws/scss/ws.scss';
+
+.ws-demo-col-back {
+    background: darken($ws-col-primary, 5%);
+    color: $ws-col-light;
+}
+
+.ws-demo-content {
+    padding: 1rem;
+    padding-top: 3rem;
+    color: white;
 }

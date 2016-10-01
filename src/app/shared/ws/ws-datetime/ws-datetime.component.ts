@@ -6,7 +6,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     templateUrl: 'ws-datetime.component.html',
     styleUrls: [
         'ws-datetime.component.css',
-        '../../../app.style.css'
+        '../scss/ws.css'
     ]
 })
 export class WsDateTimeComponent {

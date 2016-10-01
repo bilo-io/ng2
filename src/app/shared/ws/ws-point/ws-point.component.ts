@@ -17,9 +17,8 @@ export class WsPoint {
     templateUrl: 'ws-point.component.html',
     styleUrls: [
         'ws-point.component.css',
-        '../ws.style.css',
-        '../../../app.style.css',
-        '../../styles/materialize.override.css'
+        '../scss/ws.css',
+        '../scss/materialize.css'
     ]
 })
 export class WsPointComponent {
