@@ -13,7 +13,7 @@ import { AppService } from './../../app.service';
     ]
 })
 export class WsDemoComponent {
-    public demoState: string = 'overview';
+    public demoState: string = 'tabs';
     public demoItems: WsItem[] = [];
     constructor(@Inject(AppService) public app: AppService) {
         // this.app.setState('ws-demo');

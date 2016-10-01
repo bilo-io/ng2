@@ -25,14 +25,15 @@ html, body {
   position: absolute;
   left: 25%;
   width: 75%;
+  top: 4rem;
   height: calc(100vh - 4rem);
   overflow-y: auto;
 }
 
 .side-panel {
   position: absolute;
-  top: 4rem;
   width: 25%;
+  top: 4rem;
   height: calc(100vh - 4rem);
   overflow-y: auto;
 }

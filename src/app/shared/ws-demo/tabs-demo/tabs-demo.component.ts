@@ -10,7 +10,7 @@ import { WsItem } from '../../ws/ws.models';
 })
 export class TabsDemoComponent {
     public tabs: WsItem[] = [];
-    public selectedTab: string;
+    public selectedTab: number;
 
     constructor() {
         this.tabs = [
@@ -18,9 +18,11 @@ export class TabsDemoComponent {
             new WsItem('Tab2', 1, undefined, false),
             new WsItem('Tab3', 2, undefined, false),
         ];
+        this.switchTab(this.tabs[0]);
     }
     
-    switchTab(newTab:WsItem) {
-        this.selectedTab = newTab.name;
+    public switchTab(newTab:WsItem) {
+        this.selectedTab = newTab.value;
+        console.log('Selected tab: ' + this.selectedTab);
     }
 }

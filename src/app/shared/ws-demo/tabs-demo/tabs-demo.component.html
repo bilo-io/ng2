@@ -1,12 +1,25 @@
 <h1>tabs-demo</h1>
-<div class="row">
-    
-    <!--Tabs-->
-    <ws-tabs [tabs]="tabs" (wsChanged$)="switchTab($event)"></ws-tabs>
-    
+
+<div class="tab-container">
+    <div class="tab-layer">
+        <!--Tabs-->
+        <ws-tabs [tabs]="tabs" (wsChanged$)="switchTab($event)">
+        </ws-tabs>
+    </div>
+
     <!--Content-->
-    <div>
-        {{selectedTab}}
+    <div class="tab-content">
+        <div *ngIf="selectedTab==0">
+            Switching Tabs can be useful in some cases.
+        </div>
+
+        <div *ngIf="selectedTab==1">
+            iOS, Android and Windows phone all implement this concept in their own way on their mobile platforms.
+        </div>
+
+        <div *ngIf="selectedTab==2">
+            Tabs for the win.
+        </div>
     </div>
 
 </div>

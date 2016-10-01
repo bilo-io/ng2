@@ -1,0 +1,14 @@
+.tab-content {
+    position: relative;
+    background: white;
+    color: black;
+    width: 100%;
+    min-height: 10rem;
+    padding: 2rem;
+}
+
+.tab-layer {
+    position: relative;
+    background: white;
+    z-index: 3;
+}

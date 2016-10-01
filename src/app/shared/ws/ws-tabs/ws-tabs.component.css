@@ -1,7 +1,91 @@
+body {
+  background: #e2e1e0;
+  text-align: center;
+}
+
+.ws-card {
+  border-radius: 4px;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+}
+
+.ws-card-1 {
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.ws-card-1:hover {
+  border-radius: 4px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.ws-card-2 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.ws-card-3 {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.ws-card-4 {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.ws-card-5 {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.ws-btn {
+  border-radius: 4px;
+  border-width: 0;
+  min-height: 4rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.ws-btn:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 3px 8px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+}
+
+.ws-toast {
+  background-color: #00ADEE;
+  color: #eef1ef;
+}
+
+.ws-light {
+  background-color: #eef1ef;
+  color: #1e1e1e;
+}
+
+.ws-dark {
+  background-color: #1e1e1e;
+  color: #eef1ef;
+}
+
+.ws-success {
+  background-color: #1AAF87;
+  color: #eef1ef;
+}
+
+.ws-warning {
+  background-color: darkorange;
+  color: white;
+}
+
+.ws-error {
+  background-color: #D42620;
+  color: white;
+}
+
 .ws-tab-container {
   display: flex;
   flex-flow: row;
   justify-content: flex-start;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .ws-tab {
@@ -10,15 +94,15 @@
   height: 3em;
   padding: 1em;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.7);
+  color: #1e1e1e;
 }
 
 .ws-tab:hover {
-  color: #00adee;
+  color: #00ADEE;
 }
 
 .ws-tab-active {
   text-align: center;
   color: #00adee;
-  border-bottom: 4px solid #00adee;
+  border-bottom: 4px solid #00ADEE;
 }
