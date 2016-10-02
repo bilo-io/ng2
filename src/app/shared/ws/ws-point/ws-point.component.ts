@@ -22,6 +22,7 @@ export class WsPoint {
     ]
 })
 export class WsPointComponent {
+    
     @Input() wsName: string;
     @Input() wsColor: string = '#00ADEE';
     @Input() wsOpacity: number = 1.0;
@@ -50,7 +51,6 @@ export class WsPointComponent {
         if (changes.searchLat && changes.searchLon) {
             if (changes.searchLat.currentValue != changes.searchLat.previousValue ||
                 changes.searchLon.currentValue != changes.searchLon.previousValue) {
-                // console.log('ws-point.component: perform reverseGeocode');
                 this.reverseGeocode(new Point([changes.searchLon.currentValue, changes.searchLat.currentValue]));
             }
         }
@@ -69,19 +69,11 @@ export class WsPointComponent {
     activatePointInput() {
         this.showingCoordinate = true;
         this.geocoding = false;
-        // if (this.wsToggleEnabled) {
-        //     document.getElementById('search-icon-' + this.wsName).className = "material-icons ws-light-i";
-        //     document.getElementById('point-icon-' + this.wsName).className = "material-icons ws-blue-i";
-        // }
     }
 
     activateSearchInput() {
         this.showingCoordinate = false;
         this.geocoding = true;
-        // if (this.wsToggleEnabled) {
-        //     document.getElementById('search-icon-' + this.wsName).className = "material-icons ws-blue-i";
-        //     document.getElementById('point-icon-' + this.wsName).className = "material-icons ws-light-i";
-        // }
     }
 
     public searching() {

@@ -24,6 +24,7 @@
                     <ws-list
                         [wsItems]="searchResults"
                         (wsItemChanged$)="selectItem($event)"
+                        [wsRememberState]="false"
                         *ngIf="searching() && geocoding">
                     </ws-list>
                 </div>

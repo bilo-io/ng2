@@ -12,10 +12,12 @@ import { WsItem } from '../ws.models';
     ]
 })
 export class WsListComponent {
+    
     @Input() wsName: string;
     @Input() wsItems: WsItem[] = [];
     @Input() wsMultiple: boolean = false;
     @Input() wsClosable: boolean = true;
+    @Input() wsRememberState: boolean = false;
     @Input() wsBackground: string = 'red';
     @Input() wsColor: string = 'green';
     @Output() wsItemClicked$: EventEmitter<WsItem> = new EventEmitter<WsItem>();
@@ -39,7 +41,9 @@ export class WsListComponent {
                 item.isActive = false;
             });
         }    
-        item.toggle();
+        if (this.wsRememberState) {
+            item.toggle();
+        }    
         this.updateItem(item);
         this.updateItems();
     }

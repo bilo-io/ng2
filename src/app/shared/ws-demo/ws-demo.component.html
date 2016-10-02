@@ -2,7 +2,8 @@
     <ws-list
         [wsName]="'Ws Components'"
         [wsItems]="demoItems"
-        (wsItemChanged$)="changeDemoItem($event)">
+        (wsItemChanged$)="changeDemoItem($event)"
+        [wsRememberState]="true">
     </ws-list>
 </div>
 

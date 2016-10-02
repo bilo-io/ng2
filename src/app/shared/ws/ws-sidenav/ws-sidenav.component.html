@@ -4,11 +4,9 @@
 <div class="sidenav" [hidden]="!sidenav.isOn">
     
     <div class="sidenav-options">
-        <!--<div class="collection">
-            <a class="collection-item" *ngFor="let item of wsItems" [routerLink]="item.value" (click)="sidenav.toggle(); selectItem(item)">{{item.name}}</a>
-        </div>-->
         <ws-list 
-        [wsItems]="wsItems" 
-        (wsItemClicked$)="navigate($event)"></ws-list>
+            [wsItems]="wsItems" 
+            (wsItemClicked$)="navigate($event)">
+        </ws-list>
     </div>
 </div>

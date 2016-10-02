@@ -4,7 +4,7 @@
     <div *ngIf="!wsMultiple" class="ws-list-ul">
         <div 
             class="ws-list-li"
-            [ngClass]="{ 'ws-list-li-active': item.isActive }" 
+            [ngClass]="{ 'ws-list-li-active': item.isActive && wsRememberState }" 
             *ngFor="let item of wsItems; let i = index" 
             (click)="toggleItem(item)">
             <!--<div *ngIf="item.name" class="column">-->

@@ -1,4 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from
+'@angular/core';
+import { WsItem } from '../ws.models'; 
 
 export class WsSelectItem {
     constructor(
@@ -28,6 +30,8 @@ export class WsSelectComponent {
     @Input() wsColBack: string = 'transparent';
     // Outputs
     @Output() wsChanged$: EventEmitter<WsSelectItem[]> = new EventEmitter<WsSelectItem[]>();
+    @Output() wsItemChanged$: EventEmitter<WsItem> = new EventEmitter<WsItem>();
+    @Output() wsItemsChanged$: EventEmitter<WsItem[]> = new EventEmitter<WsItem[]>();
     // Fields
     public displayText: string = '';
     public selectedItem: WsSelectItem;

@@ -31,8 +31,8 @@
         *ngIf="wsMultiple && showingList">
             <div
             class="ws-list-item"
-            *ngFor="let item of wsItems; let i = index" 
-            (click)="toggleItem(i)">
+            *ngFor="let item of wsItems" 
+            (click)="toggleItem(item)">
                 <label 
                     *ngIf="item.isActive" 
                     class="ws-list-item-label">{{getItemName(item)}}</label>

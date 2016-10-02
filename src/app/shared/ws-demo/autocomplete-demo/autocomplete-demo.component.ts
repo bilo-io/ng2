@@ -16,14 +16,26 @@ export class AutocompleteDemoComponent {
     public itemsString: string = '';
     constructor() {
         this.items = [
-            new WsItem('Google', 'google', undefined, false),
-            new WsItem('Apple', 'apple', undefined, false),
-            new WsItem('Facebook', 'facebook', undefined, false),
-            new WsItem('Twitter', 'twitter', undefined, false),
-            new WsItem('WhereIsMyTransport', 'wimt', undefined, false),
-            new WsItem('GoMetro', 'gometro', undefined, false),
-            new WsItem('Microsoft', 'microsoft', undefined, false),
-            new WsItem('Vision', 'vision', undefined, false),
+            new WsItem('Ares', 'Mars'),
+            new WsItem('Athena', 'Minerva'),
+            new WsItem('Artemis', 'Diana'),
+            new WsItem('Apollo', 'Apollo'),
+            new WsItem('Aphrodite', 'Venus'),
+            new WsItem('Demeter', 'Demeter'),
+            new WsItem('Dionysus', 'Bacchus'),
+            new WsItem('Hades', 'Pluto'),
+            new WsItem('Hecate', 'Hecate'),
+            new WsItem('Hera', 'Juno'),
+            new WsItem('Hermes', 'Mercury'),
+            new WsItem('Hephaestus', 'Vulcan'),
+            new WsItem('Hypnos', 'Somnus'),
+            new WsItem('Iris', 'Arcus'),
+            new WsItem('Janus', 'Janus'),
+            new WsItem('Poseidon', 'Neptune'),
+            new WsItem('Nemesis', 'Nemesis'),
+            new WsItem('Nike', 'Victoria'),
+            new WsItem('Tyche', 'Fortuna'),
+            new WsItem('Zeus', 'Jupiter'),
         ];
         this.itemsString = JSON.stringify(this.items, null, 4);
     }
