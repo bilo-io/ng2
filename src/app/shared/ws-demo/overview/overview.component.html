@@ -1,25 +1,41 @@
-<autocomplete-demo></autocomplete-demo>
+<!--<autocomplete-demo></autocomplete-demo>-->
+<!--<div style="position: absolute; top: 4rem; left: 0">-->
+    <ws-toast></ws-toast>
+<!--</div>-->
 <card-demo></card-demo>
+<toast-demo></toast-demo>
 
-<h3>GeoJson</h3>
-<p>There are several GeoJson compliant components, which you can navigate in the tabs.</p>
-<div class="ws-card-5 ws-dark-3">
-    
-    <ws-tabs [tabs]="geojsonTabs" (wsChanged$)="switchGeojsonTab($event)"></ws-tabs>
-    <div>
-        <div class="ws-demo-overview-map">
-            <ws-map></ws-map>
-        </div>
 
-        <point-demo [hidden]="geojsonTab !== 'Point'"></point-demo>
-        <bbox-demo [hidden]="geojsonTab !== 'Bounding Box'"></bbox-demo>
-    </div>
-</div>
 
 <datetime-demo></datetime-demo>
 <select-demo></select-demo>
 <loader-demo></loader-demo>
 <modal-demo></modal-demo>
 <tabs-demo></tabs-demo>
-<toast-demo></toast-demo>
+
+<div>
+    <h3>GeoJson</h3>
+    <p>There are several GeoJson compliant components, which you can navigate in the tabs.</p>
+    <div class="ws-card-5 ws-dark-3" [style.marginBottom]="'8rem'">
+        <ws-tabs [tabs]="geojsonTabs" (wsChanged$)="switchGeojsonTab($event)"></ws-tabs>
+        <div>
+
+            <div class="ws-demo-overview-map">
+                <ws-map></ws-map>
+            </div>
+
+            <br>
+
+            <div class="ws-demo-overview-geojson">
+                <point-demo [hidden]="geojsonTab !== 'Point'"></point-demo>
+                <bbox-demo [hidden]="geojsonTab !== 'Bounding Box'"></bbox-demo>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+        </div>
+    </div>
+</div>
 <testing></testing>

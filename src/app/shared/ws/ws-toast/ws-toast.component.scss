@@ -60,8 +60,8 @@ $alpha: 1;
 }
 
 .toast-default {
-    background-color: #00ADEE;
-    background-color: rgba(#00ADEE, $alpha);
+    background-color: $ws-col-primary;
+    background-color: rgba($ws-col-primary, $alpha);
     color: white;
 }
 

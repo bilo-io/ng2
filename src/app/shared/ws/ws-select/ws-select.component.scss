@@ -1,3 +1,5 @@
+@import '../scss/ws.scss';
+
 .ws-select {
     position: relative;
     background-color: transparent;
@@ -33,7 +35,7 @@
         bottom: 1px solid #818181;
     }
     &:hover {
-        bottom: 1px solid #00ADEE;
+        bottom: 1px solid $ws-col-primary;
     }
 }
 
@@ -46,10 +48,10 @@
         top: 0px;
     }
     border : {
-        bottom: 1px solid #00ADEE;
-        left: 1px solid #00ADEE;
-        right: 1px solid #00ADEE;
-        top: 2px solid #00ADEE;
+        bottom: 1px solid $ws-col-primary;
+        left: 1px solid $ws-col-primary;
+        right: 1px solid $ws-col-primary;
+        top: 2px solid $ws-col-primary;
     }
 }
 
@@ -68,14 +70,14 @@
     // background-color: white;
     // color: black;
     border : {
-        bottom: 0px solid #00ADEE;
-        left: 0px solid #00ADEE;
-        right: 0px solid #00ADEE;
+        bottom: 0px solid $ws-col-primary;
+        left: 0px solid $ws-col-primary;
+        right: 0px solid $ws-col-primary;
         top: 0px solid transparent;
     }
     &:hover {
         background-color: #2f2f2f;
-        color: #00ADEE;
+        color: $ws-col-primary;
     }
 }
 

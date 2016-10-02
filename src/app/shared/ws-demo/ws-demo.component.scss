@@ -17,9 +17,10 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .ws-demo-section {
+    @extend .ws-card;
+    @extend .ws-card-5;
     position: relative;
     width: 100%;
-    background: white;
 }
 
 .ws-demo-textarea {

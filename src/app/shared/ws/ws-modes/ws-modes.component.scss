@@ -42,9 +42,9 @@
         top: 0px;
     }
     border : {
-        bottom: 1px solid #00ADEE;
-        left: 1px solid #00ADEE;
-        right: 1px solid #00ADEE;
+        bottom: 1px solid $ws-col-primary;
+        left: 1px solid $ws-col-primary;
+        right: 1px solid $ws-col-primary;
         top: 0px solid transparent;
     }
 }
@@ -71,7 +71,7 @@
     }
     &:hover {
         background-color: #2f2f2f;
-        color: #00ADEE;
+        color: $ws-col-primary;
     }
 }
 
@@ -88,7 +88,7 @@
     }
     // &:hover {
     //     background-color: white;
-    //     color: #00ADEE;
+    //     color: $ws-col-primary;
     // }
 }
 

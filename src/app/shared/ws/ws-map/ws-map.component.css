@@ -1,3 +1,41 @@
+.ws-toast {
+  background-color: #00ADEE;
+  color: #eef1ef;
+}
+
+.ws-light {
+  background-color: #eef1ef;
+  color: #1e1e1e;
+}
+
+.ws-dark {
+  background-color: #1e1e1e;
+  color: #eef1ef;
+}
+
+.ws-success {
+  background-color: #1AAF87;
+  color: #eef1ef;
+}
+
+.ws-warning {
+  background-color: darkorange;
+  color: white;
+}
+
+.ws-error {
+  background-color: #D42620;
+  color: white;
+}
+
+.ws-dark-2 {
+  background-color: #2b2b2b;
+}
+
+.ws-dark-3 {
+  background-color: #2b2b2b;
+}
+
 .ws-card {
   display: inline-block;
   min-width: 100px;
@@ -45,44 +83,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 3px 8px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
-}
-
-.ws-toast {
-  background-color: #00ADEE;
-  color: #eef1ef;
-}
-
-.ws-light {
-  background-color: #eef1ef;
-  color: #1e1e1e;
-}
-
-.ws-dark {
-  background-color: #1e1e1e;
-  color: #eef1ef;
-}
-
-.ws-success {
-  background-color: #1AAF87;
-  color: #eef1ef;
-}
-
-.ws-warning {
-  background-color: darkorange;
-  color: white;
-}
-
-.ws-error {
-  background-color: #D42620;
-  color: white;
-}
-
-.ws-dark-2 {
-  background-color: #2b2b2b;
-}
-
-.ws-dark-3 {
-  background-color: #2b2b2b;
 }
 
 .map-container {

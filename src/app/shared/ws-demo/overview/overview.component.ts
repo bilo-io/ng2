@@ -17,7 +17,7 @@ export class OverviewComponent {
     constructor() { 
         this.geojsonTabs = [
             new WsItem('Point', '', '', true),
-            new WsItem('Bounding Box'),
+            new WsItem('Bounding Box')
         ];
         this.switchGeojsonTab(this.geojsonTabs[0]);
     }

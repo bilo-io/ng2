@@ -1,75 +1,79 @@
-<label 
-    *ngIf="wsName"
-    class="ws-grey-i" 
-    [style.color]="'#00aade'" 
-    style="position: relative; margin-left: 0.5rem; padding-top: 1rem">{{wsName}}</label>
-<div class="row s12" style="max-height: 2rem; margin-top: -1rem">
-    <!--Search Field--> 
-    <div *ngIf="!showingCoordinate">
-        <div 
-            class="input-field col s10"
-            [ngClass]="{ s12: !wsToggleEnabled }">
-            <!--Text Input-->
-            <input 
-                id="location" 
-                name="{{wsName}}-location" 
-                type="text"
-                placeholder="search..." 
-                [(ngModel)]="searchText" 
-                (ngModelChange)="geocode($event)"
-                style="margin-bottom: -0.1rem">
-            <!--Address Results-->
-            <ws-list
-                [wsItems]="searchResults"
-                (wsItemChanged$)="selectItem($event)"
-                *ngIf="searching() && geocoding">
-            </ws-list>
+<div>
+    <label 
+        *ngIf="wsName"
+        class="ws-grey-i" 
+        [style.color]="'#00aade'" 
+        style="position: relative; margin-left: 0.5rem; padding-top: 1rem">{{wsName}}</label>
+    <div class="row s12" style="max-height: 2rem; margin-top: -1rem">
+        <!--Search Field--> 
+        <div *ngIf="!showingCoordinate">
+            <div 
+                class="input-field col s10"
+                [ngClass]="{ s12: !wsToggleEnabled }">
+                <!--Text Input-->
+                <input 
+                    id="location" 
+                    name="{{wsName}}-location" 
+                    type="text"
+                    placeholder="search..." 
+                    [(ngModel)]="searchText" 
+                    (ngModelChange)="geocode($event)"
+                    style="margin-bottom: -0.1rem">
+                <!--Address Results-->
+                <div [style.background]="'white'">
+                    <ws-list
+                        [wsItems]="searchResults"
+                        (wsItemChanged$)="selectItem($event)"
+                        *ngIf="searching() && geocoding">
+                    </ws-list>
+                </div>
+            </div>
         </div>
-    </div>
-    <!--Coordinate Input-->
-    <div *ngIf="showingCoordinate">
-        <div class="input-field col s5">
-            <input 
-                id="latitude" 
-                name="{{wsName}}-latitude"
-                placeholder="latitude" 
-                type="number"
-                step="any"  
-                [ngModel]="searchLat"
-                (ngModelChange)="updateLat($event)">
+        <!--Coordinate Input-->
+        <div *ngIf="showingCoordinate">
+            <div class="input-field col s5">
+                <input 
+                    id="latitude" 
+                    name="{{wsName}}-latitude"
+                    placeholder="latitude" 
+                    type="number"
+                    step="any"  
+                    [ngModel]="searchLat"
+                    (ngModelChange)="updateLat($event)">
+            </div>
+            <div class="input-field col s5">
+                <input 
+                    id="longitude" 
+                    name="{{wsName}}-longitude"
+                    placeholder="longitude" 
+                    type="number" 
+                    step="any"
+                    [ngModel]="searchLon"
+                    (ngModelChange)="updateLon($event)">
+            </div>
         </div>
-        <div class="input-field col s5">
-            <input 
-                id="longitude" 
-                name="{{wsName}}-longitude"
-                placeholder="longitude" 
-                type="number" 
-                step="any"
-                [ngModel]="searchLon"
-                (ngModelChange)="updateLon($event)">
+        <!--Point Icon-->
+        <div *ngIf="wsToggleEnabled">
+            <a 
+            *ngIf="showingCoordinate"
+            class="col s1 ws-icon-button"
+            (click)="activateSearchInput()">
+                <i 
+                    id="search-icon-{{wsName}}" 
+                    class="material-icons" 
+                    [style.color]="wsColor"
+                    [style.opacity]="wsOpacity" >search</i>
+            </a>
+            <a 
+            *ngIf="!showingCoordinate"
+            class="col s1 ws-icon-button" 
+            (click)="activatePointInput()">
+                <i 
+                    id="point-icon-{{wsName}}" 
+                    class="material-icons" 
+                    [style.color]="wsColor"
+                    [style.opacity]="wsOpacity">location_on</i>
+            </a>
         </div>
-    </div>
-    <!--Point Icon-->
-    <div *ngIf="wsToggleEnabled">
-        <a 
-        *ngIf="showingCoordinate"
-        class="col s1 ws-icon-button"
-        (click)="activateSearchInput()">
-            <i 
-                id="search-icon-{{wsName}}" 
-                class="material-icons" 
-                [style.color]="wsColor"
-                [style.opacity]="wsOpacity" >search</i>
-        </a>
-        <a 
-        *ngIf="!showingCoordinate"
-        class="col s1 ws-icon-button" 
-        (click)="activatePointInput()">
-            <i 
-                id="point-icon-{{wsName}}" 
-                class="material-icons" 
-                [style.color]="wsColor"
-                [style.opacity]="wsOpacity">location_on</i>
-        </a>
     </div>
 </div>

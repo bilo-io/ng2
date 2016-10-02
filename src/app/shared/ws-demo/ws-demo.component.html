@@ -7,7 +7,9 @@
 </div>
 
 <div class="main-panel back-dark-2 ws-demo-content">
-    <ws-toast></ws-toast>
+    <div style="position: absolute; top: 4rem; left: 0">
+        <ws-toast></ws-toast>
+    </div>
     <overview *ngIf="demoState==='overview'"></overview>
     <autocomplete-demo *ngIf="demoState==='autocomplete'"></autocomplete-demo>
     <bbox-demo *ngIf="demoState==='bbox'"></bbox-demo>

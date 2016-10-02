@@ -43,7 +43,7 @@ export class WsItem {
         public name: string,
         public value: any = undefined,
         public image: any = '',
-        public isActive: boolean = true) { }
+        public isActive: boolean = false) { }
     
     toggle() {
         this.isActive = !this.isActive;
