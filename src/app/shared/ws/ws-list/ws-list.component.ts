@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { WsItem } from '../ws.models';
 
+
 @Component({
     moduleId: module.id,
     selector: 'ws-list',
@@ -32,10 +33,14 @@ export class WsListComponent {
         this.wsItemsChanged$.emit(this.wsItems);
     }
 
-    toggleItem(index: number) {
-        if (this.wsItems[index]) {
-            this.wsItems[index].toggle();
-        }
+    toggleItem(item: WsItem) {
+        if (!this.wsMultiple) {
+            this.wsItems.forEach((item: WsItem) => {
+                item.isActive = false;
+            });
+        }    
+        item.toggle();
+        this.updateItem(item);
         this.updateItems();
     }
 }

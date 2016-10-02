@@ -105,6 +105,11 @@
 }
 
 .ws-list-li:hover {
+  background-color: #a9b4c2;
+  color: #eef1ef;
+}
+
+.ws-list-li-active {
   background-color: #00ADEE;
   color: #eef1ef;
 }

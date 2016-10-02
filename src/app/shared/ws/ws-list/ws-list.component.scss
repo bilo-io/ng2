@@ -20,11 +20,15 @@
         top: 0px solid transparent;
     }
     &:hover {
-        background-color: $ws-col-primary;
+        background-color: $ws-col-grey-light;
         color: #eef1ef;
     }
 }
 
+.ws-list-li-active {
+        background-color: $ws-col-primary;
+        color: #eef1ef;
+}
 .ws-list-ul {
     position: relative;
     border : {
