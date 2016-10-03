@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: [ 'input-demo.component.css']
 })
 export class InputDemoComponent {
+    public textModel: string = 'textModelValue';
+    private numberModel: number = 12345;
     constructor() {}
 }

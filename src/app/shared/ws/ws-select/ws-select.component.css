@@ -87,8 +87,7 @@
 
 .ws-select {
   position: relative;
-  background-color: transparent;
-  color: white;
+  color: #1e1e1e;
   min-width: 10rem;
   display: inline;
   padding-left: 1rem;
@@ -120,7 +119,7 @@
 .ws-list {
   position: relative;
   min-width: 10rem;
-  background-color: #1e1e1e;
+  background-color: #eef1ef;
   margin-top: 0px;
   border-bottom: 1px solid #00ADEE;
   border-left: 1px solid #00ADEE;
@@ -135,7 +134,7 @@
   padding-left: 1rem;
   padding-bottom: 0.75rem;
   padding-right: 1rem;
-  color: white;
+  color: #1e1e1e;
   background-color: transparent;
   border-bottom: 0px solid #00ADEE;
   border-left: 0px solid #00ADEE;

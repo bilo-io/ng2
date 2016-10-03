@@ -40,11 +40,13 @@ export class WsListComponent {
             this.wsItems.forEach((item: WsItem) => {
                 item.isActive = false;
             });
-        }    
-        if (this.wsRememberState) {
             item.toggle();
-        }    
-        this.updateItem(item);
-        this.updateItems();
+            this.updateItem(item);
+            
+        } else {
+            item.toggle();
+            this.updateItem(item);
+            this.updateItems();
+        }
     }
 }

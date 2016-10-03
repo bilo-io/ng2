@@ -7,7 +7,16 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     styleUrls: [ 'ws-input.component.css']
 })
 export class WsInputComponent {
-    @Input() wsType: string;
+    
+    @Input() wsType: string = 'text';
+    @Input() wsName: string = 'wsName';
+    @Input() wsModel: any;
+    @Output() wsModelChange: EventEmitter<any> = new EventEmitter<any>();
+    
     constructor() {
+    }
+
+    ngOnChanges() {
+        this.wsModelChange.emit(this.wsModel);
     }
 }

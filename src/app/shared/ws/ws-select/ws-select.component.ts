@@ -2,13 +2,13 @@ import { Component, Input, Output, EventEmitter } from
 '@angular/core';
 import { WsItem } from '../ws.models'; 
 
-export class WsSelectItem {
-    constructor(
-        public name: string,
-        public value: string,
-        public isActive: boolean
-    ) { }
-}
+// export class WsSelectItem {
+//     constructor(
+//         public name: string,
+//         public value: string,
+//         public isActive: boolean
+//     ) { }
+// }
 @Component({
     moduleId: module.id,
     selector: 'ws-select',
@@ -21,20 +21,20 @@ export class WsSelectItem {
 export class WsSelectComponent {
     // Inputs
     @Input() wsName: string;
-    @Input() wsItems: WsSelectItem[];
+    @Input() wsItems: WsItem[];
     @Input() wsMultiple: boolean = false;
-    @Input() wsDefaultItem: WsSelectItem;
+    @Input() wsDefaultItem: WsItem;
     @Input() wsHint: string;
     @Input() wsColTitle: string = '#00ADEE';
     @Input() wsColText: string = 'white';
     @Input() wsColBack: string = 'transparent';
     // Outputs
-    @Output() wsChanged$: EventEmitter<WsSelectItem[]> = new EventEmitter<WsSelectItem[]>();
+    @Output() wsChanged$: EventEmitter<WsItem[]> = new EventEmitter<WsItem[]>();
     @Output() wsItemChanged$: EventEmitter<WsItem> = new EventEmitter<WsItem>();
     @Output() wsItemsChanged$: EventEmitter<WsItem[]> = new EventEmitter<WsItem[]>();
     // Fields
     public displayText: string = '';
-    public selectedItem: WsSelectItem;
+    public selectedItem: WsItem;
     public showingList: boolean = false;
 
     constructor() {
@@ -71,7 +71,7 @@ export class WsSelectComponent {
         this.displayText = 'set [wsHint]="\'text\'" on <ws-select>';
     }
 
-    getItemName(obj: WsSelectItem) {
+    getItemName(obj: WsItem) {
         if (obj) {
             if (obj.name) {
                 return obj.name;
@@ -81,12 +81,12 @@ export class WsSelectComponent {
         // return 'obj is null';
     }
 
-    public updateItem(item: WsSelectItem) {
+    public updateItem(item: WsItem) {
         console.log('updateItem():', item);
         this.wsChanged$.emit([this.selectedItem = item]);
     }
 
-    setItem(item: WsSelectItem): void {
+    setItem(item: WsItem): void {
         this.selectedItem = item;
         this.showingList = false;
         this.displayText = item.name;
@@ -94,10 +94,9 @@ export class WsSelectComponent {
         this.wsChanged$.emit([this.selectedItem]);
     }
 
-    toggleItem(i): void {
-        this.wsItems[i].isActive = !this.wsItems[i].isActive;
+    toggleItem(item: WsItem): void {
         this.updateDisplayText();
-        let activeItems: WsSelectItem[] = [];
+        let activeItems: WsItem[] = [];
         this.wsItems.forEach((item) => {
             if (item.isActive) {
                 activeItems.push(item);

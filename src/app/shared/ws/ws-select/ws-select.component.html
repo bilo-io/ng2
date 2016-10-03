@@ -1,7 +1,3 @@
-<h1>Select</h1>
-<p>
-    The <b>WsSelectComponent</b> is a wrapper for the basic select behaviour.
-</p>
 <div class="row ws-select">
     <div class="ws-select-title ws-blue-i" [style.color]="wsColTitle">{{wsName}}</div>
     <!--Button-->
@@ -13,43 +9,24 @@
         </a>
     </div>
     <!--List-->
-    <div class="column">
-        <!--Single-->
-        <div 
-        class="ws-list"
-        *ngIf="!wsMultiple && showingList">
-            <div
-            class="ws-list-item" 
-            *ngFor="let item of wsItems" 
-            (click)="setItem(item)">
-                <label class="ws-list-item-label">{{getItemName(item)}}</label>
-            </div>
+    <div class="row">
+        <div>
+            <ws-list
+                *ngIf="!wsMultiple && showingList"
+                [wsItems]="wsItems"
+                [wsMultiple]="wsMultiple"
+                (wsItemChanged$)="setItem($event)">
+            </ws-list>
         </div>
-        <!--Multiple-->
-        <div
-        class="ws-list" 
-        *ngIf="wsMultiple && showingList">
-            <div
-            class="ws-list-item"
-            *ngFor="let item of wsItems" 
-            (click)="toggleItem(item)">
-                <label 
-                    *ngIf="item.isActive" 
-                    class="ws-list-item-label">{{getItemName(item)}}</label>
 
-                <label 
-                    *ngIf="!item.isActive" 
-                    class="ws-list-item-label-inactive">{{getItemName(item)}}</label>
-
-                <i 
-                    *ngIf="item.isActive" 
-                    class="material-icons" 
-                    style="color: white; float: right">check_box</i>
-                <i 
-                    *ngIf="!item.isActive" 
-                    class="material-icons" 
-                    style="color: grey; float: right">check_box_outline_blank</i>
-            </div>
+        <div>
+            <ws-list
+                *ngIf="wsMultiple && showingList"
+                [wsItems]="wsItems"
+                [wsMultiple]="wsMultiple"
+                [wsRememberState]="true"
+                (wsItemChanged$)="toggleItem($event)">
+            </ws-list>
         </div>
     </div>
 </div>

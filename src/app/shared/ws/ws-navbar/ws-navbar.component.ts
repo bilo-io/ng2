@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { WsSidenavComponent } from '../ws-sidenav/ws-sidenav.component';
 import { WsSidenavService } from '../ws-sidenav/ws-sidenav.service';
+import { WsSidenavComponent } from '../ws-sidenav/ws-sidenav.component';
+import { WsSelectComponent } from '../ws-select/ws-select.component';
 import { WsItem } from './../ws.models';
-import { WsSelectComponent, WsSelectItem } from '../ws-select/ws-select.component';
 import { AppService } from '../../../app.service';
 
 @Component({
@@ -20,8 +20,8 @@ export class WsNavbarComponent {
     public showingDownloadDetails: boolean = false;
     public showingCustomEnvDetails: boolean = false;
     public isElectron: boolean = true;
-    public mapStyles: WsSelectItem[] = [];
-    public environments: WsSelectItem[] = [];
+    public mapStyles: WsItem[] = [];
+    public environments: WsItem[] = [];
     private sidenavItems: WsItem[] = [];
 
     constructor(
@@ -39,7 +39,7 @@ export class WsNavbarComponent {
 
     initAppService() {
         this.app.map.styles.forEach((style) => {
-            this.mapStyles.push(new WsSelectItem(style, style, true));
+            this.mapStyles.push(new WsItem(style, style, '', true));
         });
         let mapStyle: string = localStorage.getItem('wingman-map-style');
         this.isElectron = window.nodeRequire;
@@ -48,11 +48,11 @@ export class WsNavbarComponent {
 
     private initEnvironments() {
         this.environments = [
-            new WsSelectItem('Production', 'PROD', true),
-            new WsSelectItem('Test', 'TEST', true),
-            new WsSelectItem('Development', 'DEV', true),
-            new WsSelectItem('Local', 'LOCAL', true),
-            new WsSelectItem('Custom', 'CUSTOM', true)
+            new WsItem('Production', 'PROD', true),
+            new WsItem('Test', 'TEST', true),
+            new WsItem('Development', 'DEV', true),
+            new WsItem('Local', 'LOCAL', true),
+            new WsItem('Custom', 'CUSTOM', true)
         ];
     }
 
@@ -61,12 +61,12 @@ export class WsNavbarComponent {
         window.close();
     }
 
-    setMapStyle(items: WsSelectItem[]) {
+    setMapStyle(items: WsItem[]) {
         localStorage.setItem('wingman-map-style', items[0].name);
         this.app.map.updateStyle$.emit(items[0].name);
     }
 
-    setEnvironment(environment: WsSelectItem[]) {
+    setEnvironment(environment: WsItem[]) {
         let env = environment[0];
     }
 

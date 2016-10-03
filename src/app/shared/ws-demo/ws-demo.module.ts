@@ -39,25 +39,7 @@ import { TestingComponent } from './testing/testing.component';
         TabsDemoComponent,
         ToastDemoComponent,
         TestingComponent,
-    ],
-    exports: [
-        WsDemoComponent,
-        OverviewComponent,
-        AutocompleteDemoComponent,
-        CardDemoComponent,
-        BBoxDemoComponent,
-        DateTimeDemoComponent,
-        ModalDemoComponent,
-        LoaderDemoComponent,
-        PointDemoComponent,
-        SelectDemoComponent,
-        TabsDemoComponent,
-        ToastDemoComponent,
-        TestingComponent,
     ]
-    // bootstrap: [
-    //     WsDemoComponent
-    // ]
 })
 export class WsDemoModule {
 }

@@ -1,1 +1,12 @@
-<h1>ws-input</h1>
+<div class="ws-input-container">
+    <div 
+        *ngIf="wsName != 'wsName'"
+        class="ws-input-label">
+        {{WsName}}
+    </div>
+
+    <input
+        class="ws-input"
+        type="{{wsType}}" 
+        [(ngModel)]="inputModel">
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { WsSelectComponent, WsSelectItem } from '../../ws/ws-select/ws-select.component';
+import { WsSelectComponent } from '../../ws/ws-select/ws-select.component';
+import { WsItem } from '../../ws/ws.models';
 
 @Component({
     moduleId: module.id,
@@ -11,7 +12,7 @@ import { WsSelectComponent, WsSelectItem } from '../../ws/ws-select/ws-select.co
     ]
 })
 export class SelectDemoComponent {
-    public items: WsSelectItem[] = [];
+    public items: WsItem[] = [];
     public showCode1: boolean;
     public showCode2: boolean;
     public code1: string;
@@ -19,18 +20,18 @@ export class SelectDemoComponent {
 
     constructor() {
         this.items = [
-            new WsSelectItem('Name1', 'Value1', false),
-            new WsSelectItem('Name2', 'Value2', false),
-            new WsSelectItem('Name3', 'Value3', false),
-            new WsSelectItem('Name4', 'Value4', false),
-            new WsSelectItem('Name5', 'Value5', false)
+            new WsItem('Name1', 'Value1', '', false),
+            new WsItem('Name2', 'Value2', '', false),
+            new WsItem('Name3', 'Value3', '', false),
+            new WsItem('Name4', 'Value4', '', false),
+            new WsItem('Name5', 'Value5', '', false)
         ];
 
         this.showCode1 = false;
         this.showCode2 = false;
 
         this.code1 = `
-<ws-select
+<ws-select \n
     [wsName]="'Single'"
     [wsHint]="'Select an item'"
     [wsItems]="items"

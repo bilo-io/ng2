@@ -2,8 +2,7 @@
 
 .ws-select {
     position: relative;
-    background-color: transparent;
-    color: white;
+    color: $ws-col-text;
     min-width: 10rem;
     // display: flex;
     display: inline;
@@ -43,7 +42,7 @@
     position: relative;
     // width: 100%;
     min-width: 10rem;
-    background-color: #1e1e1e;
+    background-color: $ws-col-back;
     margin: {
         top: 0px;
     }
@@ -65,7 +64,7 @@
         bottom: 0.75rem;
         right: 1rem;
     }
-    color: white;
+    color: $ws-col-text;
     background-color: transparent;
     // background-color: white;
     // color: black;
