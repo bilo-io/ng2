@@ -2,7 +2,9 @@
 <P>The with the <b>WsModalComponent</b>WsPoint component you can geocode and reverse geocode, and toggle between address and coordinates, using the button next to the input.</P>
 <div class="column">
     <div style="position: relative; width: 100%;">
-        <ws-point #startPointVC [wsName]="'starting point'" (wsChanged$)="updateLocation($event)">
+        <ws-point #startPointVC 
+            [wsName]="'starting point'" 
+            (wsChanged$)="updateLocation($event)">
         </ws-point>
     </div>
 </div>

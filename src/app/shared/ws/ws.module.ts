@@ -8,6 +8,7 @@ import { WsBBoxComponent } from './ws-bbox/ws-bbox.component';
 import { WsCheckboxComponent } from './ws-checkbox/ws-checkbox.component';
 import { WsDateTimeComponent } from './ws-datetime/ws-datetime.component';
 import { WsListComponent } from './ws-list/ws-list.component';
+import { WsInputComponent } from './ws-input/ws-input.component';
 import { WsLoaderComponent } from './ws-loader/ws-loader.component';
 import { WsLoaderLabelComponent } from './ws-loader-label/ws-loader-label.component';
 import { WsMapComponent } from './ws-map/ws-map.component';

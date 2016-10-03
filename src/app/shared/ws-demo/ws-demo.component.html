@@ -1,6 +1,6 @@
 <div class="side-panel ws-demo-col-back">
+    <h4 [style.color]="'white'">Ws Components</h4>
     <ws-list
-        [wsName]="'Ws Components'"
         [wsItems]="demoItems"
         (wsItemChanged$)="changeDemoItem($event)"
         [wsRememberState]="true">
@@ -15,6 +15,7 @@
     <autocomplete-demo *ngIf="demoState==='autocomplete'"></autocomplete-demo>
     <bbox-demo *ngIf="demoState==='bbox'"></bbox-demo>
     <datetime-demo *ngIf="demoState==='datetime'"></datetime-demo>
+    <input-demo *ngIf="demoState==='input'"></input-demo>
     <loader-demo *ngIf="demoState==='loader'"></loader-demo>
     <modal-demo *ngIf="demoState==='modal'"></modal-demo>
     <point-demo *ngIf="demoState==='point'"></point-demo>

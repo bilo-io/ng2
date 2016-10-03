@@ -22,6 +22,7 @@ export class WsDemoComponent {
             new WsItem('Autocomplete', 'autocomplete'),
             new WsItem('BBox', 'bbox'),
             new WsItem('DateTime', 'datetime'),
+            new WsItem('Input', 'input'),
             new WsItem('Loader', 'loader'),
             new WsItem('Modal', 'modal'),
             new WsItem('Point', 'point'),
