@@ -144,6 +144,7 @@ export class WsPointComponent {
             );
         }
 
+        this.listItems = [];        
         this.searchResults.forEach((location: WsPoint) => {
             this.listItems.push(new WsItem(location.name, location.point, undefined, false));
         });
