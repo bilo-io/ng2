@@ -5,6 +5,7 @@
         [style.color]="'#00aade'" 
         style="position: relative; margin-left: 0.5rem; padding-top: 1rem">{{wsName}}</label>
     <div class="row s12" style="max-height: 2rem; margin-top: -1rem">
+        
         <!--Search Field--> 
         <div *ngIf="!showingCoordinate">
             <div 
@@ -22,7 +23,7 @@
                 <!--Address Results-->
                 <div [style.background]="'white'">
                     <ws-list
-                        [wsItems]="searchResults"
+                        [wsItems]="listItems"
                         (wsItemChanged$)="selectItem($event)"
                         [wsRememberState]="false"
                         *ngIf="searching() && geocoding">
@@ -30,6 +31,7 @@
                 </div>
             </div>
         </div>
+
         <!--Coordinate Input-->
         <div *ngIf="showingCoordinate">
             <div class="input-field col s5">

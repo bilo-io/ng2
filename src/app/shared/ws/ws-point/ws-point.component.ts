@@ -149,22 +149,12 @@ export class WsPointComponent {
         });
     }
 
-    selectResult(location: WsPoint) {
-        this.searchText = location.name;
-        this.searchLat = location.point.latitude();
-        this.searchLon = location.point.longitude();
-        this.isSearching = false;
-        console.log('ws-point.component: wsChanged$:', location);
-        this.wsChanged$.emit(location);
-        // this.journeys.setLocation(new Location(location.name, new Point(location.point.coordinates)));
-    }
-
-    selectItem(item: WsPoint) {
+    selectItem(item: WsItem) {
         console.log({ item });
         this.searchText = item.name;
-        this.searchLat = item.point.latitude();
-        this.searchLon = item.point.longitude();
+        this.searchLat = item.value.latitude();
+        this.searchLon = item.value.longitude();
         this.isSearching = false;
-        this.wsChanged$.emit(item);
+        this.wsChanged$.emit(new WsPoint(item.name, item.value));
     }
 }
