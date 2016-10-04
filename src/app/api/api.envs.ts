@@ -28,7 +28,7 @@ ENVS['prod'] = {
 	envName: 'PROD',
 	identitySts: 'https://identity.whereismytransport.com',
 	identityApi: 'https://identityapi-prod-webapp.azurewebsites.net/api',
-	transitApi: 'https://transit.whereismytransport.com/api',
+	transitApi: 'https://platform.whereismytransport.com/api',
 	clientId: tapiClientId,
 	clientSecret: tapiSecret,
 	scope: 'transitapi:all'

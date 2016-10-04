@@ -23,7 +23,11 @@
 .ws-tab-active {
     text-align: center;
     color: $ws-col-primary-text;
+    font-weight: bold;
     border: {
         bottom: 4px solid $ws-col-primary-text;
+    }
+    &:hover {
+        color: $ws-col-primary-text;
     }
 }

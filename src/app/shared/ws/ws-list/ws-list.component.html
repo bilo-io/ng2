@@ -1,10 +1,10 @@
 <div>
     <label *ngIf="wsName" style="color: white">{{wsName}}</label>
     <!--Single-->
-    <div *ngIf="true || !wsMultiple" class="ws-list-ul">
+    <div *ngIf="true || !wsMultiple" class="ws-list-ul" [ngClass]="{'ws-list-shadow': wsShadow }">
         <div 
             class="ws-list-li"
-            [ngClass]="{ 'ws-list-li-active': item.isActive && wsRememberState }" 
+            [ngClass]="{ 'ws-list-li-active': item.isActive && wsRememberState}" 
             *ngFor="let item of wsItems; let i = index" 
             (click)="toggleItem(item)">
                 {{item.name}}

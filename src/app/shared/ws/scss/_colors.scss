@@ -1,8 +1,3 @@
-$ws-col-primary: #00ADEE !default;
-$ws-col-primary-text: #eef1ef;
-$ws-col-text: #1e1e1e  !default;
-$ws-col-back: #eef1ef !default; //fefefe
-
 $ws-col-dark: #1e1e1e !default; 
 $ws-col-light: #eef1ef !default;
 $ws-col-grey-light: #a9b4c2;
@@ -11,6 +6,14 @@ $ws-col-grey-dark: #4b515b;
 $ws-col-success: #1AAF87 !default;
 $ws-col-warning: darkorange !default;
 $ws-col-error: #D42620 !default;
+$ws-col-blue: #00ADEE !default;
+
+// Ws Theme Colors
+$ws-col-primary: $ws-col-blue !default;
+$ws-col-text: #1e1e1e  !default;
+$ws-col-back: #eef1ef !default; //fefefe
+$ws-col-primary-text: #eef1ef;
+
 
 
 .ws-toast {

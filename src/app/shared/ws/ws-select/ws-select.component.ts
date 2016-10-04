@@ -23,6 +23,7 @@ export class WsSelectComponent {
     @Input() wsName: string;
     @Input() wsItems: WsItem[];
     @Input() wsMultiple: boolean = false;
+    @Input() wsRememberState: boolean = false;
     @Input() wsDefaultItem: WsItem;
     @Input() wsHint: string;
     @Input() wsColTitle: string = '#00ADEE';
@@ -84,6 +85,7 @@ export class WsSelectComponent {
     public updateItem(item: WsItem) {
         console.log('updateItem():', item);
         this.wsChanged$.emit([this.selectedItem = item]);
+        this.wsItemChanged$.emit(this.selectedItem = item);
     }
 
     setItem(item: WsItem): void {
@@ -92,6 +94,7 @@ export class WsSelectComponent {
         this.displayText = item.name;
         console.log(this.selectedItem);
         this.wsChanged$.emit([this.selectedItem]);
+        this.wsItemChanged$.emit(this.selectedItem);
     }
 
     toggleItem(item: WsItem): void {

@@ -41,7 +41,6 @@
   min-width: 100px;
   min-height: 8rem;
   padding: 2rem;
-  margin: 1rem;
   position: relative;
   justify-content: center;
 }
@@ -109,5 +108,10 @@
 .ws-tab-active {
   text-align: center;
   color: #eef1ef;
+  font-weight: bold;
   border-bottom: 4px solid #eef1ef;
+}
+
+.ws-tab-active:hover {
+  color: #eef1ef;
 }

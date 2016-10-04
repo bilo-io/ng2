@@ -3,9 +3,9 @@
     <!--Button-->
     <div *ngIf="true" class="ws-select-click-area" (click)="toggleList()">
         <a class="ws-select-button" >
-            <i *ngIf="!showingList" class="material-icons ws-toggle-button" [style.color]="wsColText">keyboard_arrow_down</i>
-            <i *ngIf="showingList" class="material-icons ws-toggle-button" [style.color]="wsColText">keyboard_arrow_up</i>
-            <div [style.color]="wsColText">{{displayText}}</div>
+            <i *ngIf="!showingList" class="material-icons ws-toggle-button">keyboard_arrow_down</i>
+            <i *ngIf="showingList" class="material-icons ws-toggle-button">keyboard_arrow_up</i>
+            <div class="ws-select-text">{{displayText}}</div>
         </a>
     </div>
     <!--List-->
@@ -15,6 +15,8 @@
                 *ngIf="!wsMultiple && showingList"
                 [wsItems]="wsItems"
                 [wsMultiple]="wsMultiple"
+                [wsRememberState]="wsRememberState"
+                [wsShadow]="true"
                 (wsItemChanged$)="setItem($event)">
             </ws-list>
         </div>
@@ -25,6 +27,7 @@
                 [wsItems]="wsItems"
                 [wsMultiple]="wsMultiple"
                 [wsRememberState]="true"
+                [wsShadow]="true"
                 (wsItemChanged$)="toggleItem($event)">
             </ws-list>
         </div>

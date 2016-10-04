@@ -14,6 +14,8 @@ import { HomeComponent } from './components/home/home.component';
 // App Services
 import { AppService } from './app.service';
 import { GeocoderService } from './shared/services/geocoder.service';
+import { ApiService } from './api/api.service';
+import { TapiService } from './api/tapi/tapi.service';
 
 @NgModule({
     imports: [
@@ -31,7 +33,9 @@ import { GeocoderService } from './shared/services/geocoder.service';
     ],
     providers: [
         AppService,
+        ApiService,
         GeocoderService,
+        TapiService
     ],
     bootstrap: [AppComponent]
 })

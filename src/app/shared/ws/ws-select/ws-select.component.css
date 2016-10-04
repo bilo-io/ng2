@@ -41,7 +41,6 @@
   min-width: 100px;
   min-height: 8rem;
   padding: 2rem;
-  margin: 1rem;
   position: relative;
   justify-content: center;
 }
@@ -109,22 +108,11 @@
   -webkit-border-radius: 0px;
   border-radius: 0px;
   padding-bottom: 0.5em;
-  border-bottom: 1px solid #818181;
+  border-bottom: 1px solid #4b515b;
 }
 
 .ws-select-click-area:hover {
   bottom: 1px solid #00ADEE;
-}
-
-.ws-list {
-  position: relative;
-  min-width: 10rem;
-  background-color: #eef1ef;
-  margin-top: 0px;
-  border-bottom: 1px solid #00ADEE;
-  border-left: 1px solid #00ADEE;
-  border-right: 1px solid #00ADEE;
-  border-top: 2px solid #00ADEE;
 }
 
 .ws-list-item {
@@ -152,7 +140,7 @@
   height: 3rem;
   font-size: 1rem;
   text-align: left;
-  color: white;
+  color: #1e1e1e;
   margin-left: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -163,7 +151,7 @@
   height: 3rem;
   font-size: 1rem;
   text-align: left;
-  color: gray;
+  color: #4b515b;
   margin-left: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -173,6 +161,7 @@
   position: relative;
   height: 2rem;
   width: 2rem;
+  color: #1e1e1e;
   margin-right: 1rem;
 }
 
@@ -182,7 +171,7 @@
   border-radius: 0px;
   position: relative;
   height: 2rem;
-  color: white;
+  color: #1e1e1e;
   background-color: transparent;
   text-align: left;
   padding-top: 0.5rem;
@@ -196,6 +185,7 @@
   height: 2rem;
   width: 2rem;
   background-color: transparent;
+  color: #1e1e1e;
   padding-top: 0.5rem;
   padding-right: 0.5rem;
   padding-bottom: 0.5rem;

@@ -31,26 +31,10 @@
     border-radius: 0px;
     padding-bottom: 0.5em;
     border : {
-        bottom: 1px solid #818181;
+        bottom: 1px solid $ws-col-grey-dark;
     }
     &:hover {
         bottom: 1px solid $ws-col-primary;
-    }
-}
-
-.ws-list {
-    position: relative;
-    // width: 100%;
-    min-width: 10rem;
-    background-color: $ws-col-back;
-    margin: {
-        top: 0px;
-    }
-    border : {
-        bottom: 1px solid $ws-col-primary;
-        left: 1px solid $ws-col-primary;
-        right: 1px solid $ws-col-primary;
-        top: 2px solid $ws-col-primary;
     }
 }
 
@@ -85,7 +69,7 @@
     height: 3rem;
     font-size: 1rem;
     text-align: left;
-    color: white;
+    color: $ws-col-text;
     margin: {
         left: 0.5rem;
         top: 1rem;
@@ -98,7 +82,7 @@
     height: 3rem;
     font-size: 1rem;
     text-align: left;
-    color: gray;
+    color: $ws-col-grey-dark;
     margin: {
         left: 0.5rem;
         top: 1rem;
@@ -110,6 +94,7 @@
     position: relative;
     height: 2rem;
     width: 2rem;
+    color: $ws-col-text;
     margin: {
         right: 1rem;
     }
@@ -121,7 +106,7 @@
     border-radius: 0px;
     position: relative;
     height: 2rem;
-    color: white;
+    color: $ws-col-text;
     background-color: transparent;
     text-align: left;
     padding-top: 0.5rem;
@@ -135,6 +120,7 @@
     height: 2rem;
     width: 2rem;
     background-color: transparent;
+    color: $ws-col-text;
     padding: {
         top: 0.5rem; 
         right: 0.5rem;

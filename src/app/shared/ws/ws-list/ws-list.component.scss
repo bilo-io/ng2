@@ -4,25 +4,35 @@
     cursor: pointer;
     position: relative;
     height: 3rem;
-    line-height: 1.5rem;
     max-height: 3rem;
     color: $ws-col-text;
     background-color: transparent;
-    padding: 0.7rem;
+    padding: 1rem;
+    padding-left: 1em;
+    padding-right: 1em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; 
     display: block;
-    border : {
-        bottom: 1px solid rgba(127,127,127,0.5);
-        left: 0px solid transparent;
-        right: 0px solid transparent;
-        top: 0px solid transparent;
-    }
+    // border : {
+    //     bottom: 1px solid rgba(127,127,127,0.5);
+    //     left: 0px solid transparent;
+    //     right: 0px solid transparent;
+    //     top: 0px solid transparent;
+    // }
     &:hover {
         background-color: $ws-col-grey-light;
         color: #eef1ef;
     }
+}
+
+.ws-list-shadow {
+    @extend .ws-card;
+    @extend .ws-card-5;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
 }
 
 .ws-list-li-active {
@@ -31,12 +41,13 @@
 }
 .ws-list-ul {
     position: relative;
-    border : {
-        // bottom: 1px solid rgba(127,127,127,0.5);
-        left: 1px solid rgba(127,127,127,0.5);
-        right: 1px solid rgba(127,127,127,0.5);
-        top: 1px solid rgba(127,127,127,0.5);
-    }
+    width: 100%;
+    // border : {
+    //     // bottom: 1px solid rgba(127,127,127,0.5);
+    //     left: 1px solid rgba(127,127,127,0.5);
+    //     right: 1px solid rgba(127,127,127,0.5);
+    //     top: 1px solid rgba(127,127,127,0.5);
+    // }
 }
 
 .ws-list-a {

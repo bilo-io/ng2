@@ -7,7 +7,7 @@ import { WsDemoComponent } from './shared/ws-demo/ws-demo.component';
 
 const appRoutes: Routes = [
     {
-        path: '', 
+        path: '',
         component: HomeComponent
     },
     {

@@ -6,6 +6,7 @@
         placeholder="{{wsHint}}">
     <ws-list
         [hidden]="searchText.length == 0 || !showingList"
+        [wsShadow]="true"
         [wsItems]="filteredItems"
         (wsItemChanged$)="selectedItem($event)">
     </ws-list>
