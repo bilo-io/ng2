@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+// Ws Services
+import { WsToastService } from './ws-toast/ws-toast.service';
+import { WsModalService } from './ws-modal/ws-modal.service';
+import { WsMapService } from './ws-map/ws-map.service';
+import { WsSidenavService } from './ws-sidenav/ws-sidenav.service';
 // Ws Components
 import { WsAutocompleteComponent } from './ws-autocomplete/ws-autocomplete.component';
 import { WsBBoxComponent } from './ws-bbox/ws-bbox.component';
@@ -23,12 +28,35 @@ import { WsSwitchComponent } from './ws-switch/ws-switch.component';
 import { WsTabsComponent } from './ws-tabs/ws-tabs.component';
 import { WsToastComponent } from './ws-toast/ws-toast.component';
 import { WsToggleComponent } from './ws-toggle/ws-toggle.component';
-// Ws Services
-import { WsToastService } from './ws-toast/ws-toast.service';
-import { WsModalService } from './ws-modal/ws-modal.service';
-import { WsMapService } from './ws-map/ws-map.service';
-import { WsSidenavService } from './ws-sidenav/ws-sidenav.service';
 
+export const WsServices = [
+    WsToastService,
+    WsModalService,
+    WsMapService,
+    WsSidenavService
+];
+export const WsComponents = [
+    WsAutocompleteComponent,
+    WsBBoxComponent,
+    WsCheckboxComponent,
+    WsDateTimeComponent,
+    WsInputComponent,
+    WsListComponent,
+    WsLoaderComponent,
+    WsLoaderLabelComponent,
+    WsMapComponent,
+    WsModalComponent,
+    WsModesComponent,
+    WsNavbarComponent,
+    WsPointComponent,
+    WsSelectComponent,
+    WsSidenavComponent,
+    WsSpinnerComponent,
+    WsSwitchComponent,
+    WsTabsComponent,
+    WsToastComponent,
+    WsToggleComponent
+];
 @NgModule({
     imports: [
         FormsModule,
@@ -36,54 +64,13 @@ import { WsSidenavService } from './ws-sidenav/ws-sidenav.service';
         RouterModule
     ],
     providers: [
-        WsMapService,
-        WsSidenavService,
-        WsToastService,
-        WsModalService
+        ...WsServices
     ],
     declarations: [
-        WsAutocompleteComponent,
-        WsBBoxComponent,
-        WsCheckboxComponent,
-        WsDateTimeComponent,
-        WsInputComponent,
-        WsListComponent,
-        WsLoaderComponent,
-        WsLoaderLabelComponent,
-        WsMapComponent,
-        WsModalComponent,
-        WsModesComponent,
-        WsNavbarComponent,
-        WsPointComponent,
-        WsSelectComponent,
-        WsSidenavComponent,
-        WsSpinnerComponent,
-        WsSwitchComponent,
-        WsTabsComponent,
-        WsToastComponent,
-        WsToggleComponent
+        ...WsComponents
     ],
     exports: [
-        WsAutocompleteComponent,
-        WsBBoxComponent,
-        WsCheckboxComponent,
-        WsDateTimeComponent,
-        WsInputComponent,
-        WsListComponent,
-        WsLoaderComponent,
-        WsLoaderLabelComponent,
-        WsMapComponent,
-        WsModalComponent,
-        WsModesComponent,
-        WsNavbarComponent,
-        WsPointComponent,
-        WsSelectComponent,
-        WsSidenavComponent,
-        WsSpinnerComponent,
-        WsSwitchComponent,
-        WsTabsComponent,
-        WsToastComponent,
-        WsToggleComponent
+        ...WsComponents
     ]
 })
 export class WsModule {

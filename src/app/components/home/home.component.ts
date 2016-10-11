@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { PrincipalService } from '../../api/principal.service';
+import { WsPoint } from '../../shared/ws';
 
 @Component({
     moduleId: module.id,
@@ -11,5 +12,7 @@ import { PrincipalService } from '../../api/principal.service';
     ]
 })
 export class HomeComponent {
-    constructor() {}
+    constructor( @Inject(PrincipalService) private principal: PrincipalService) {
+
+    }
 }

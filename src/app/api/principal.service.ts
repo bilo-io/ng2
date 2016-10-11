@@ -15,6 +15,28 @@ export class PrincipalService {
         return window.atob(url.replace(/-/g, '+').replace(/_/g, '/'));
     }
 
+    initPrincipalService() {
+        const checkIFrame = document.createElement('IFRAME');
+        checkIFrame.style.width = '0';
+        checkIFrame.style.height = '0';
+        document.body.appendChild(checkIFrame);
+
+        let receiveMessage = (m) => {
+            const data = queryString.parse(m.data);
+            if (data.access_token) {
+                this.setToken(data.acdess_token);
+            } else {
+                this.clear
+            }
+        }
+    }
+
+    receiveMessage(m: any) {
+        
+    }
+
+
+
     
 //{
     public isIFramed() {

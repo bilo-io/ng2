@@ -18,12 +18,9 @@ export class AppService {
         @Inject(TapiService) public tapi: TapiService,
         @Inject(WsToastService) public toaster: WsToastService) {
 
-        this.environment = settings;
         this.setEnvironment('prod');
-        this.tapi.getTapiToken();
         this.tapi.gotNewToken$.subscribe(token => {
             this.toaster.success('Received token');
-            console.log({ token });
         });
     }
 
