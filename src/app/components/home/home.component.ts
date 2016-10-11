@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PrincipalService } from '../../api/principal.service';
 
 @Component({
     moduleId: module.id,

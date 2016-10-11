@@ -13,8 +13,9 @@ import { MapComponent } from './components/map/map.component';
 import { HomeComponent } from './components/home/home.component';
 // App Services
 import { AppService } from './app.service';
-import { GeocoderService } from './shared/services/geocoder.service';
 import { ApiService } from './api/api.service';
+import { PrincipalService } from './api/principal.service';
+import { GeocoderService } from './shared/services/geocoder.service';
 import { TapiService } from './api/tapi/tapi.service';
 
 @NgModule({
@@ -34,6 +35,7 @@ import { TapiService } from './api/tapi/tapi.service';
     providers: [
         AppService,
         ApiService,
+        PrincipalService,
         GeocoderService,
         TapiService
     ],
