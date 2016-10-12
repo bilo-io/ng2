@@ -2,7 +2,7 @@ import { Component, Inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { WsSidenavService } from './ws-sidenav.service';
 import { AppService } from '../../../app.service';
-import { WsItem } from '../ws.models';
+import { WsItem } from '../models';
 
 @Component({
     moduleId: module.id,

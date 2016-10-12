@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WsDateTimeComponent } from '../../ws/ws-datetime/ws-datetime.component';
+import { WsDateTimeComponent } from '../../ws/components';
 
 @Component({
     moduleId: module.id,

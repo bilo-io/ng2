@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { WsModalService } from '../../ws/ws-modal/ws-modal.service';
-import { WsModalComponent } from '../../ws/ws-modal/ws-modal.component';
+import { WsModalService } from '../../ws/services';
+import { WsModalComponent } from '../../ws/components';
 @Component({
     moduleId: module.id,
     selector: 'modal-demo',

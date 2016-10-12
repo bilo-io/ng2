@@ -13,15 +13,6 @@ export class WsPoint {
         public point: Point) {}
 }
 
-export class WsModalContent {
-    constructor(
-        public title: string,
-        public message: string,
-        public dismissButton: string,
-        public confirmButton: string
-    ) {}
-}
-
 export class WsModeItem {
     constructor(
         public name: string,

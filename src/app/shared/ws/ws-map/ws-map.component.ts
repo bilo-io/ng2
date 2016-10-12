@@ -1,6 +1,6 @@
 import { Component, Inject, Input, Output } from '@angular/core';
 import { Point, LineString, Polygon } from '../../models/geojson.models';
-import { WsMapService, MapState, MapPoint, MapLine, MapPolygon, MapLayer, MapLayerType } from './ws-map.service';
+import { WsMapService, WsMapState, WsMapPoint, WsMapLine, WsMapPolygon, WsMapLayer, WsMapLayerType } from './ws-map.service';
 import * as L from 'leaflet';
 
 @Component({
@@ -27,7 +27,7 @@ export class WsMapComponent {
     private markerLayer: any[] = [];
     private lineLayers: any[] = [];
     private pointLayers: any[] = [];
-    private layers: MapLayer[] = [];
+    private layers: WsMapLayer[] = [];
     // Marker Icons
     public markerPinRed: any = {};
     public markerPinGreen: any = {};
@@ -161,22 +161,22 @@ export class WsMapComponent {
         });
 
         // Points
-        this.mapService.addPoints$.subscribe((points: MapPoint[]) => {
+        this.mapService.addPoints$.subscribe((points: WsMapPoint[]) => {
             this.removePoints();
             this.addPoints(points);
         });
         this.mapService.removePoints.subscribe(() => {
             this.removePoints();
         });
-        this.mapService.updateStartPoint$.subscribe((point: MapPoint) => {
+        this.mapService.updateStartPoint$.subscribe((point: WsMapPoint) => {
             this.addMarkerStart(point.point, point.name, this.markerPinGreen);
         });
-        this.mapService.updatedEndPoint$.subscribe((point: MapPoint) => {
+        this.mapService.updatedEndPoint$.subscribe((point: WsMapPoint) => {
             this.addMarkerEnd(point.point, point.name, this.markerPinRed);
         });
 
         // Lines
-        this.mapService.addLines.subscribe((lines: MapLine[]) => {
+        this.mapService.addLines.subscribe((lines: WsMapLine[]) => {
             this.addLines(lines, true);
         });
         this.mapService.removeLines.subscribe(() => {
@@ -184,14 +184,14 @@ export class WsMapComponent {
         });
 
         // Polygons
-        this.mapService.showPolygons$.subscribe((polygons: MapPolygon[]) => {
+        this.mapService.showPolygons$.subscribe((polygons: WsMapPolygon[]) => {
             this.addPolygons(polygons);
         });
     }
     //}
 
     //{ Lines    
-    addLines(lines: MapLine[], log: boolean = false) {
+    addLines(lines: WsMapLine[], log: boolean = false) {
         // this.lines = [];
         if (log) {
             console.log('map: addLines()', { lines });
@@ -230,7 +230,7 @@ export class WsMapComponent {
     //}    
 
     //{ Points    
-    addPoints(points: MapPoint[], log: boolean = false) {
+    addPoints(points: WsMapPoint[], log: boolean = false) {
         if (log) { console.log('map.component: addPoints()', { points }); }
         let bounds: L.LatLng[] = [];
         this.points = [];
@@ -244,7 +244,7 @@ export class WsMapComponent {
         });
         this.map.fitBounds(L.latLngBounds(bounds));
     }
-    addCircle(mapPoint: MapPoint, color: string) {
+    addCircle(mapPoint: WsMapPoint, color: string) {
         let marker = L.circleMarker(
             [mapPoint.point.coordinates[1], mapPoint.point.coordinates[0]],
             {
@@ -319,7 +319,7 @@ export class WsMapComponent {
     //}
 
     //{ Polygons
-    addPolygons(polygons: MapPolygon[], log: boolean = false) {
+    addPolygons(polygons: WsMapPolygon[], log: boolean = false) {
         if (log) { console.log('map: addPolygons()', { polygons }); }
         polygons.forEach((mapPolygon) => {
         });

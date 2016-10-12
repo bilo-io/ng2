@@ -2,7 +2,7 @@
 
 // Dimensions
 $dim-navbar-height: $ws-dim-navbar;
-$dim-title-size: 2rem;
+$dim-title-size: calc(#{$ws-dim-navbar} / 2);
 $dim-font-size: 1rem;
 // Colors
 $col-back: $ws-col-dark;
@@ -20,7 +20,7 @@ $col-text: $ws-col-light;
 .navbar {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     -webkit-app-region: drag;
-    background-color: $col-back;
+    background-color: $col-primary;
     color: $col-text;
     position: fixed;
     width: 100%;
@@ -28,22 +28,25 @@ $col-text: $ws-col-light;
     top: 0;
     left: 0;
     z-index: 2;
-    font-weight: lighter;
 }
 
 .navbar-title {
     position: relative; 
-    font-size: 2rem;  
-    margin-top: 0.5rem;
-    color: $col-primary;
+    font-size: $dim-title-size; 
+    margin-top: calc(#{$dim-title-size} * 0.25);
+    color: $col-text;
 }
 
 .navbar-title-light {
-    position: relative; 
+     @extend .navbar-title;
+     font-weight: lighter;
+}
+
+.navbar-menu-button {
+    position: relative;
     font-size: $dim-title-size;
-    font-weight: lighter;  
-    margin-top: 0.5rem; 
-    color: $col-primary;
+    color: $col-text;
+    margin-top: calc(#{$dim-title-size} * 0.25);
 }
 
 .navbar-env-details {
@@ -72,7 +75,6 @@ $col-text: $ws-col-light;
     width: $dim-navbar-height;
     height: $dim-navbar-height;
 }
-
 
 .navbar-select {
     margin: {

@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { WsToastComponent } from '../../ws/ws-toast/ws-toast.component';
-import { WsToastService } from '../../ws/ws-toast/ws-toast.service';
+import { WsToastComponent } from '../../ws/components';
+import { WsToastService } from '../../ws/services';
 
 @Component({
     moduleId: module.id,

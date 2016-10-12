@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { WsSelectComponent } from '../../ws/ws-select/ws-select.component';
-import { WsItem } from '../../ws/ws.models';
+import { WsItem } from '../../ws/models';
+import { WsSelectComponent } from '../../ws/components';
 
 @Component({
     moduleId: module.id,

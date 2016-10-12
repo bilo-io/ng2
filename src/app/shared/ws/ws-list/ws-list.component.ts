@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { WsItem } from '../ws.models';
+import { WsItem } from '../models';
 
 
 @Component({

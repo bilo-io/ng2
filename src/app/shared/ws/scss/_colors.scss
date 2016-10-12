@@ -8,13 +8,25 @@ $ws-col-warning: darkorange !default;
 $ws-col-error: #D42620 !default;
 $ws-col-blue: #00ADEE !default;
 
+$md-col-primary: #455A64;
+$md-col-primary-dark: #607D8B;
+$md-col-primary-light: #CFD8DC;
+$md-col-texticons: #FFFFFF;
+$md-col-accent: #03A9F4;
+$md-col-text-primary: #212121;
+$md-col-text-secondary: #757575;
+$md-col-divider: #BDBDBD;
+
 // Ws Theme Colors
 $ws-col-primary: $ws-col-blue !default;
+$ws-col-primary-dark: darken($ws-col-primary, 10%);
+$ws-col-primary-light: darken($ws-col-primary, 10%);
+$ws-col-accent: $ws-col-blue !default;
+
 $ws-col-text: #1e1e1e  !default;
 $ws-col-back: #eef1ef !default; //fefefe
 $ws-col-primary-text: #eef1ef;
-
-
+$ws-col-divider: #bdbdbd;
 
 .ws-toast {
     background-color: $ws-col-primary;

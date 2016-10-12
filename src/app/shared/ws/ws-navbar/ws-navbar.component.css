@@ -95,7 +95,7 @@
 .navbar {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   -webkit-app-region: drag;
-  background-color: #1e1e1e;
+  background-color: #00ADEE;
   color: #eef1ef;
   position: fixed;
   width: 100%;
@@ -103,22 +103,24 @@
   top: 0;
   left: 0;
   z-index: 2;
-  font-weight: lighter;
 }
 
-.navbar-title {
+.navbar-title, .navbar-title-light {
   position: relative;
-  font-size: 2rem;
-  margin-top: 0.5rem;
-  color: #00ADEE;
+  font-size: calc(4rem / 2);
+  margin-top: calc(calc(4rem / 2) * 0.25);
+  color: #eef1ef;
 }
 
 .navbar-title-light {
-  position: relative;
-  font-size: 2rem;
   font-weight: lighter;
-  margin-top: 0.5rem;
-  color: #00ADEE;
+}
+
+.navbar-menu-button {
+  position: relative;
+  font-size: calc(4rem / 2);
+  color: #eef1ef;
+  margin-top: calc(calc(4rem / 2) * 0.25);
 }
 
 .navbar-env-details {

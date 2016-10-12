@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { AppService } from './app.service';
-import { WsItem } from './shared/ws/ws.models';
+import { WsItem } from './shared/ws/models';
 
 @Component({
   selector: 'app',

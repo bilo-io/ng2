@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { WsItem } from '../ws.models.ts';
+import { WsItem } from '../models';
 
 @Component({
     moduleId: module.id,

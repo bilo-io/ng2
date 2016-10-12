@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WsLoaderComponent } from '../../ws/ws-loader/ws-loader.component';
+import { WsLoaderComponent } from '../../ws/components';
 
 @Component({
     moduleId: module.id,

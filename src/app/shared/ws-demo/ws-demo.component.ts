@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { WsListComponent } from '../../shared/ws/ws-list/ws-list.component';
-import { WsItem } from '../../shared/ws/ws.models';
+import { WsItem } from '../../shared/ws/models';
 import { AppService } from './../../app.service';
 
 @Component({

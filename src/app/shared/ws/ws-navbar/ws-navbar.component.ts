@@ -2,7 +2,7 @@ import { Component, Inject, Input } from '@angular/core';
 import { WsSidenavService } from '../ws-sidenav/ws-sidenav.service';
 import { WsSidenavComponent } from '../ws-sidenav/ws-sidenav.component';
 import { WsSelectComponent } from '../ws-select/ws-select.component';
-import { WsItem } from './../ws.models';
+import { WsItem } from './../models';
 import { AppService } from '../../../app.service';
 
 @Component({

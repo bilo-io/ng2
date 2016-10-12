@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { WsListComponent } from '../ws-list/ws-list.component';
-import { WsItem } from '../ws.models';
+import { WsItem } from '../models';
 
 @Component({
     moduleId: module.id,

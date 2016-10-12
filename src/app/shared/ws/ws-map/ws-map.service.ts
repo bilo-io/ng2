@@ -1,37 +1,37 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Point, LineString, Polygon } from '../../models/geojson.models';
 
-export enum MapState {
+export enum WsMapState {
     Journeys,
     Transit,
     Realtime,
     Simulator
 }
-export class MapLine {
+export class WsMapLine {
     constructor(
         public color: string,
         public line: LineString,
         public alpha: number = 1.0,
         public dotted: boolean = false) { }
 }
-export class MapPoint {
+export class WsMapPoint {
     constructor(
         public name: string,
         public point: Point,
         public color: string) { }
 }
-export class MapPolygon {
+export class WsMapPolygon {
     constructor(
         public color: string,
         public polygon: Polygon) { }
 }
-export class MapLayer {
+export class WsMapLayer {
     constructor(
         public name: string,
-        public type: MapLayerType,
+        public type: WsMapLayerType,
         public data: any) { }
 }
-export enum MapLayerType {
+export enum WsMapLayerType {
     None,
     Points,
     Lines,
@@ -43,16 +43,16 @@ export class WsMapService {
     public lines: any[] = [];
     public stops: any[] = [];
     public point: Point;
-    public layers: MapLayer[] = [];
+    public layers: WsMapLayer[] = [];
 
-    @Output() addLayer$: EventEmitter<MapLayer> = new EventEmitter<MapLayer>();
+    @Output() addLayer$: EventEmitter<WsMapLayer> = new EventEmitter<WsMapLayer>();
     @Output() removeLayer$: EventEmitter<any> = new EventEmitter<any>();
 
     @Output() focusPoint$: EventEmitter<Point> = new EventEmitter<Point>();
     @Output() updateStyle$: EventEmitter<string> = new EventEmitter<string>();
     @Output() updatedPoint$: EventEmitter<Point> = new EventEmitter<Point>();
-    @Output() updateStartPoint$: EventEmitter<MapPoint> = new EventEmitter<MapPoint>();
-    @Output() updatedEndPoint$: EventEmitter<MapPoint> = new EventEmitter<MapPoint>();
+    @Output() updateStartPoint$: EventEmitter<WsMapPoint> = new EventEmitter<WsMapPoint>();
+    @Output() updatedEndPoint$: EventEmitter<WsMapPoint> = new EventEmitter<WsMapPoint>();
     @Output() updateStartName$: EventEmitter<string> = new EventEmitter<string>();
     @Output() updateEndName$: EventEmitter<string> = new EventEmitter<string>();
 
@@ -61,13 +61,13 @@ export class WsMapService {
     @Output() didClickEndMarker$ = new EventEmitter();
     @Output() didMoveEndMarker$: EventEmitter<Point> = new EventEmitter<Point>();
 
-    @Output() addLines: EventEmitter<MapLine[]> = new EventEmitter<MapLine[]>();
+    @Output() addLines: EventEmitter<WsMapLine[]> = new EventEmitter<WsMapLine[]>();
     @Output() removeLines = new EventEmitter();
-    @Output() addPoints$: EventEmitter<MapPoint[]> = new EventEmitter<MapPoint[]>();
-    @Output() addCircles$: EventEmitter<MapPoint[]> = new EventEmitter<MapPoint[]>();
+    @Output() addPoints$: EventEmitter<WsMapPoint[]> = new EventEmitter<WsMapPoint[]>();
+    @Output() addCircles$: EventEmitter<WsMapPoint[]> = new EventEmitter<WsMapPoint[]>();
     @Output() removePoints = new EventEmitter();
-    @Output() showPolygons$: EventEmitter<MapPolygon[]> = new EventEmitter<MapPolygon[]>();
-    @Output() hidePolygons$: EventEmitter<MapPolygon[]> = new EventEmitter<MapPolygon[]>();
+    @Output() showPolygons$: EventEmitter<WsMapPolygon[]> = new EventEmitter<WsMapPolygon[]>();
+    @Output() hidePolygons$: EventEmitter<WsMapPolygon[]> = new EventEmitter<WsMapPolygon[]>();
 
     @Output() panToPoint$: EventEmitter<Point> = new EventEmitter<Point>();
     @Output() fitBounds$: EventEmitter<Point[]> = new EventEmitter<Point[]>();
@@ -98,12 +98,12 @@ export class WsMapService {
     }
 
     // Layers
-    public addLayer(layer: MapLayer) {
+    public addLayer(layer: WsMapLayer) {
         this.layers.push(layer);
         this.addLayer$.emit(layer);
     }
     public removeLayer(layerName: string) {
-        this.layers.forEach((layer: MapLayer) => {
+        this.layers.forEach((layer: WsMapLayer) => {
             if (layer.name == layerName) {
                 this.removeLayer$.emit(layer);
             }
@@ -111,7 +111,7 @@ export class WsMapService {
     }
 
     // Points
-    public showPoints(points: MapPoint[], debug: boolean = false) {
+    public showPoints(points: WsMapPoint[], debug: boolean = false) {
         if (debug) { console.log('map.service: showPoints()', { points }); }
         this.addPoints$.emit(points);
     }
@@ -121,7 +121,7 @@ export class WsMapService {
     }
 
     // Lines
-    public showLines(lines: MapLine[], debug: boolean = false) {
+    public showLines(lines: WsMapLine[], debug: boolean = false) {
         if (debug) { console.log('map.service: showLines()', { lines }); }
         this.addLines.emit(lines);
     }
@@ -131,11 +131,11 @@ export class WsMapService {
     }
 
     // Polygons
-    public showPolygons(polygons: MapPolygon[], debug: boolean = false) {
+    public showPolygons(polygons: WsMapPolygon[], debug: boolean = false) {
         if (debug) { console.log('map.service: showPolygons()', { polygons }); }
         this.showPolygons$.emit(polygons);
     }
-    public hidePolygons(polygons: MapPolygon[], debug: boolean = false) {
+    public hidePolygons(polygons: WsMapPolygon[], debug: boolean = false) {
         if (debug) { console.log('map.service: hidePolygons()', { polygons }); }
         this.hidePolygons$.emit(polygons);
     }

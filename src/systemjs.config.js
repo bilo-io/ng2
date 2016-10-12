@@ -7,7 +7,8 @@
     paths: {
       // paths serve as alias
         'npm:': 'node_modules/',
-        'lib:': 'lib/'  
+        'lib:': 'lib/',  
+        'shared:':'shared/'
     },
     // map tells the System loader where to look for things
     map: {
@@ -25,7 +26,9 @@
       // other libraries
       'rxjs':                       'lib:rxjs',
       'angular2-in-memory-web-api': 'lib:angular2-in-memory-web-api',
-      'leaflet': 'lib:leaflet'
+      'leaflet': 'lib:leaflet',
+      '@ws': 'shared/ws',
+      '@ws/models': 'shared:ws/models.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -44,6 +47,9 @@
         main: 'dist/leaflet',
         defaultExtension: 'js'
       },
+      '@ws': {
+          main: 'all.js'
+      }
     }
   });
 })(this);

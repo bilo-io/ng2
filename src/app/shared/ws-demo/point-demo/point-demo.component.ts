@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
-import { WsPointComponent, WsPoint } from '../../ws/ws-point/ws-point.component';
-import { WsMapComponent } from '../../ws/ws-map/ws-map.component';
-import { WsMapService, MapPoint } from '../../ws/ws-map/ws-map.service';
+import { WsPoint } from '../../ws/models';
+import { WsPointComponent, WsMapComponent } from '../../ws/components';
+import { WsMapService, WsMapPoint } from '../../ws/services';
 
 @Component({
     moduleId: module.id,
@@ -17,6 +17,6 @@ export class PointDemoComponent {
 
     updateLocation(location: WsPoint) {
         console.log('Point Demo: updatingLocation:', location);
-        this.map.showPoints([new MapPoint(location.name, location.point, '#00ADEE')]);
+        this.map.showPoints([new WsMapPoint(location.name, location.point, '#00ADEE')]);
     }
 }

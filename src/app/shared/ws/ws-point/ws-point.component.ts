@@ -3,7 +3,7 @@ import { NgClass } from '@angular/common';
 import { Point } from '../../models/geojson.models';
 import { GeocoderService } from '../../services/geocoder.service';
 import { WsListComponent } from '../ws-list/ws-list.component';
-import { WsItem } from '../ws.models'; 
+import { WsItem } from '../models'; 
 
 export class WsPoint {
     constructor(

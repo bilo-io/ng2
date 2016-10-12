@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WsItem } from '../../ws/ws.models';
+import { WsItem } from '../../ws/models';
 
 @Component({
     moduleId: module.id,
