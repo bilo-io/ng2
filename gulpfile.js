@@ -1,3 +1,4 @@
+var packageJson = require('./package.json');
 var gulp = require('gulp');
 var zip = require('gulp-zip');
 var gulpSass = require('gulp-sass');
@@ -111,31 +112,6 @@ gulp.task('typings', function () {
 
     return gulp.src('typings/**')
         .pipe(gulp.dest(typingsDestination));
-});
-
-// var electron = require('gulp-electron');
-// var packageJson = require('./package.json');
-
-gulp.task('electron', function(cb) {            
-    gulp.src("")
-        .pipe(electron({
-            src: './dist/app',
-            packageJson: packageJson,
-            release: './release',
-            cache: './cache',
-            version: 'v0.37.4',
-            packaging: true,
-            platforms: ['win32-ia32'],
-            platformResources: {                
-                win: {
-                    "version-string": packageJson.version,
-                    "file-version": packageJson.version,
-                    "product-version": packageJson.version,
-                    "icon": 'gulp-electron.ico'
-                }
-            }
-        }))
-        .pipe(gulp.dest(""));
 });
 
 gulp.task('package', function (cb) {
