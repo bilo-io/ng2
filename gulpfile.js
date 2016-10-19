@@ -95,9 +95,7 @@ gulp.task('libs', function (cb) {
         '@angular/**',
         '@angular2-material/**',
         'leaflet/**',
-        'angular2-materialize/**',
-        'materialize-css/**',
-        'materialize/**',
+        'firebase/**',
         'core-js/**'
     ], { cwd: 'node_modules/**' }) /* Glob required here. */
         .pipe(gulp.dest(libFolder));
