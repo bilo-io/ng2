@@ -2,7 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { PrincipalService } from '../../api/principal.service';
 import { WsPoint } from '../../shared/ws/models';
 import * as firebase from 'firebase';
-
+// import template from './home.component.html';
+    
 @Component({
     moduleId: module.id,
     selector: 'home',
