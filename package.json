@@ -42,6 +42,7 @@
     "gulp-tslint": "^6.1.1",
     "gulp-typescript": "^2.13.6",
     "gulp-zip": "^3.2.0",
+    "jspm": "^0.16.46",
     "lite-server": "^2.2.2",
     "run-sequence": "^1.2.2",
     "systemjs-builder": "^0.15.32",
