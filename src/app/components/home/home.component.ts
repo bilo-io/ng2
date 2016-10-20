@@ -1,7 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { PrincipalService } from '../../api/principal.service';
 import { WsPoint } from '../../shared/ws/models';
-import * as firebase from 'firebase';
 // import template from './home.component.html';
     
 @Component({
@@ -18,16 +17,5 @@ export class HomeComponent {
     }
 
     ngOnInit() {
-        this.initFirebase();
     }   
-    
-    initFirebase() {
-        var fbApp = firebase.initializeApp({
-            databaseURL: 'https://hermes-68424.firebaseio.com'
-        });
-        var alertsRef = firebase.database(fbApp).ref('alerts');
-        alertsRef.on('value', (snapshot) => {
-            console.log(snapshot.val());
-        })
-    }
 }

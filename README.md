@@ -1,17 +1,31 @@
 # Angular 2
 
-This is a basic starter project using [Angular 2](https://angular.io/), [Gulp](http://gulpjs.com/) & [Sass](http://sass-lang.com/). 
+This is a basic starter project using the following technologies:
+- [Angular 2](https://angular.io/)
+- [JSPM](https://jspm.io)
+- [Gulp](http://gulpjs.com/)
+- [Sass](http://sass-lang.com/). 
 
 Clone this repo for any new project you build, rather than always starting from scratch.
 
-## How to get it:
+## Setup:
 
-- `git clone https://bitbucket.org/blwabona/angular2.git`
+- `git clone https://bitbucket.org/blwabona/ng2.git`
+
+You need global Gulp & JSPM:
+
+- `npm install -g gulp`
+- `npm install -g jspm`
 - `npm install`
+- `jspm install`
 
 ## Build, Run and other commands
 
-**Note:** The default commands are for **development** and require an additional parameter `--prod` to target production. For example, to create the **distribution** build in the `dist` folder, simply append `--prod` to every command (e.g. `gulp build --prod` builds`dist` folder for the production release, whereas `gulp build` only compiles everything in the **source** or `src` folder).
+**Note:** The default commands are for **development** and require an additional parameter `--prod` to target production. 
+
+For example, to create the **distribution** build in the `dist` folder, simply append `--prod` to every command (e.g. `gulp build --prod` builds`dist` folder for the production release.
+
+On the other hand, `gulp build` only compiles everything in the **source** or `src` folder).
 
 - `gulp build`
 - `gulp dev`
@@ -47,20 +61,29 @@ In the `src` directory, we have:
 
 Packages are usually added via [NPM](https://www.npmjs.com/) or [JSPM](http://jspm.io/):
 
+NPM:
 - `npm install {packageName} --save`
+
+JSPM:
+- `jspm install npm:{packageName}`
+- `jspm install github:{packageName}`
 
 Since SystemJS is used for loading modules, the following is required for installed packages:
 
 In `systemjs.config.js` in the root
 
 1. add the npm directory to `map`:
-        map: {
+```json
+    map: {
         '{packageName}': 'node_modules/{packageName}'
-        }
-1. add it to `packages`:
+    }
+```
+2. add it to `packages`:
+```json
         packages: {
             '{packageName}' : {
                 defaultExtension: 'js',
                 main: 'index.js'
             }
         }
+```

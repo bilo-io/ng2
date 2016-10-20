@@ -3,6 +3,7 @@ dist
 src/app/**/*.js
 src/app/**/*.js.map
 src/lib
+src/libs
 node_modules
 jspm_packages
 bower_components
