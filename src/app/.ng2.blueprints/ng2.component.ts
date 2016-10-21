@@ -7,5 +7,5 @@ import template from './ng-component.component.html!text';
     styleUrls: [ 'ng-component.component.css']
 })
 export class NgComponent {
-    constructor() {}
+    constructor() {} 
 }
