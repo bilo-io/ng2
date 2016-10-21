@@ -20,11 +20,16 @@ import { GeocoderService } from './shared/services/geocoder.service';
 import { TapiService } from './api/tapi/tapi.service';
 // Routing
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'ws', component: WsDemoComponent },
-    { path: 'map', component: MapComponent },
-    { path: 'home', component: HomeComponent },
-    { path: '**', component: NotFoundComponent }
+    {
+        path: '',
+        children: [
+            { path: '', component: HomeComponent },
+            { path: 'ws', component: WsDemoComponent },
+            { path: 'map', component: MapComponent },
+            { path: 'home', component: HomeComponent },
+            { path: '**', component: NotFoundComponent }
+        ]
+    }
 ];
 
 @NgModule({
