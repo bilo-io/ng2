@@ -6,11 +6,11 @@ import { RouterModule, Routes } from '@angular/router';
 // Ws Component Library
 import { WsModule } from './shared/ws/ws.module';
 import { WsDemoModule } from './shared/ws-demo/ws-demo.module';
+import { WsDemoComponent } from './shared/ws-demo/ws-demo.component';
 // App Components
 import { AppComponent }   from './app.component';
 import { MapComponent } from './components/map/map.component';
 import { HomeComponent } from './components/home/home.component';
-import { WsDemoComponent } from './shared/ws-demo/ws-demo.component';
 // App Services
 import { AppService } from './app.service';
 import { ApiService } from './api/api.service';
