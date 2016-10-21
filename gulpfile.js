@@ -19,6 +19,7 @@ var history = require('connect-history-api-fallback');
 var tsFiles = [
     'src/**/*.ts',
     '!src/lib/**/*.ts',
+    '!src/libs/**/*.ts',
     '!src/typings',
     '!node_modules',
     '!typings',

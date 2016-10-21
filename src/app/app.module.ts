@@ -11,6 +11,7 @@ import { WsDemoComponent } from './shared/ws-demo/ws-demo.component';
 import { AppComponent }   from './app.component';
 import { MapComponent } from './components/map/map.component';
 import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 // App Services
 import { AppService } from './app.service';
 import { ApiService } from './api/api.service';
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'ws', component: WsDemoComponent },
     { path: 'map', component: MapComponent },
-    { path: 'home', component: HomeComponent }
+    { path: 'home', component: HomeComponent },
+    { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
@@ -39,6 +41,7 @@ const appRoutes: Routes = [
         AppComponent,
         MapComponent,
         HomeComponent,
+        NotFoundComponent,
     ],
     providers: [
         AppService,
