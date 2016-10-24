@@ -14,8 +14,7 @@ Clone this repo for any new project you build, rather than always starting from 
 
 You need global Gulp & JSPM:
 
-- `npm install -g gulp`
-- `npm install -g jspm`
+- `npm install -g gulp jspm`
 - `npm install`
 - `jspm install`
 
