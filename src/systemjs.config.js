@@ -26,7 +26,9 @@
       // other libraries
       'rxjs':                       'lib:rxjs',
       'angular2-in-memory-web-api': 'lib:angular2-in-memory-web-api',
-      'leaflet': 'lib:leaflet',
+      // 'leaflet': 'lib:leaflet',
+      'firebase': 'lib:firebase',
+      'text' : 'lib:systemjs-plugin-text/text.js',
       '@ws': 'shared/ws',
       '@ws/models': 'shared:ws/models.js'
     },
@@ -43,8 +45,12 @@
         main: './index.js',
         defaultExtension: 'js'
       },
-      'leaflet': {
-        main: 'dist/leaflet',
+      // 'leaflet': {
+      //   main: 'dist/leaflet',
+      //   defaultExtension: 'js'
+      // },
+      'firebase': {
+        main: 'firebase.js',
         defaultExtension: 'js'
       },
       '@ws': {

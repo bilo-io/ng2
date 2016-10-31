@@ -19,6 +19,7 @@ var history = require('connect-history-api-fallback');
 var tsFiles = [
     'src/**/*.ts',
     '!src/lib/**/*.ts',
+    '!src/libs/**/*.ts',
     '!src/typings',
     '!node_modules',
     '!typings',
@@ -95,9 +96,7 @@ gulp.task('libs', function (cb) {
         '@angular/**',
         '@angular2-material/**',
         'leaflet/**',
-        'angular2-materialize/**',
-        'materialize-css/**',
-        'materialize/**',
+        'firebase/**',
         'core-js/**'
     ], { cwd: 'node_modules/**' }) /* Glob required here. */
         .pipe(gulp.dest(libFolder));
