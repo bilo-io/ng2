@@ -1,11 +1,12 @@
 # Angular 2
 
 This is a basic starter project using the following technologies:
-- [Angular 2](https://angular.io/)
-- [JSPM](https://jspm.io)
-- [Gulp](http://gulpjs.com/)
-- [Sass](http://sass-lang.com/). 
-- [MaterializeCSS](http://materializecss.com/media-css.html)
+- [**Angular 2** (frontend framework)](https://angular.io/)
+- [**JSPM** (package manager)](https://jspm.io)
+- [**Gulp** (task runner)](http://gulpjs.com/)
+- [**Sass** (CSS precompiler)](http://sass-lang.com/) 
+- [**MaterializeCSS** (style& grid)](http://materializecss.com/media-css.html)
+- [**Jasmine** (unit testing)](https://jasmine.github.io/)
 
 Clone this repo for any new project you build, rather than always starting from scratch.
 

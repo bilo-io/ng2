@@ -24,10 +24,6 @@ echo "------------"
 # typescript -v
 # echo "------------"
 
-echo "TSC:"
-tsc -v
-echo "------------"
-
 echo "Typings:"
 typings -v
 echo "------------------------------"
