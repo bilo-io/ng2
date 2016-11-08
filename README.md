@@ -5,6 +5,7 @@ This is a basic starter project using the following technologies:
 - [JSPM](https://jspm.io)
 - [Gulp](http://gulpjs.com/)
 - [Sass](http://sass-lang.com/). 
+- [MaterializeCSS](http://materializecss.com/media-css.html)
 
 Clone this repo for any new project you build, rather than always starting from scratch.
 
