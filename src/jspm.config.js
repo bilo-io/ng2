@@ -35,6 +35,7 @@ System.config({
     "reflect-metadata": "npm:reflect-metadata@0.1.8",
     "rxjs": "npm:rxjs@5.0.0-beta.12",
     "systemjs": "npm:systemjs@0.19.27",
+    "systemjs-plugin-text": "npm:systemjs-plugin-text@0.0.9",
     "typescript": "npm:typescript@1.8.10",
     "zone.js": "npm:zone.js@0.6.26",
     "github:jspm/nodelibs-assert@0.1.0": {
