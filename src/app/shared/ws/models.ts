@@ -1,4 +1,5 @@
 import { Point } from '../models/geojson.models';
+import { WsMapPoint, WsMapLayer, WsMapLine, WsMapPolygon } from './ws-map/ws-map.models';
 
 export class WsBBox {
     constructor(

@@ -1,6 +1,8 @@
 import { Component, Inject, Input, Output } from '@angular/core';
 import { Point, LineString, Polygon } from '../../models/geojson.models';
-import { WsMapService, WsMapState, WsMapPoint, WsMapLine, WsMapPolygon, WsMapLayer, WsMapLayerType } from './ws-map.service';
+import { WsMapService } from './ws-map.service';
+import { WsMapState, WsMapPoint, WsMapLine, WsMapPolygon, WsMapLayer, WsMapLayerType } from './ws-map.models';
+
 import * as L from 'leaflet';
 
 @Component({
@@ -153,10 +155,10 @@ export class WsMapComponent {
         });
 
         // Map Actions
-        this.mapService.panToPoint$.subscribe((point: Point) => {
+        this.mapService.updateCenter.subscribe((point: Point) => {
             this.panTo(point);
         });
-        this.mapService.fitBounds$.subscribe((points: Point[]) => {
+        this.mapService.updateBounds$.subscribe((points: Point[]) => {
             console.log('map.component: TODO => create fitBounds() event handler');
         });
 
@@ -347,7 +349,7 @@ export class WsMapComponent {
         };
         this.mapBounds = this.map.getBounds();
         localStorage.setItem('wingman-map-bounds', this.mapBounds.toBBoxString());
-        this.mapService.moved$.emit(mapBounds);
+        this.mapService.didMove$.emit(mapBounds);
     }
 
     panTo(point: Point) {
