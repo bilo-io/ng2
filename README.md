@@ -24,7 +24,7 @@ You need global Gulp & JSPM:
 
 **Note:** The default commands are for **development** and require an additional parameter `--prod` to target production. 
 
-For example, to create the **distribution** build in the `dist` folder, simply append `--prod` to every command (e.g. `gulp build --prod` builds`dist` folder for the production release.
+For example, to create the **distribution** (production) build in the `dist` folder, simply append `--prod` to every command (e.g. `gulp build --prod` builds the `dist` folder for the production release.
 
 On the other hand, `gulp build` only compiles everything in the **source** or `src` folder).
 
