@@ -22,14 +22,18 @@ You need global Gulp & JSPM:
 
 ## Build, Run and other commands
 
-**Note:** The default commands are for **development** and require an additional parameter `--prod` to target production. 
-
+**NOTE:** The default commands are all for **development** and require an additional parameter `--prod` to target the production build. 
 For example, to create the **distribution** (production) build in the `dist` folder, simply append `--prod` to every command (e.g. `gulp build --prod` builds the `dist` folder for the production release.
-
 On the other hand, `gulp build` only compiles everything in the **source** or `src` folder).
 
-- `gulp build`
-- `gulp dev`
+Gulp tasks:
+
+|Gulp task   | Description|
+|------------|------------|
+|`gulp build`|compiles the `.js` from `.ts` and the `.css` from the `.scss`|
+|`gulp dev`  |continuously compiles the `.ts`, `.scss`, watches for file changes, and serves the application|
+|`gulp test`| Runs unit tests|
+|`gulp tdd`| **T**est **D**riven **D**evelopment: Runs `gulp dev` and with each file change unit tests are run.| 
 
 ## Project & Build Structure
 
