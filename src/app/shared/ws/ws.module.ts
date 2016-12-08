@@ -9,9 +9,6 @@ import { WsMapService } from './ws-map/ws-map.service';
 import { WsSidenavService } from './ws-sidenav/ws-sidenav.service';
 // Ws Components
 import { WsAutocompleteComponent } from './ws-autocomplete/ws-autocomplete.component';
-import { WsBBoxComponent } from './ws-bbox/ws-bbox.component';
-import { WsCheckboxComponent } from './ws-checkbox/ws-checkbox.component';
-import { WsDateTimeComponent } from './ws-datetime/ws-datetime.component';
 import { WsListComponent } from './ws-list/ws-list.component';
 import { WsInputComponent } from './ws-input/ws-input.component';
 import { WsLoaderComponent } from './ws-loader/ws-loader.component';
@@ -37,9 +34,6 @@ export const WsServices = [
 ];
 export const WsComponents = [
     WsAutocompleteComponent,
-    WsBBoxComponent,
-    WsCheckboxComponent,
-    WsDateTimeComponent,
     WsInputComponent,
     WsListComponent,
     WsLoaderComponent,
@@ -84,9 +78,6 @@ export * from './ws-sidenav/ws-sidenav.service';
 // export * from './ws-modal/ws-modal.service';
 // Components
 export { WsAutocompleteComponent } from './ws-autocomplete/ws-autocomplete.component';
-export { WsBBoxComponent } from './ws-bbox/ws-bbox.component';
-export { WsCheckboxComponent } from './ws-checkbox/ws-checkbox.component';
-export { WsDateTimeComponent } from './ws-datetime/ws-datetime.component';
 export { WsListComponent } from './ws-list/ws-list.component';
 export { WsInputComponent } from './ws-input/ws-input.component';
 export { WsLoaderComponent } from './ws-loader/ws-loader.component';

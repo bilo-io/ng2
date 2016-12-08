@@ -27,7 +27,7 @@
     "gulp-typescript": "^2.13.6",
     "gulp-zip": "^3.2.0",
     "jasmine-core": "^2.5.2",
-    "jspm": "^0.16.46",
+    "jspm": "0.17.0-beta.22",
     "karma": "^1.3.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-firefox-launcher": "^1.0.0",
@@ -35,7 +35,6 @@
     "lite-server": "^2.2.2",
     "run-sequence": "^1.2.2",
     "systemjs-builder": "^0.15.32",
-    "systemjs-plugin-text": "0.0.9",
     "tslint": "^3.15.1",
     "typescript": "^2.0.2",
     "typings": "^1.3.2",
@@ -64,6 +63,9 @@
       "rxjs": "npm:rxjs@5.0.0-beta.12",
       "systemjs": "npm:systemjs@0.19.27",
       "systemjs-plugin-text": "npm:systemjs-plugin-text@^0.0.9",
+      "systemjs/plugin-css": "github:systemjs/plugin-css@^0.1.32",
+      "systemjs/plugin-text": "github:systemjs/plugin-text@^0.0.9",
+      "text": "github:systemjs/plugin-text@0.0.9",
       "zone.js": "npm:zone.js@^0.6.23"
     },
     "devDependencies": {

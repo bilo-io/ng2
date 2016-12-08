@@ -1,15 +1,14 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { WsListComponent } from '../ws-list/ws-list.component';
 import { WsItem } from '../models';
+import template from './ws-autocomplete.component.html!text';
+import style from './ws-autocomplete.component.css!text';
+import wsStyle from '../scss/ws.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'ws-autocomplete',
-    templateUrl: 'ws-autocomplete.component.html',
-    styleUrls: [
-        'ws-autocomplete.component.css',
-        '../scss/ws.css'
-    ]
+    template: template,
+    style: [ style, wsStyle ]
 })
 export class WsAutocompleteComponent {
     @Input() noResultText: string = 'No items match your query';

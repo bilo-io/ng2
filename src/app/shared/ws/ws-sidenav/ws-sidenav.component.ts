@@ -3,15 +3,14 @@ import { Router } from '@angular/router';
 import { WsSidenavService } from './ws-sidenav.service';
 import { AppService } from '../../../app.service';
 import { WsItem } from '../models';
+import template from './ws-sidenav.component.html!text';
+import style from './ws-sidenav.component.css!text';
+import wsStyle from '../scss/ws.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'ws-sidenav',
-    templateUrl: 'ws-sidenav.component.html',
-    styleUrls: [
-        'ws-sidenav.component.css',
-        '../scss/ws.css'
-    ]
+    template,
+    styles: [ style, wsStyle ]
 })
 export class WsSidenavComponent {
     @Input() private wsItems: WsItem[] = [];

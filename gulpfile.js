@@ -68,7 +68,7 @@ gulp.task('ts', function () {
 
     return gulp.src(tsFiles)
         .pipe(sourcemaps.init())
-        .pipe(ts(tsConfig.compilerOptions))//tsConfig.compilerOptions))
+        .pipe(ts(tsConfig.compilerOptions))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(destinationFolder));
 });
@@ -109,7 +109,7 @@ gulp.task('typings', function () {
         typingsDestination = 'dist/typings';
     }
 
-    return gulp.src('typings/**')
+    return gulp.src('/src/typings/**')
         .pipe(gulp.dest(typingsDestination));
 });
 

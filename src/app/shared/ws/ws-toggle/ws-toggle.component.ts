@@ -1,13 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import template from './ws-toggle.component.html!text';
+import style from './ws-toggle.component.css!text';
+import wsStyle from '../scss/ws.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'ws-toggle',
-    templateUrl: 'ws-toggle.component.html',
-    styleUrls: [
-        'ws-toggle.component.css',
-        '../scss/ws.css'
-    ]
+    template,
+    styleUrls: [ style, wsStyle ]
 })
 export class WsToggleComponent {
     @Input() wsName: string;

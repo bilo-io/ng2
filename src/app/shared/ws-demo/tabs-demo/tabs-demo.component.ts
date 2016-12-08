@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { WsItem } from '../../ws/models';
 import { WsTabsComponent } from '../../ws/components';
+import template from './tabs-demo.component.html!text';
+import style from './tabs-demo.component.css!text';
+import wsDemoStyle from '../ws-demo.component.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'tabs-demo',
-    templateUrl: 'tabs-demo.component.html',
-    styleUrls: [
-        'tabs-demo.component.css',
-        '../ws-demo.component.css'
-    ]
+    template,
+    styles: [ style, wsDemoStyle ]
 })
 export class TabsDemoComponent {
     public tabs: WsItem[] = [];

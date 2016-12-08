@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { WsItem, WsAutocompleteComponent } from '../../ws/all';
+import template from './autocomplete-demo.component.html!text';
+import style from './autocomplete-demo.component.css!text'; 
+import wsDemoStyle from '../ws-demo.component.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'autocomplete-demo',
-    templateUrl: 'autocomplete-demo.component.html',
-    styleUrls: [
-        'autocomplete-demo.component.css',
-        '../ws-demo.component.css'
-    ]
+    template,
+    styles: [ style, wsDemoStyle ]
 })
 export class AutocompleteDemoComponent {
     public items: WsItem[] = [];

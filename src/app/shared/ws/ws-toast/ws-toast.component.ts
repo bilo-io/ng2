@@ -1,14 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { WsToastService, WsToast } from './ws-toast.service';
-
+import template from './ws-toast.component.html!text';
+import style from './ws-toast.component.css!text';
+import wsStyle from '../scss/ws.css!text' ;
 @Component({
-    moduleId: module.id,
     selector: 'ws-toast',
-    templateUrl: 'ws-toast.component.html',
-    styleUrls: [
-        'ws-toast.component.css',
-        '../scss/ws.css'
-    ]
+    template,
+    styles: [ style, wsStyle ]
 })
 export class WsToastComponent {
     @Input() message: string;

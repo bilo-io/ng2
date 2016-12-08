@@ -4,15 +4,14 @@ import { WsSidenavComponent } from '../ws-sidenav/ws-sidenav.component';
 import { WsSelectComponent } from '../ws-select/ws-select.component';
 import { WsItem } from './../models';
 import { AppService } from '../../../app.service';
+import template from './ws-navbar.component.html!text';
+import style from './ws-navbar.component.css!text';
+import wsStyle from '../scss/ws.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'ws-navbar',
-    templateUrl: 'ws-navbar.component.html',
-    styleUrls: [
-        'ws-navbar.component.css',
-        '../scss/ws.css'
-    ]
+    template,
+    styles: [ style, wsStyle ]
 })
 export class WsNavbarComponent {
     @Input() wsName: string = 'Navbar';

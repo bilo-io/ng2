@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { WsSwitchComponent } from '../../ws/components';
 import { Mode } from '../../../api/tapi/tapi.models';
+import template from './testing.component.html!text';
+import style from './testing.component.css!text';
+import wsDemoStyle from '../ws-demo.component.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'testing',
-    templateUrl: 'testing.component.html',
-    styleUrls: [
-        'testing.component.css',
-        '../ws-demo.component.css'
-    ]
+    template,
+    styles: [ style, wsDemoStyle ]
 })
 export class TestingComponent {
 

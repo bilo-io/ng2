@@ -1,10 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import template from './ws-input.component.html!text';
+import style from './ws-input.component.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'ws-input',
-    templateUrl: 'ws-input.component.html',
-    styleUrls: [ 'ws-input.component.css']
+    template,
+    styles: [ style ]
 })
 export class WsInputComponent {
     

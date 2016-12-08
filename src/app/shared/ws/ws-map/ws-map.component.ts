@@ -2,17 +2,15 @@ import { Component, Inject, Input, Output } from '@angular/core';
 import { Point, LineString, Polygon } from '../../models/geojson.models';
 import { WsMapService } from './ws-map.service';
 import { WsMapState, WsMapPoint, WsMapLine, WsMapPolygon, WsMapLayer, WsMapLayerType } from './ws-map.models';
-
+import template from './ws-map.component.html!text';
+import style from './ws-map.component.css!text';
+import wsStyle from '../scss/ws.css!text';
 import * as L from 'leaflet';
 
 @Component({
-    moduleId: module.id,
     selector: 'ws-map',
-    templateUrl: 'ws-map.component.html',
-    styleUrls: [
-        'ws-map.component.css',
-        '../scss/ws.css'
-    ]
+    template: template,
+    styles: [ style, wsStyle ]
 })
 export class WsMapComponent {
     @Input() mapStyle: string;

@@ -1,7 +1,4 @@
 export { WsAutocompleteComponent } from './ws-autocomplete/ws-autocomplete.component';
-export { WsBBoxComponent } from './ws-bbox/ws-bbox.component';
-export { WsCheckboxComponent } from './ws-checkbox/ws-checkbox.component';
-export { WsDateTimeComponent } from './ws-datetime/ws-datetime.component';
 export { WsListComponent } from './ws-list/ws-list.component';
 export { WsInputComponent } from './ws-input/ws-input.component';
 export { WsLoaderComponent } from './ws-loader/ws-loader.component';

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-// import template from 'not-found.component.html!text';
+import template from './not-found.component.html!text';
+import style from './not-found.component.css!text';
+
 @Component({
-    moduleId: module.id,
     selector: 'not-found',
-    templateUrl: 'not-found.component.html',
-    // template,
-    styleUrls: ['not-found.component.css']
+    template,
+    styles: [ style ]
 })
 export class NotFoundComponent {
     constructor() {

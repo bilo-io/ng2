@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { WsLoaderComponent } from '../../ws/components';
+import template from './loader-demo.component.html!text';
+import style from './loader-demo.component.css!text';
+import wsDemoStyle from '../ws-demo.component.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'loader-demo',
-    templateUrl: 'loader-demo.component.html',
-    styleUrls: [
-        'loader-demo.component.css',
-        '../ws-demo.component.css'
-    ]
+    template,
+    styles: [ style, wsDemoStyle ]
 })
 export class LoaderDemoComponent {
     constructor() { }

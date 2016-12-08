@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { WsItem } from '../../ws/models';
 import { WsSelectComponent } from '../../ws/components';
+import template from './select-demo.component.html!text';
+import style from './select-demo.component.css!text';
+import wsDemoStyle from '../ws-demo.component.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'select-demo',
-    templateUrl: 'select-demo.component.html',
-    styleUrls: [
-        'select-demo.component.css',
-        '../ws-demo.component.css'
-    ]
+    template,
+    styles: [ style, wsDemoStyle ]
 })
 export class SelectDemoComponent {
     public items: WsItem[] = [];

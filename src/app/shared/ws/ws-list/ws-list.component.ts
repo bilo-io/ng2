@@ -1,15 +1,13 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { WsItem } from '../models';
-
+import template from './ws-list.component.html!text';
+import style from './ws-list.component.css!text';
+import wsStyle from '../scss/ws.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'ws-list',
-    templateUrl: 'ws-list.component.html',
-    styleUrls: [
-        'ws-list.component.css',
-        '../scss/ws.css'
-    ]
+    template,
+    styles: [ style, wsStyle ]
 })
 export class WsListComponent {
     

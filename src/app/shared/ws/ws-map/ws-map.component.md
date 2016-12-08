@@ -14,12 +14,13 @@ To start using the map, you need to import it into the respective Angular 2 Comp
 import { Component } from '@angular/core'
 import { MapComponent } from 'path-to-map/map.component'
 import { WsMapService, WsMapPoint, WsMapLine } from 'path/to/map/ws-map.component'
+import template from './text.component.html!text';
+import style from './text.component.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'test',
-    templateUrl: 'test.component.html',
-    styleUrls: ['test.component.css']
+    template,
+    styles: [ style ]
 })
 export class TestComponent {
     constructor(@Inject(WsMapService) private map: WsMapService) { }

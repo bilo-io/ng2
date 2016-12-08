@@ -1,13 +1,12 @@
 import { Component, Input } from '@angular/core';
+import template from './ws-loader.component.html!text';
+import style from './ws-loader.component.css!text';
+import wsStyle from '../scss/ws.css!text';
 //http://projects.lukehaas.me/css-loaders/
 @Component({
-    moduleId: module.id,
     selector: 'ws-loader',
-    templateUrl: 'ws-loader.component.html',
-    styleUrls: [
-        'ws-loader.component.css',
-        '../scss/ws.css'
-    ]
+    template,
+    styles: [ style, wsStyle ]
 })
 export class WsLoaderComponent {
     @Input() color: string;

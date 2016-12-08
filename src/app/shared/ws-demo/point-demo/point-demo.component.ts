@@ -2,15 +2,14 @@ import { Component, Inject } from '@angular/core';
 import { WsPoint } from '../../ws/models';
 import { WsPointComponent, WsMapComponent } from '../../ws/components';
 import { WsMapService, WsMapPoint } from '../../ws/services';
+import template from './point-demo.component.html!text';
+import style from './point-demo.component.css!text';
+import wsDemoStyle from '../ws-demo.component.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'point-demo',
-    templateUrl: 'point-demo.component.html',
-    styleUrls: [
-        'point-demo.component.css',
-        '../ws-demo.component.css'
-    ]
+    template,
+    styles: [ style, wsDemoStyle ]
 })
 export class PointDemoComponent {
     constructor( @Inject(WsMapService) public map: WsMapService) { }

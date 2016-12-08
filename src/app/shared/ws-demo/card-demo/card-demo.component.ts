@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
+import template from './card-demo.component.html!text';
+import style from './card-demo.component.css!text';
+import wsDemoStyle from '../ws-demo.component.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'card-demo',
-    templateUrl: 'card-demo.component.html',
-    styleUrls: [
-        'card-demo.component.css',
-        '../ws-demo.component.css'
-    ]
+    template,
+    styles: [ style, wsDemoStyle ]
 })
 export class CardDemoComponent {
     constructor() { }

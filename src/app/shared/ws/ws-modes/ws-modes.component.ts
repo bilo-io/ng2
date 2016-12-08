@@ -1,5 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgClass } from '@angular/common';
+import template from './ws-modes.component.html!text';
+import style from './ws-modes.component.css!text';
+import wsStyle from '../scss/ws.css!text';
 
 export class WsModeItem {
     constructor(
@@ -9,13 +12,9 @@ export class WsModeItem {
         public color: string) { }
 }
 @Component({
-    moduleId: module.id,
     selector: 'ws-modes',
-    templateUrl: 'ws-modes.component.html',
-    styleUrls: [
-        'ws-modes.component.css',
-        '../scss/ws.css'
-    ]
+    template,
+    styles: [ style, wsStyle ]
 })
 export class WsModesComponent {
     @Input() wsName: string = 'Modes';

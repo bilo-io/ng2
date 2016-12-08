@@ -4,6 +4,10 @@ import { Point } from '../../models/geojson.models';
 import { GeocoderService } from '../../services/geocoder.service';
 import { WsListComponent } from '../ws-list/ws-list.component';
 import { WsItem } from '../models'; 
+import template from './ws-point.component.html!text';
+import style from './ws-point.component.css!text';
+import wsStyle from '../scss/ws.css!text';
+import materialize from '../scss/materialize.css!text';
 
 export class WsPoint {
     constructor(
@@ -12,14 +16,9 @@ export class WsPoint {
     }
 }
 @Component({
-    moduleId: module.id,
     selector: 'ws-point',
-    templateUrl: 'ws-point.component.html',
-    styleUrls: [
-        'ws-point.component.css',
-        '../scss/ws.css',
-        '../scss/materialize.css'
-    ]
+    template,
+    styles: [ style, wsStyle, materialize ]
 })
 export class WsPointComponent {
     

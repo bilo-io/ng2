@@ -27,7 +27,7 @@
       'rxjs':                       'lib:rxjs',
       'angular2-in-memory-web-api': 'lib:angular2-in-memory-web-api',
       // 'leaflet': 'lib:leaflet',
-      'firebase': 'lib:firebase',
+      'firebase': 'lib:firebase', 
       'text' : 'lib:systemjs-plugin-text/text.js',
       '@ws': 'shared/ws',
       '@ws/models': 'shared:ws/models.js'
@@ -36,7 +36,7 @@
     packages: {
       app: {
         main: './main.js',
-        defaultExtension: 'js'
+        defaultExtension: 'js' 
       },
       rxjs: {
         defaultExtension: 'js'

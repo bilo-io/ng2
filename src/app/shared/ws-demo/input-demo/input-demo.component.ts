@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import template from './input-demo.component.html!text';
+import style from './input-demo.component.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'input-demo',
-    templateUrl: 'input-demo.component.html',
-    styleUrls: [ 'input-demo.component.css']
+    template,
+    styles: [ style ]
 })
 export class InputDemoComponent {
     public textModel: string = 'textModelValue';

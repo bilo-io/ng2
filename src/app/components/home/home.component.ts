@@ -1,16 +1,14 @@
 import { Component, Inject } from '@angular/core';
 import { PrincipalService } from '../../api/principal.service';
 import { WsPoint } from '../../shared/ws/models';
-// import template from './home.component.html';
-    
+import template from './home.component.html!text';
+import style from './home.component.css!text';
+import wsStyle from '../../shared/ws/scss/ws.css!text';
+
 @Component({
-    moduleId: module.id,
     selector: 'home',
-    templateUrl: 'home.component.html',
-    styleUrls: [
-        'home.component.css',
-        '../../shared/ws/scss/ws.css'
-    ]
+    template,
+    styles: [ style, wsStyle ]
 })
 export class HomeComponent {
     constructor( @Inject(PrincipalService) private principal: PrincipalService) {

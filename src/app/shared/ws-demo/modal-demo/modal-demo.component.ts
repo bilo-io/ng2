@@ -1,14 +1,14 @@
 import { Component, Inject } from '@angular/core';
 import { WsModalService } from '../../ws/services';
 import { WsModalComponent } from '../../ws/components';
+import template from './modal-demo.component.html!text';
+import style from './modal-demo.component.css!text';
+import wsDemoStyle from '../ws-demo.component.css!text';
+
 @Component({
-    moduleId: module.id,
     selector: 'modal-demo',
-    templateUrl: 'modal-demo.component.html',
-    styleUrls: [
-        'modal-demo.component.css',
-        '../ws-demo.component.css'
-    ]
+    template,
+    styles: [ style, wsDemoStyle ]
 })
 export class ModalDemoComponent {
     constructor(@Inject(WsModalService) private modal: WsModalService) { }

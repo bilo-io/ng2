@@ -1,16 +1,15 @@
 import { Component, Inject } from '@angular/core';
 import { WsToastComponent } from '../../ws/components';
 import { WsToastService } from '../../ws/services';
+import template from './toast-demo.component.html!text';
+import style from './toast-demo.component.css!text';
+import wsStyle from '../../ws/scss/ws.css!text';
+import wsDemoStyle from '../ws-demo.component.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'toast-demo',
-    templateUrl: 'toast-demo.component.html',
-    styleUrls: [
-        'toast-demo.component.css',
-        '../ws-demo.component.css',
-        '../../ws/scss/ws.css'
-    ]
+    template,
+    styles: [ style, wsStyle, wsDemoStyle ]
 })
 export class ToastDemoComponent {
     constructor(@Inject(WsToastService) public toaster: WsToastService) {}

@@ -1,14 +1,13 @@
 import { Component, Inject, Input, Output, EventEmitter } from '@angular/core';
 import { WsModalService, WsModalContent } from './ws-modal.service';
+import template from './ws-modal.component.html!text';
+import style from './ws-modal.component.css!text';
+import wsStyle from '../scss/ws.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'ws-modal',
-    templateUrl: 'ws-modal.component.html',
-    styleUrls: [
-        'ws-modal.component.css',
-        '../scss/ws.css'
-    ]
+    template,
+    styles: [ style, wsStyle ]
 })
 export class WsModalComponent {
     private isShowing: boolean = false;

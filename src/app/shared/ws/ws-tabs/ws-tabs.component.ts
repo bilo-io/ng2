@@ -1,15 +1,13 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { WsItem } from '../models';
-
+import template from './ws-tabs.component.html!text';
+import style from './ws-tabs.component.css!text';
+import wsStyle from '../scss/ws.css!text';
 @Component({
-    moduleId: module.id,
     selector: 'ws-tabs',
-    templateUrl: 'ws-tabs.component.html',
-    styleUrls: [
-        'ws-tabs.component.css',
-        '../scss/ws.css'
-    ]
+    template,
+    styles: [ style, wsStyle ]
 })
 export class WsTabsComponent {
     @Input() tabs: WsItem[] = [];

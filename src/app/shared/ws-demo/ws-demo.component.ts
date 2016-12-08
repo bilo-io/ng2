@@ -2,15 +2,13 @@ import { Component, Inject } from '@angular/core';
 import { WsListComponent } from '../../shared/ws/ws-list/ws-list.component';
 import { WsItem } from '../../shared/ws/models';
 import { AppService } from './../../app.service';
+import template from './ws-demo.component.html!text';
+import style from './ws-demo.component.css!text';
 
 @Component({
-    moduleId: module.id,
     selector: 'ws-demo',
-    templateUrl: 'ws-demo.component.html',
-    styleUrls: [
-        'ws-demo.component.css',
-        '../../shared/ws/scss/ws.css'
-    ]
+    template, 
+    styles: [ style ]
 })
 export class WsDemoComponent {
     public demoState: string = 'overview';

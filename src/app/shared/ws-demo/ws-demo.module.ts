@@ -7,8 +7,6 @@ import { WsDemoComponent } from './ws-demo.component';
 import { OverviewComponent } from './overview/overview.component';
 import { AutocompleteDemoComponent } from './autocomplete-demo/autocomplete-demo.component';
 import { CardDemoComponent } from './card-demo/card-demo.component'
-import { BBoxDemoComponent } from './bbox-demo/bbox-demo.component';
-import { DateTimeDemoComponent } from './datetime-demo/datetime-demo.component';
 import { InputDemoComponent } from './input-demo/input-demo.component';
 import { LoaderDemoComponent } from './loader-demo/loader-demo.component';
 import { ModalDemoComponent } from './modal-demo/modal-demo.component';
@@ -29,8 +27,6 @@ import { TestingComponent } from './testing/testing.component';
         OverviewComponent,
         AutocompleteDemoComponent,
         CardDemoComponent,
-        BBoxDemoComponent,
-        DateTimeDemoComponent,
         InputDemoComponent,
         LoaderDemoComponent,
         ModalDemoComponent,

@@ -1,22 +1,13 @@
-import { Component, Input, Output, EventEmitter } from
-'@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { WsItem } from '../models'; 
+import template from './ws-select.component.html!text';
+import style from './ws-select.component.css!text';
+import wsStyle from '../scss/ws.css!text';
 
-// export class WsSelectItem {
-//     constructor(
-//         public name: string,
-//         public value: string,
-//         public isActive: boolean
-//     ) { }
-// }
 @Component({
-    moduleId: module.id,
     selector: 'ws-select',
-    templateUrl: 'ws-select.component.html',
-    styleUrls: [
-        'ws-select.component.css',
-        '../scss/ws.css'
-    ]
+    template,
+    styles: [ style, wsStyle ]
 })
 export class WsSelectComponent {
     // Inputs
