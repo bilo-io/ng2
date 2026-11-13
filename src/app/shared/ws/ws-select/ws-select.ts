@@ -59,6 +59,11 @@ import { WsList } from '../ws-list/ws-list';
     .chevron.open {
       transform: rotate(180deg);
     }
+    @media (prefers-reduced-motion: reduce) {
+      .chevron {
+        transition: none;
+      }
+    }
     .hint {
       color: hsl(var(--muted-foreground));
     }

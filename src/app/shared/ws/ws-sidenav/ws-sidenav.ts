@@ -63,7 +63,7 @@ export class WsSidenavService {
       padding: calc(var(--ws-navbar-height) + 0.75rem) 0.75rem 0.75rem;
       border-right: 1px solid hsl(var(--border));
       background: hsl(var(--card));
-      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      box-shadow: var(--mn-shadow-lg);
       transform: translateX(-105%);
       transition: transform 0.25s var(--ease-out-expo);
     }
