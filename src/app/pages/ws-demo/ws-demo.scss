@@ -1,0 +1,74 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.narrow {
+  max-width: 24rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: 1rem;
+}
+
+.map-box {
+  height: 20rem;
+  border-radius: var(--ws-radius);
+  overflow: hidden;
+}
+
+code {
+  padding: 0 0.25rem;
+  border-radius: 3px;
+  background: var(--ws-surface-2);
+}
+
+.wide-only {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .wide-only {
+    display: block;
+  }
+
+  .narrow-only {
+    display: none;
+  }
+
+  :host {
+    grid-template-columns: 14rem 1fr;
+    align-items: start;
+  }
+
+  .side {
+    position: sticky;
+    top: calc(var(--ws-navbar-height) + 1rem);
+  }
+}
