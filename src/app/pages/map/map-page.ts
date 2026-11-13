@@ -65,7 +65,9 @@ export class MapPage {
   protected readonly themeId = computed(() => resolveMapTheme(this.themeChoice(), this.ui.scheme()));
   protected readonly activeTheme = computed(() => getMapTheme(this.themeId()));
   protected readonly hint = signal('Click the map to drop a start pin.');
-  private view: Pick<MapSettings, 'center' | 'zoom'> | null = null;
+  /** The last view, saved with the other settings. Starts from the saved one so a reload keeps it. */
+  private view: Pick<MapSettings, 'center' | 'zoom'> | null =
+    this.saved.center && this.saved.zoom !== undefined ? { center: this.saved.center, zoom: this.saved.zoom } : null;
 
   constructor() {
     effect(() => {

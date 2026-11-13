@@ -57,3 +57,20 @@ test('the pages have no horizontal scroll', async ({ page }) => {
     expect(overflow, path).toBeLessThanOrEqual(0);
   }
 });
+
+test('a reload keeps the saved view', async ({ page }) => {
+  await page.addInitScript(() => {
+    if (!sessionStorage.getItem('seeded')) {
+      localStorage.setItem('ws-map-settings', JSON.stringify({ theme: 'light', center: [18.4038, -33.9628], zoom: 13 }));
+      sessionStorage.setItem('seeded', '1');
+    }
+  });
+  await page.goto('/map');
+  const map = page.locator('ws-map');
+  await expect(map).toHaveAttribute('data-style', 'Fixture Positron');
+  await page.reload();
+  await expect(map).toHaveAttribute('data-style', 'Fixture Positron');
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('ws-map-settings') ?? '{}'));
+  expect(saved.zoom).toBeCloseTo(13, 0);
+  expect(saved.center[0]).toBeCloseTo(18.4, 1);
+});
