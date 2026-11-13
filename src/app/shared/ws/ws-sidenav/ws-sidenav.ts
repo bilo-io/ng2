@@ -34,6 +34,7 @@ export class WsSidenavService {
             <a
               [routerLink]="item.value"
               routerLinkActive="active"
+              ariaCurrentWhenActive="page"
               [routerLinkActiveOptions]="{ exact: item.value === '/' }"
               (click)="sidenav.close()"
               >{{ item.name }}</a
@@ -48,7 +49,9 @@ export class WsSidenavService {
       position: fixed;
       inset: 0;
       z-index: 30;
-      background: rgb(0 0 0 / 0.45);
+      background: hsl(var(--background) / 0.6);
+      backdrop-filter: blur(4px);
+      animation: fade 0.2s ease-out;
     }
     .drawer {
       position: fixed;
@@ -57,37 +60,53 @@ export class WsSidenavService {
       bottom: 0;
       left: 0;
       width: min(18rem, 85vw);
-      padding-top: var(--ws-navbar-height);
-      background: var(--ws-surface);
-      box-shadow: var(--ws-shadow);
+      padding: calc(var(--ws-navbar-height) + 0.75rem) 0.75rem 0.75rem;
+      border-right: 1px solid hsl(var(--border));
+      background: hsl(var(--card));
+      box-shadow: var(--mn-shadow-lg);
       transform: translateX(-105%);
-      transition: transform 0.2s ease-out;
+      transition: transform 0.25s var(--ease-out-expo);
     }
     .drawer.open {
       transform: none;
     }
     ul {
+      display: grid;
+      gap: 0.125rem;
       margin: 0;
       padding: 0;
       list-style: none;
     }
     a {
-      display: block;
-      padding: 0.9rem 1.25rem;
-      border-left: 4px solid transparent;
-      color: var(--ws-text);
+      display: flex;
+      align-items: center;
+      height: 2.5rem;
+      padding: 0 0.75rem;
+      border-radius: calc(var(--radius) - 2px);
+      color: hsl(var(--muted-foreground));
+      font-size: 0.875rem;
       text-decoration: none;
+      transition: background-color 0.15s, color 0.15s;
     }
     a:hover {
-      background: var(--ws-surface-2);
+      background: hsl(var(--accent) / 0.6);
+      color: hsl(var(--foreground));
     }
     a.active {
-      border-left-color: var(--ws-primary);
-      color: var(--ws-primary-strong);
-      font-weight: 600;
+      background: hsl(var(--accent));
+      color: hsl(var(--accent-foreground));
+      font-weight: 500;
+    }
+    @keyframes fade {
+      from {
+        opacity: 0;
+      }
     }
     @media (prefers-reduced-motion: reduce) {
-      .drawer {
+      .backdrop,
+      .drawer,
+      a {
+        animation: none;
         transition: none;
       }
     }

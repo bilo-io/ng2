@@ -1,0 +1,164 @@
+/*
+ * The app's global styles: Tailwind over the vendored midnite-ui tokens
+ * (src/vendor/midnite-ui/styles/tokens.css and brand.css, loaded before this
+ * file by angular.json). Light by default; dark under `html.dark`, which the
+ * inline script in index.html and UiThemeService set. Colours come only from
+ * the tokens, as `hsl(var(--token))`.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ws-navbar-height: 3.5rem;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Tailwind's shadow-md and shadow-lg, for component styles outside Tailwind. */
+  --mn-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --mn-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.dark {
+  --mn-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --mn-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+}
+
+@layer base {
+  /* As midnite-ui's base: a bare `border` uses the token, not Tailwind's gray. */
+  *,
+  ::before,
+  ::after {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--brand-glow) 35%, transparent);
+  }
+
+  a {
+    @apply underline-offset-4;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  code {
+    @apply rounded bg-muted px-1 py-0.5 font-mono text-[0.85em];
+  }
+}
+
+@layer components {
+  /* midnite Input: the field look shared by ws-input, ws-select, ws-autocomplete and ws-point. */
+  .ws-field {
+    @apply flex h-9 w-full min-w-0 rounded-md border border-input bg-background px-3 py-1 text-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* A frosted surface for chrome that floats over content: the top bar, the map panel. */
+  .mn-glass {
+    @apply border-border/70 bg-card/75 backdrop-blur-md backdrop-saturate-150;
+  }
+
+  /* A soft wash of the brand ramp behind a page, as on bilo.dev and the showcase. */
+  .mn-ambient {
+    background:
+      radial-gradient(
+        48rem 32rem at 15% -10%,
+        color-mix(in srgb, var(--brand-rainbow-0) 16%, transparent),
+        transparent 60%
+      ),
+      radial-gradient(
+        40rem 30rem at 95% 5%,
+        color-mix(in srgb, var(--brand-rainbow-5) 12%, transparent),
+        transparent 60%
+      ),
+      radial-gradient(
+        56rem 40rem at 50% 120%,
+        color-mix(in srgb, var(--brand-rainbow-2) 14%, transparent),
+        transparent 60%
+      );
+  }
+
+  .mn-eyebrow {
+    @apply text-xs font-medium uppercase tracking-wider text-muted-foreground;
+  }
+}
+
+/*
+ * MapLibre's controls, popups and attribution on the tokens. maplibre-gl.css
+ * loads after this file (so Tailwind's preflight cannot reset its buttons),
+ * hence the `:root` prefix to win on specificity.
+ */
+:root .maplibregl-ctrl-group {
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  background: hsl(var(--card) / 0.9);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  overflow: hidden;
+}
+
+:root .maplibregl-ctrl-group button + button {
+  border-top-color: hsl(var(--border));
+}
+
+:root .maplibregl-ctrl-group button:not(:disabled):hover {
+  background-color: hsl(var(--accent));
+}
+
+:root.dark .maplibregl-ctrl-icon {
+  filter: invert(1);
+}
+
+:root .maplibregl-ctrl.maplibregl-ctrl-attrib {
+  background: hsl(var(--card) / 0.75);
+  color: hsl(var(--muted-foreground));
+}
+
+:root .maplibregl-ctrl-attrib a {
+  color: hsl(var(--foreground));
+}
+
+:root.dark .maplibregl-ctrl-attrib-button {
+  filter: invert(1);
+}
+
+:root .maplibregl-ctrl-scale {
+  border-color: hsl(var(--muted-foreground));
+  background: hsl(var(--card) / 0.75);
+  color: hsl(var(--foreground));
+}
+
+:root .maplibregl-popup-content {
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  background: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+  font-size: 0.875rem;
+  box-shadow: var(--mn-shadow);
+}
+
+:root .maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
+  border-top-color: hsl(var(--popover));
+}
+
+:root .maplibregl-popup-anchor-top .maplibregl-popup-tip {
+  border-bottom-color: hsl(var(--popover));
+}
+
+:root .maplibregl-popup-close-button {
+  color: hsl(var(--muted-foreground));
+}

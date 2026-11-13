@@ -1,19 +1,35 @@
 :host {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
   max-width: 64rem;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1.5rem 1rem 3rem;
 }
 
 h1 {
-  margin: 0 0 0.75rem;
-  font-size: 1.25rem;
+  margin: 0.25rem 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
 }
 
 h2 {
-  margin-top: 0;
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.content > p {
+  margin: 0 0 1rem;
+  color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
+}
+
+.content > h2 + div,
+.content > div + p {
+  margin-top: 1rem;
 }
 
 .stack {
@@ -39,14 +55,9 @@ h2 {
 
 .map-box {
   height: 20rem;
-  border-radius: var(--ws-radius);
+  border: 1px solid hsl(var(--border));
+  border-radius: calc(var(--radius) - 2px);
   overflow: hidden;
-}
-
-code {
-  padding: 0 0.25rem;
-  border-radius: 3px;
-  background: var(--ws-surface-2);
 }
 
 .wide-only {
@@ -63,12 +74,19 @@ code {
   }
 
   :host {
-    grid-template-columns: 14rem 1fr;
+    grid-template-columns: 14rem minmax(0, 1fr);
     align-items: start;
+    padding-top: 2rem;
   }
 
   .side {
     position: sticky;
     top: calc(var(--ws-navbar-height) + 1rem);
   }
+}
+
+ws-tabs + p,
+ws-toggle + p {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
 }

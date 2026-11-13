@@ -6,17 +6,19 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="An Angular starter with a MapLibre map: five free map themes and a 3D view.">
-  <meta name="theme-color" content="#00adee">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script>
-    // Set the theme before the first paint, so dark mode does not flash light.
+    // Apply the saved theme before the first paint, so dark mode does not flash light.
+    // Mirrors midnite-ui's themeInitScript: `html.dark` plus color-scheme. Keep the key
+    // and the values in step with UiThemeService.
     (function () {
-      var theme = null;
-      try { theme = localStorage.getItem('ws-ui-theme'); } catch (e) {}
-      if (theme !== 'light' && theme !== 'dark') {
-        theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      }
-      document.documentElement.dataset.theme = theme;
+      var saved = null;
+      try { saved = localStorage.getItem('ws-ui-theme'); } catch (e) {}
+      var resolved = saved === 'light' || saved === 'dark' ? saved
+        : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      var root = document.documentElement;
+      root.classList.toggle('dark', resolved === 'dark');
+      root.style.colorScheme = resolved;
     })();
   </script>
 </head>

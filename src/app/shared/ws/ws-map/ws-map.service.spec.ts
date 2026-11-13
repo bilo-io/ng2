@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { Point } from '../../geojson';
+import { lineString, Point } from '../../geojson';
 import type { WsMapCameraCommand } from './ws-map.models';
 import { WsMapService } from './ws-map.service';
 
@@ -13,6 +13,15 @@ describe('WsMapService', () => {
     expect(service.points()).toHaveLength(1);
     service.clearPoints();
     expect(service.points()).toEqual([]);
+  });
+
+  it('recolours every point and line', () => {
+    const point = new Point([28.18, -25.95]);
+    service.showPoints([{ name: 'Midrand', point, color: 'red' }]);
+    service.showLines([{ color: 'red', line: lineString([[0, 0], [1, 1]]) }]);
+    service.recolour('blue');
+    expect(service.points()[0].color).toBe('blue');
+    expect(service.lines()[0].color).toBe('blue');
   });
 
   it('sends camera moves, but not an empty fitBounds', () => {

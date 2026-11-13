@@ -15,142 +15,21 @@ ws-map {
   z-index: 2;
   top: 0.75rem;
   left: 0.75rem;
-  width: 19rem;
+  width: 20rem;
   // Leave room for the map's zoom and compass buttons on the right.
   max-width: calc(100% - 4.5rem);
   max-height: calc(100% - 4rem);
-  overflow-y: auto;
-  border-radius: var(--ws-radius);
-  background: var(--ws-panel);
-  box-shadow: var(--ws-shadow);
-  backdrop-filter: blur(6px);
 }
 
-.panel-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-  min-height: 2.75rem;
-  padding: 0.5rem 0.9rem;
-  border: 0;
-  background: none;
-  font-weight: 600;
-  text-align: left;
-  cursor: pointer;
-
-  .current {
-    flex: 1;
-    color: var(--ws-muted);
-    font-weight: 400;
-  }
-}
-
-.panel-body {
-  display: grid;
-  gap: 0.6rem;
-  padding: 0 0.9rem 0.9rem;
-
-  &[hidden] {
-    display: none;
-  }
-}
-
-.themes {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.35rem;
+.note {
   margin: 0;
-  padding: 0;
-  border: 0;
-
-  legend {
-    margin-bottom: 0.35rem;
-    padding: 0;
-    color: var(--ws-muted);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
+  color: hsl(var(--muted-foreground));
+  font-size: 0.8125rem;
 }
 
-.theme-option {
-  position: relative;
+.switches {
   display: grid;
-  place-items: center;
-  min-height: 2.5rem;
-  padding: 0.25rem;
-  border: 1px solid var(--ws-border);
-  border-radius: var(--ws-radius);
-  font-size: 0.9rem;
-  cursor: pointer;
-
-  input {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    opacity: 0;
-    cursor: pointer;
-  }
-
-  &.checked {
-    border-color: var(--ws-primary);
-    background: var(--ws-primary);
-    color: var(--ws-primary-contrast);
-    font-weight: 600;
-  }
-
-  &:has(input:focus-visible) {
-    outline: 2px solid var(--ws-primary);
-    outline-offset: 2px;
-  }
-}
-
-.source,
-.hint {
-  margin: 0;
-  color: var(--ws-muted);
-  font-size: 0.85rem;
-}
-
-.group-label {
-  display: block;
-  margin-bottom: 0.35rem;
-  color: var(--ws-muted);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.places {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
-.chip {
-  min-height: 2.25rem;
-  padding: 0.25rem 0.75rem;
-  border: 1px solid var(--ws-border);
-  border-radius: 1.25rem;
-  background: var(--ws-surface);
-  font-size: 0.85rem;
-  cursor: pointer;
-
-  &:hover {
-    border-color: var(--ws-primary);
-  }
-}
-
-.link {
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--ws-primary-strong);
-  text-decoration: underline;
-  cursor: pointer;
+  margin: -0.25rem 0;
 }
 
 @media (max-width: 480px) {

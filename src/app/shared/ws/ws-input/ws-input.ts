@@ -23,10 +23,10 @@ let nextId = 0;
     }
     .ws-input-label {
       display: block;
-      margin-bottom: 0.25rem;
-      color: var(--ws-primary-strong);
-      font-size: 0.85rem;
-      font-weight: 600;
+      margin-bottom: 0.375rem;
+      color: hsl(var(--foreground));
+      font-size: 0.875rem;
+      font-weight: 500;
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

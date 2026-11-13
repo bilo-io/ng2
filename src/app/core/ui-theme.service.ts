@@ -3,10 +3,14 @@ import { DOCUMENT, Injectable, computed, effect, inject, signal } from '@angular
 export type UiScheme = 'light' | 'dark';
 export type UiThemePreference = 'system' | UiScheme;
 
+/** Read by the inline script in index.html too: keep the two in step. */
 export const UI_THEME_STORAGE_KEY = 'ws-ui-theme';
-const ORDER: UiThemePreference[] = ['system', 'light', 'dark'];
+export const UI_THEME_PREFERENCES: readonly UiThemePreference[] = ['light', 'dark', 'system'];
 
-/** The app's light/dark theme: the OS preference unless the user picks one. */
+/**
+ * The app's light/dark theme, applied as midnite-ui expects: the `dark` class on
+ * `<html>` plus `color-scheme`. Follows the OS unless the user picks light or dark.
+ */
 @Injectable({ providedIn: 'root' })
 export class UiThemeService {
   private readonly document = inject(DOCUMENT);
@@ -23,9 +27,11 @@ export class UiThemeService {
   constructor() {
     this.media?.addEventListener('change', (event) => this.systemDark.set(event.matches));
     effect(() => {
+      const scheme = this.scheme();
       const root = this.document.documentElement;
-      root.dataset['theme'] = this.scheme();
-      root.style.colorScheme = this.scheme();
+      root.classList.toggle('dark', scheme === 'dark');
+      root.style.colorScheme = scheme;
+      this.syncThemeColor();
     });
   }
 
@@ -38,9 +44,21 @@ export class UiThemeService {
     }
   }
 
-  /** system → light → dark → system */
-  cycle(): void {
-    this.set(ORDER[(ORDER.indexOf(this.preference()) + 1) % ORDER.length]);
+  /** The browser chrome colour follows the `--background` token. */
+  private syncThemeColor(): void {
+    const root = this.document.documentElement;
+    const background = this.document.defaultView
+      ?.getComputedStyle(root)
+      .getPropertyValue('--background')
+      .trim();
+    if (!background) return;
+    let meta = this.document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    if (!meta) {
+      meta = this.document.createElement('meta');
+      meta.name = 'theme-color';
+      this.document.head.appendChild(meta);
+    }
+    meta.content = `hsl(${background})`;
   }
 }
 

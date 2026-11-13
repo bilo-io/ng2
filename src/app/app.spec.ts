@@ -18,4 +18,13 @@ describe('App', () => {
     const links = [...root.querySelectorAll('nav.links a')].map((a) => a.textContent?.trim());
     expect(links).toEqual(['Home', 'Map', 'Ws components']);
   });
+
+  it('puts the theme menu in the top bar', async () => {
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    const root = fixture.nativeElement as HTMLElement;
+    expect(
+      root.querySelector('header mn-theme-toggle button[aria-label="Toggle theme"]'),
+    ).not.toBeNull();
+  });
 });
