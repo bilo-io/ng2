@@ -2,10 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Ng2</title>
+  <title>ng2</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An Angular starter with a MapLibre map: five free map themes and a 3D view.">
+  <meta name="theme-color" content="#00adee">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    // Set the theme before the first paint, so dark mode does not flash light.
+    (function () {
+      var theme = null;
+      try { theme = localStorage.getItem('ws-ui-theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
 </head>
 <body>
   <app-root></app-root>

@@ -1,1 +1,156 @@
-/* You can add global styles to this file, and also import other style files */
+// Ws theme tokens. Light by default; dark under html[data-theme='dark'],
+// which UiThemeService sets from the OS preference or the navbar toggle.
+:root {
+  --ws-primary: #00adee;
+  --ws-primary-strong: #007fb0;
+  --ws-primary-contrast: #ffffff;
+  --ws-success: #1aaf87;
+  --ws-warning: #e67e00;
+  --ws-error: #d42620;
+
+  --ws-bg: #eef1ef;
+  --ws-surface: #ffffff;
+  --ws-surface-2: #e4e7e9;
+  --ws-text: #1e1e1e;
+  --ws-muted: #5b6470;
+  --ws-border: #cfd5db;
+  --ws-shadow: 0 3px 6px rgb(0 0 0 / 0.16), 0 3px 6px rgb(0 0 0 / 0.23);
+  --ws-panel: rgb(255 255 255 / 0.94);
+
+  --ws-radius: 6px;
+  --ws-navbar-height: 3.5rem;
+  --ws-font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --ws-primary-strong: #4cc8f5;
+  --ws-bg: #1e1e1e;
+  --ws-surface: #252526;
+  --ws-surface-2: #333333;
+  --ws-text: #e4e4e4;
+  --ws-muted: #a9b4c2;
+  --ws-border: #45494f;
+  --ws-shadow: 0 3px 8px rgb(0 0 0 / 0.5);
+  --ws-panel: rgb(37 37 38 / 0.94);
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--ws-bg);
+  color: var(--ws-text);
+  font-family: var(--ws-font);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--ws-primary-strong);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ws-primary);
+  outline-offset: 2px;
+}
+
+// Buttons, carried over from the Angular 2 ws library.
+.ws-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--ws-radius);
+  background: var(--ws-primary);
+  color: var(--ws-primary-contrast);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.08);
+  }
+
+  &.ws-btn-ghost {
+    background: transparent;
+    border-color: var(--ws-border);
+    color: var(--ws-text);
+  }
+
+  &.ws-success {
+    background: var(--ws-success);
+  }
+
+  &.ws-warning {
+    background: var(--ws-warning);
+  }
+
+  &.ws-error {
+    background: var(--ws-error);
+  }
+}
+
+.ws-card {
+  padding: 1rem;
+  border-radius: var(--ws-radius);
+  background: var(--ws-surface);
+  box-shadow: var(--ws-shadow);
+}
+
+.ws-field {
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--ws-border);
+  border-radius: var(--ws-radius);
+  background: var(--ws-surface);
+}
+
+// MapLibre popups follow the app theme.
+:root[data-theme='dark'] {
+  .maplibregl-popup-content {
+    background: var(--ws-surface);
+    color: var(--ws-text);
+  }
+
+  .maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
+    border-top-color: var(--ws-surface);
+  }
+
+  .maplibregl-popup-anchor-top .maplibregl-popup-tip {
+    border-bottom-color: var(--ws-surface);
+  }
+
+  .maplibregl-popup-close-button {
+    color: var(--ws-text);
+  }
+}
