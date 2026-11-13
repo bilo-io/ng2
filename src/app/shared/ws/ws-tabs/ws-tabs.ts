@@ -1,11 +1,13 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   ElementRef,
   input,
   model,
   viewChildren,
 } from '@angular/core';
+import { rovingIndex } from '../../midnite/roving';
 import type { WsItem } from '../ws-item';
 
 /**
@@ -16,13 +18,13 @@ import type { WsItem } from '../ws-item';
   selector: 'ws-tabs',
   template: `
     <div class="ws-tabs" role="tablist" (keydown)="onKey($event)">
-      @for (tab of tabs(); track tab.value) {
+      @for (tab of tabs(); track tab.value; let i = $index) {
         <button
           #tabButton
           type="button"
           role="tab"
           [attr.aria-selected]="tab.value === active()"
-          [attr.tabindex]="tab.value === active() ? 0 : -1"
+          [attr.tabindex]="i === tabStop() ? 0 : -1"
           [class.active]="tab.value === active()"
           (click)="active.set(tab.value)"
         >
@@ -79,22 +81,16 @@ export class WsTabs<T> {
   readonly tabs = input<WsItem<T>[]>([]);
   readonly active = model<T>();
   private readonly buttons = viewChildren<ElementRef<HTMLButtonElement>>('tabButton');
+  private readonly activeIndex = computed(() =>
+    this.tabs().findIndex((tab) => tab.value === this.active()),
+  );
+  /** The one tab in the Tab order: the active tab, or the first while none is. */
+  protected readonly tabStop = computed(() => Math.max(this.activeIndex(), 0));
 
   protected onKey(event: KeyboardEvent): void {
     const tabs = this.tabs();
-    const current = tabs.findIndex((tab) => tab.value === this.active());
-    if (current === -1) return;
-    const last = tabs.length - 1;
-    const next: Record<string, number> = {
-      ArrowRight: current === last ? 0 : current + 1,
-      ArrowDown: current === last ? 0 : current + 1,
-      ArrowLeft: current === 0 ? last : current - 1,
-      ArrowUp: current === 0 ? last : current - 1,
-      Home: 0,
-      End: last,
-    };
-    const index = next[event.key];
-    if (index === undefined) return;
+    const index = rovingIndex(event.key, this.activeIndex(), tabs.length - 1, true);
+    if (index === undefined || !tabs.length) return;
     event.preventDefault();
     this.active.set(tabs[index].value);
     this.buttons()[index]?.nativeElement.focus();

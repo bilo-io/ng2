@@ -46,4 +46,17 @@ describe('WsTabs', () => {
     expect(fixture.componentInstance.active()).toBe(1);
     expect(tabs().map((tab) => tab.tabIndex)).toEqual([0, -1, -1]);
   });
+
+  it('keeps the first tab reachable while no tab is active', async () => {
+    const fixture = TestBed.createComponent(Host);
+    fixture.componentInstance.active.set(99);
+    await fixture.whenStable();
+    const tabs = [
+      ...(fixture.nativeElement as HTMLElement).querySelectorAll<HTMLButtonElement>('[role="tab"]'),
+    ];
+    expect(tabs.map((tab) => tab.tabIndex)).toEqual([0, -1, -1]);
+    tabs[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
+    await fixture.whenStable();
+    expect(fixture.componentInstance.active()).toBe(2);
+  });
 });

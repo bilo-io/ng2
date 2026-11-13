@@ -16,6 +16,7 @@ import {
   type UiThemePreference,
 } from '../../core/ui-theme.service';
 import { MnButton } from './mn-button';
+import { rovingIndex } from './roving';
 import { MnIcon, type MnIconName } from './mn-icon';
 
 const OPTIONS: Record<UiThemePreference, { label: string; icon: MnIconName }> = {
@@ -139,20 +140,7 @@ export class MnThemeToggle {
     const items = this.items().map((item) => item.nativeElement);
     const current = items.indexOf(event.target as HTMLButtonElement);
     const last = items.length - 1;
-    const next =
-      event.key === 'ArrowDown'
-        ? current === last
-          ? 0
-          : current + 1
-        : event.key === 'ArrowUp'
-          ? current <= 0
-            ? last
-            : current - 1
-          : event.key === 'Home'
-            ? 0
-            : event.key === 'End'
-              ? last
-              : undefined;
+    const next = rovingIndex(event.key, current, last);
     if (next !== undefined) {
       event.preventDefault();
       this.focusItem(next);
