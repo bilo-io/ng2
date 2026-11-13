@@ -15,7 +15,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
       display: inline-flex;
       align-items: center;
       gap: 0.75rem;
-      color: var(--ws-primary-strong);
+      color: hsl(var(--muted-foreground));
+      font-size: 0.875rem;
     }
     .ring {
       width: 2.5rem;
@@ -23,7 +24,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
       animation: rotate 2s linear infinite;
     }
     circle {
-      stroke: var(--ws-primary);
+      stroke: hsl(var(--primary));
       stroke-dasharray: 1, 200;
       stroke-dashoffset: 0;
       stroke-linecap: round;

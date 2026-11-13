@@ -4,6 +4,8 @@ import { catchError, debounceTime, distinctUntilChanged, map, of, switchMap, tap
 import { Point } from '../../geojson';
 import { GeocoderService, type GeocodeResult } from '../../services/geocoder.service';
 import type { WsItem } from '../ws-item';
+import { MnButton } from '../../midnite/mn-button';
+import { MnIcon } from '../../midnite/mn-icon';
 import { WsList } from '../ws-list/ws-list';
 
 export type WsPoint = GeocodeResult;
@@ -11,7 +13,7 @@ export type WsPoint = GeocodeResult;
 /** Find a place by name (OpenStreetMap Nominatim) or type its coordinates. */
 @Component({
   selector: 'ws-point',
-  imports: [WsList],
+  imports: [WsList, MnButton, MnIcon],
   template: `
     <div class="row">
       @if (mode() === 'search') {
@@ -43,18 +45,21 @@ export type WsPoint = GeocodeResult;
           (input)="lng.set($any($event.target).value)"
           (keydown.enter)="useCoordinates()"
         />
-        <button type="button" class="ws-btn" [disabled]="!coordinatesValid()" (click)="useCoordinates()">
+        <button type="button" mnButton [disabled]="!coordinatesValid()" (click)="useCoordinates()">
           Go
         </button>
       }
       <button
         type="button"
-        class="ws-btn ws-btn-ghost mode"
+        mnButton
+        variant="outline"
+        size="icon"
+        class="shrink-0"
         [attr.aria-label]="mode() === 'search' ? 'Enter coordinates' : 'Search by name'"
         [title]="mode() === 'search' ? 'Enter coordinates' : 'Search by name'"
         (click)="mode.set(mode() === 'search' ? 'coordinates' : 'search')"
       >
-        {{ mode() === 'search' ? '⌖' : '⌕' }}
+        <mn-icon [name]="mode() === 'search' ? 'crosshair' : 'search'" />
       </button>
     </div>
     @if (mode() === 'search' && (searching() || results().length > 0)) {
@@ -74,16 +79,10 @@ export type WsPoint = GeocodeResult;
     }
     .row {
       display: flex;
-      gap: 0.4rem;
+      gap: 0.5rem;
     }
     .row input {
       min-width: 0;
-    }
-    .mode {
-      flex: none;
-      width: 2.5rem;
-      padding: 0;
-      font-size: 1.2rem;
     }
     .results {
       position: absolute;
@@ -95,11 +94,13 @@ export type WsPoint = GeocodeResult;
       overflow-y: auto;
     }
     .searching {
-      padding: 0.6rem 1rem;
-      border-radius: var(--ws-radius);
-      background: var(--ws-surface);
-      color: var(--ws-muted);
-      box-shadow: var(--ws-shadow);
+      padding: 0.5rem 0.75rem;
+      border: 1px solid hsl(var(--border));
+      border-radius: calc(var(--radius) - 2px);
+      background: hsl(var(--card));
+      font-size: 0.875rem;
+      color: hsl(var(--muted-foreground));
+      box-shadow: var(--mn-shadow-lg);
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

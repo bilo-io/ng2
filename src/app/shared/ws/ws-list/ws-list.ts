@@ -32,36 +32,51 @@ import type { WsItem } from '../ws-item';
     </ul>
   `,
   styles: `
+    /* midnite-ui Select's menu: a bordered card of rounded rows, muted until hovered or chosen. */
     .ws-list {
+      display: grid;
+      gap: 0.125rem;
       margin: 0;
-      padding: 0;
+      padding: 0.25rem;
       list-style: none;
-      border-radius: var(--ws-radius);
-      background: var(--ws-surface);
-      overflow: hidden;
+      border: 1px solid hsl(var(--border));
+      border-radius: calc(var(--radius) - 2px);
+      background: hsl(var(--card));
+      color: hsl(var(--card-foreground));
     }
     .ws-list-shadow {
-      box-shadow: var(--ws-shadow);
+      box-shadow: var(--mn-shadow-lg);
     }
     li {
-      padding: 0.6rem 1rem;
-      border-bottom: 1px solid var(--ws-border);
+      padding: 0.375rem 0.5rem;
+      border-radius: 0.25rem;
+      color: hsl(var(--muted-foreground));
+      font-size: 0.875rem;
       cursor: pointer;
-    }
-    li:last-child {
-      border-bottom: 0;
+      transition: background-color 0.15s, color 0.15s;
     }
     li:hover,
     li:focus-visible {
-      background: var(--ws-surface-2);
+      outline: none;
+      background: hsl(var(--accent) / 0.6);
+      color: hsl(var(--foreground));
     }
     li.active {
-      background: var(--ws-primary);
-      color: var(--ws-primary-contrast);
+      background: hsl(var(--accent));
+      color: hsl(var(--accent-foreground));
+      font-weight: 500;
     }
     li.empty {
-      color: var(--ws-muted);
       cursor: default;
+    }
+    li.empty:hover {
+      background: none;
+      color: hsl(var(--muted-foreground));
+    }
+    @media (prefers-reduced-motion: reduce) {
+      li {
+        transition: none;
+      }
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

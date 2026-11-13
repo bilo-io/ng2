@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, model } from '@angular/core';
 
-/** An on/off switch. Replaces both ws-toggle and ws-switch from the Angular 2 library. */
+/** An on/off switch in midnite-ui's Switch look. Replaces both ws-toggle and ws-switch from the Angular 2 library. */
 @Component({
   selector: 'ws-toggle',
   template: `
@@ -36,38 +36,42 @@ import { ChangeDetectionStrategy, Component, input, model } from '@angular/core'
       opacity: 0;
       cursor: pointer;
     }
+    .label {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    /* midnite-ui Switch: h-5 w-9 track, border colour off, foreground on; a background-coloured thumb. */
     .track {
       position: relative;
       flex: none;
-      width: 2.5rem;
-      height: 1.4rem;
-      border-radius: 1rem;
-      background: var(--ws-border);
-      transition: background 0.2s;
+      width: 2.25rem;
+      height: 1.25rem;
+      padding: 0.125rem;
+      border-radius: 9999px;
+      background: hsl(var(--border));
+      transition: background-color 0.2s ease-in-out;
     }
     .thumb {
-      position: absolute;
-      top: 0.2rem;
-      left: 0.2rem;
+      display: block;
       width: 1rem;
       height: 1rem;
-      border-radius: 50%;
-      background: #fff;
-      box-shadow: 0 1px 2px rgb(0 0 0 / 0.4);
-      transition: transform 0.2s;
+      border-radius: 9999px;
+      background: hsl(var(--background));
+      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.15);
+      transition: transform 0.2s ease-in-out;
     }
     input:checked + .track {
-      background: var(--ws-primary);
+      background: hsl(var(--foreground));
     }
     input:checked + .track .thumb {
-      transform: translateX(1.1rem);
+      transform: translateX(1rem);
     }
     input:focus-visible + .track {
-      outline: 2px solid var(--ws-primary);
+      outline: 2px solid hsl(var(--ring));
       outline-offset: 2px;
     }
     input:disabled + .track {
-      opacity: 0.5;
+      opacity: 0.4;
     }
     @media (prefers-reduced-motion: reduce) {
       .track,

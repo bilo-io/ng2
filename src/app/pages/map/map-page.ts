@@ -2,6 +2,11 @@ import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } 
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { UiThemeService } from '../../core/ui-theme.service';
 import { Point, lineString, type Position } from '../../shared/geojson';
+import { MnButton } from '../../shared/midnite/mn-button';
+import { MnChip } from '../../shared/midnite/mn-chip';
+import { MnPanel } from '../../shared/midnite/mn-panel';
+import { MnSegmented, type MnSegmentedOption } from '../../shared/midnite/mn-segmented';
+import { tokenColor } from '../../shared/midnite/token-color';
 import { WsPointPicker, type WsPoint } from '../../shared/ws/ws-point/ws-point';
 import { WsToggle } from '../../shared/ws/ws-toggle/ws-toggle';
 import {
@@ -41,7 +46,7 @@ interface MapSettings {
 
 @Component({
   selector: 'app-map-page',
-  imports: [WsMap, WsToggle, WsPointPicker],
+  imports: [WsMap, WsToggle, WsPointPicker, MnButton, MnChip, MnPanel, MnSegmented],
   templateUrl: './map-page.html',
   styleUrl: './map-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -51,7 +56,10 @@ export class MapPage {
   private readonly mapService = inject(WsMapService);
   private readonly saved = readSettings();
 
-  protected readonly themes = MAP_THEMES;
+  protected readonly themeOptions: MnSegmentedOption<MapThemeChoice>[] = [
+    { value: 'auto', label: 'Auto' },
+    ...MAP_THEMES.map((theme) => ({ value: theme.id, label: theme.label })),
+  ];
   protected readonly places = PLACES;
 
   protected readonly themeChoice = signal<MapThemeChoice>(this.saved.theme ?? 'auto');
@@ -78,17 +86,13 @@ export class MapPage {
     this.mapService.markerMoved$.pipe(takeUntilDestroyed()).subscribe(() => this.drawRoute());
   }
 
-  protected chooseTheme(choice: MapThemeChoice): void {
-    this.themeChoice.set(choice);
-  }
-
   protected flyTo(place: Place): void {
     this.center.set([...place.center]);
     this.zoom.set(place.zoom);
   }
 
   protected goToSearchResult(place: WsPoint): void {
-    this.mapService.showPoints([{ name: place.name, point: place.point, color: '#00adee' }]);
+    this.mapService.showPoints([{ name: place.name, point: place.point, color: tokenColor('--brand-rainbow-0') }]);
     this.mapService.panTo(place.point, 14);
   }
 
@@ -127,7 +131,7 @@ export class MapPage {
     if (!start || !end) return;
     this.mapService.showLines([
       {
-        color: '#00adee',
+        color: tokenColor('--brand-rainbow-0'),
         dotted: true,
         line: lineString([start.point.coordinates, end.point.coordinates]),
       },

@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, computed, input, model, signal } from '@angular/core';
 import type { WsItem } from '../ws-item';
+import { MnIcon } from '../../midnite/mn-icon';
 import { WsList } from '../ws-list/ws-list';
 
 /** A drop-down select, single or multiple, built on ws-list. */
 @Component({
   selector: 'ws-select',
-  imports: [WsList],
+  imports: [WsList, MnIcon],
   template: `
     @if (label()) {
       <div class="ws-select-label">{{ label() }}</div>
@@ -18,7 +19,7 @@ import { WsList } from '../ws-list/ws-list';
       (keydown.escape)="open.set(false)"
     >
       <span class="text" [class.hint]="value().length === 0">{{ displayText() }}</span>
-      <span class="chevron" aria-hidden="true">{{ open() ? '▴' : '▾' }}</span>
+      <mn-icon name="chevron-down" class="chevron" [class.open]="open()" />
     </button>
     @if (open()) {
       <ws-list
@@ -38,10 +39,10 @@ import { WsList } from '../ws-list/ws-list';
       position: relative;
     }
     .ws-select-label {
-      margin-bottom: 0.25rem;
-      color: var(--ws-primary-strong);
-      font-size: 0.85rem;
-      font-weight: 600;
+      margin-bottom: 0.375rem;
+      color: hsl(var(--foreground));
+      font-size: 0.875rem;
+      font-weight: 500;
     }
     .ws-select-button {
       display: flex;
@@ -51,8 +52,15 @@ import { WsList } from '../ws-list/ws-list';
       text-align: left;
       cursor: pointer;
     }
+    .chevron {
+      color: hsl(var(--muted-foreground));
+      transition: transform 0.15s;
+    }
+    .chevron.open {
+      transform: rotate(180deg);
+    }
     .hint {
-      color: var(--ws-muted);
+      color: hsl(var(--muted-foreground));
     }
     ws-list {
       position: absolute;

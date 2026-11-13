@@ -7,68 +7,49 @@
   (moveEnd)="rememberView($event)"
 />
 
-<section class="panel" [class.collapsed]="!panelOpen()" aria-label="Map settings">
-  <button
-    type="button"
-    class="panel-toggle"
-    [attr.aria-expanded]="panelOpen()"
-    aria-controls="map-panel-body"
-    (click)="panelOpen.set(!panelOpen())"
-  >
-    <span>Map</span>
-    <span class="current">{{ activeTheme().label }}{{ threeD() ? ' · 3D' : '' }}</span>
-    <span aria-hidden="true">{{ panelOpen() ? '▴' : '▾' }}</span>
-  </button>
+<mn-panel
+  class="panel"
+  heading="Map"
+  icon="layers"
+  [summary]="activeTheme().label + (threeD() ? ' · 3D' : '')"
+  [(open)]="panelOpen"
+>
+  <mn-segmented label="Theme" [options]="themeOptions" [columns]="3" [(value)]="themeChoice" />
+  <p class="note">
+    {{ themeChoice() === 'auto' ? 'Follows the app theme: ' : '' }}{{ activeTheme().source }}
+  </p>
 
-  <div class="panel-body" id="map-panel-body" [hidden]="!panelOpen()">
-    <fieldset class="themes">
-      <legend>Theme</legend>
-      <label class="theme-option" [class.checked]="themeChoice() === 'auto'">
-        <input
-          type="radio"
-          name="map-theme"
-          value="auto"
-          [checked]="themeChoice() === 'auto'"
-          (change)="chooseTheme('auto')"
-        />
-        Auto
-      </label>
-      @for (theme of themes; track theme.id) {
-        <label class="theme-option" [class.checked]="themeChoice() === theme.id">
-          <input
-            type="radio"
-            name="map-theme"
-            [value]="theme.id"
-            [checked]="themeChoice() === theme.id"
-            (change)="chooseTheme(theme.id)"
-          />
-          {{ theme.label }}
-        </label>
-      }
-    </fieldset>
-    <p class="source">
-      {{ themeChoice() === 'auto' ? 'Follows the app theme: ' : '' }}{{ activeTheme().source }}
-    </p>
-
+  <div class="switches">
     <ws-toggle label="3D view" [(checked)]="threeD" />
     @if (themeId() === 'satellite') {
       <ws-toggle label="Place labels" [(checked)]="labels" />
     }
-
-    <div class="group">
-      <span class="group-label" id="places-label">Fly to</span>
-      <div class="places" role="group" aria-labelledby="places-label">
-        @for (place of places; track place.name) {
-          <button type="button" class="chip" (click)="flyTo(place)">{{ place.name }}</button>
-        }
-      </div>
-    </div>
-
-    <ws-point (changed)="goToSearchResult($event)" />
-
-    <p class="hint">
-      {{ hint() }}
-      <button type="button" class="link" (click)="clearPins()">Clear</button>
-    </p>
   </div>
-</section>
+
+  <div>
+    <span class="mn-eyebrow mb-1.5 block" id="places-label">Fly to</span>
+    <div class="flex flex-wrap gap-1.5" role="group" aria-labelledby="places-label">
+      @for (place of places; track place.name) {
+        <button type="button" mnChip size="md" [interactive]="true" (click)="flyTo(place)">
+          {{ place.name }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <ws-point (changed)="goToSearchResult($event)" />
+
+  <div class="flex items-center justify-between gap-2">
+    <p class="note">{{ hint() }}</p>
+    <button
+      type="button"
+      mnButton
+      variant="ghost"
+      size="sm"
+      class="-mr-2 shrink-0"
+      (click)="clearPins()"
+    >
+      Clear
+    </button>
+  </div>
+</mn-panel>
