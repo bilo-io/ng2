@@ -19,6 +19,25 @@ test('the map page loads a theme that follows the app', async ({ page }) => {
   await expect(page.locator('ws-map canvas')).toBeVisible();
 });
 
+test('on Auto the map follows the theme menu, and an explicit map theme wins', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'light' });
+  await page.goto('/map');
+  const map = page.locator('ws-map');
+  await expect(map).toHaveAttribute('data-style', 'Fixture Positron');
+
+  await page.getByRole('button', { name: 'Toggle theme' }).click();
+  await page.getByRole('menuitemradio', { name: 'Dark' }).click();
+  await expect(map).toHaveAttribute('data-style', 'Fixture Dark Matter');
+
+  await openPanel(page);
+  await page.getByRole('radio', { name: 'Street', exact: true }).check();
+  await expect(map).toHaveAttribute('data-style', 'Fixture Liberty');
+  await page.getByRole('button', { name: 'Toggle theme' }).click();
+  await page.getByRole('menuitemradio', { name: 'Light' }).click();
+  await expect(page.locator('html')).not.toHaveClass(/\bdark\b/);
+  await expect(map).toHaveAttribute('data-style', 'Fixture Liberty');
+});
+
 test('each theme swaps the map style', async ({ page }) => {
   await page.goto('/map');
   await openPanel(page);
