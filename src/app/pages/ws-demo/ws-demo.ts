@@ -1,8 +1,16 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  effect,
+  inject,
+  signal,
+  untracked,
+} from '@angular/core';
 import { UiThemeService } from '../../core/ui-theme.service';
 import { MnButton } from '../../shared/midnite/mn-button';
 import { MnCard } from '../../shared/midnite/mn-card';
-import { tokenColor } from '../../shared/midnite/token-color';
+import { overlayColor } from '../../shared/midnite/token-color';
 import type { WsItem } from '../../shared/ws/ws-item';
 import { WsAutocomplete } from '../../shared/ws/ws-autocomplete/ws-autocomplete';
 import { WsInput } from '../../shared/ws/ws-input/ws-input';
@@ -108,10 +116,15 @@ export class WsDemo {
   protected readonly modalResult = signal('');
   protected readonly mapTheme = computed(() => resolveMapTheme('auto', this.ui.scheme()));
 
+  constructor() {
+    effect(() => {
+      this.ui.scheme();
+      untracked(() => this.map.recolour(overlayColor()));
+    });
+  }
+
   protected showPoint(place: WsPoint): void {
-    this.map.showPoints([
-      { name: place.name, point: place.point, color: tokenColor('--brand-rainbow-0') },
-    ]);
+    this.map.showPoints([{ name: place.name, point: place.point, color: overlayColor() }]);
     this.map.panTo(place.point, 13);
   }
 

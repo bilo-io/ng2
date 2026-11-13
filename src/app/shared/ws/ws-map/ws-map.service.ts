@@ -46,6 +46,12 @@ export class WsMapService {
     this.points.set([]);
   }
 
+  /** Repaints every point and line in one colour, e.g. after a theme change. */
+  recolour(color: string): void {
+    this.points.update((points) => points.map((point) => ({ ...point, color })));
+    this.lines.update((lines) => lines.map((line) => ({ ...line, color })));
+  }
+
   showLines(lines: WsMapLine[]): void {
     this.lines.set(lines);
   }

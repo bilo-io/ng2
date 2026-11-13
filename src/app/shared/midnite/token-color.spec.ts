@@ -1,4 +1,4 @@
-import { tokenColor } from './token-color';
+import { overlayColor, tokenColor } from './token-color';
 
 describe('tokenColor', () => {
   const root = document.documentElement;
@@ -19,5 +19,12 @@ describe('tokenColor', () => {
 
   it('returns an empty string for an unknown token', () => {
     expect(tokenColor('--nope')).toBe('');
+  });
+
+  it('paints overlays in the brand blue, or --primary without brand.css', () => {
+    root.style.setProperty('--primary', '240 5.9% 10%');
+    expect(overlayColor()).toBe('hsl(240 5.9% 10%)');
+    root.style.setProperty('--brand-rainbow-0', 'hsl(217 84% 43%)');
+    expect(overlayColor()).toBe('hsl(217 84% 43%)');
   });
 });

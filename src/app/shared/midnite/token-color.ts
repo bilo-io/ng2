@@ -9,3 +9,11 @@ export function tokenColor(name: `--${string}`, root: Element = document.documen
   if (!value) return '';
   return value.includes('(') || value.startsWith('#') ? value : `hsl(${value})`;
 }
+
+/**
+ * The colour for pins and routes drawn over the map: the brand blue, falling back to
+ * `--primary` if brand.css is missing. Read it again when the theme changes.
+ */
+export function overlayColor(root: Element = document.documentElement): string {
+  return tokenColor('--brand-rainbow-0', root) || tokenColor('--primary', root);
+}

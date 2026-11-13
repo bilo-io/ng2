@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, signal, untracked } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { UiThemeService } from '../../core/ui-theme.service';
 import { Point, lineString, type Position } from '../../shared/geojson';
@@ -6,7 +6,7 @@ import { MnButton } from '../../shared/midnite/mn-button';
 import { MnChip } from '../../shared/midnite/mn-chip';
 import { MnPanel } from '../../shared/midnite/mn-panel';
 import { MnSegmented, type MnSegmentedOption } from '../../shared/midnite/mn-segmented';
-import { tokenColor } from '../../shared/midnite/token-color';
+import { overlayColor } from '../../shared/midnite/token-color';
 import { WsPointPicker, type WsPoint } from '../../shared/ws/ws-point/ws-point';
 import { WsToggle } from '../../shared/ws/ws-toggle/ws-toggle';
 import {
@@ -82,6 +82,12 @@ export class MapPage {
       this.save({ theme: this.themeChoice(), threeD: this.threeD(), labels: this.labels() });
     });
 
+    // The overlay colour is a theme token; repaint pins and routes when the theme flips.
+    effect(() => {
+      this.ui.scheme();
+      untracked(() => this.mapService.recolour(overlayColor()));
+    });
+
     this.mapService.clicked$.pipe(takeUntilDestroyed()).subscribe((point) => this.dropPin(point));
     this.mapService.markerMoved$.pipe(takeUntilDestroyed()).subscribe(() => this.drawRoute());
   }
@@ -92,7 +98,7 @@ export class MapPage {
   }
 
   protected goToSearchResult(place: WsPoint): void {
-    this.mapService.showPoints([{ name: place.name, point: place.point, color: tokenColor('--brand-rainbow-0') }]);
+    this.mapService.showPoints([{ name: place.name, point: place.point, color: overlayColor() }]);
     this.mapService.panTo(place.point, 14);
   }
 
@@ -131,7 +137,7 @@ export class MapPage {
     if (!start || !end) return;
     this.mapService.showLines([
       {
-        color: tokenColor('--brand-rainbow-0'),
+        color: overlayColor(),
         dotted: true,
         line: lineString([start.point.coordinates, end.point.coordinates]),
       },
