@@ -1,75 +1,36 @@
 {
-  "name": "angular2-quickstart",
-  "version": "1.0.0",
+  "name": "ng2",
+  "version": "0.0.0",
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
-    "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "e2e": "playwright test"
   },
-  "license": "ISC",
+  "private": true,
+  "packageManager": "npm@12.0.2",
   "dependencies": {
-    "connect-history-api-fallback": "^1.3.0",
-    "express": "^4.14.0",
-    "firebase": "^3.5.1"
+    "@angular/common": "^22.2.0",
+    "@angular/compiler": "^22.2.0",
+    "@angular/core": "^22.2.0",
+    "@angular/forms": "^22.2.0",
+    "@angular/platform-browser": "^22.2.0",
+    "@angular/router": "^22.2.0",
+    "maplibre-gl": "^6.18.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.17.5",
-    "concurrently": "^2.2.0",
-    "del": "^2.2.2",
-    "fs": "0.0.1-security",
-    "gulp": "^3.9.1",
-    "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-tslint": "^6.1.1",
-    "gulp-typescript": "^2.13.6",
-    "gulp-zip": "^3.2.0",
-    "jasmine-core": "^2.5.2",
-    "jspm": "0.17.0-beta.22",
-    "karma": "^1.3.0",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-firefox-launcher": "^1.0.0",
-    "karma-jasmine": "^1.0.2",
-    "lite-server": "^2.2.2",
-    "run-sequence": "^1.2.2",
-    "systemjs-builder": "^0.15.32",
-    "tslint": "^3.15.1",
-    "typescript": "^2.0.2",
-    "typings": "^1.3.2",
-    "yargs": "^5.0.0"
-  },
-  "jspm": {
-    "directories": {
-      "baseURL": "src",
-      "packages": "src/libs"
-    },
-    "configFile": "src/jspm.config.js",
-    "dependencies": {
-      "@angular/common": "npm:@angular/common@2.0.0",
-      "@angular/compiler": "npm:@angular/compiler@2.0.0",
-      "@angular/core": "npm:@angular/core@2.0.0",
-      "@angular/forms": "npm:@angular/forms@2.0.0",
-      "@angular/http": "npm:@angular/http@2.0.0",
-      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0",
-      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0",
-      "@angular/router": "npm:@angular/router@3.0.0",
-      "angular2-in-memory-web-api": "npm:angular2-in-memory-web-api@0.0.20",
-      "connect-history-api-fallback": "npm:connect-history-api-fallback@^1.3.0",
-      "core-js": "npm:core-js@^2.4.1",
-      "leaflet": "npm:leaflet@^1.0.1",
-      "reflect-metadata": "npm:reflect-metadata@^0.1.3",
-      "rxjs": "npm:rxjs@5.0.0-beta.12",
-      "systemjs": "npm:systemjs@0.19.27",
-      "systemjs-plugin-text": "npm:systemjs-plugin-text@^0.0.9",
-      "systemjs/plugin-css": "github:systemjs/plugin-css@^0.1.32",
-      "systemjs/plugin-text": "github:systemjs/plugin-text@^0.0.9",
-      "text": "github:systemjs/plugin-text@0.0.9",
-      "zone.js": "npm:zone.js@^0.6.23"
-    },
-    "devDependencies": {
-      "typescript": "npm:typescript@^1.6.2"
-    }
+    "@angular/build": "^22.2.7",
+    "@angular/cli": "^22.2.7",
+    "@angular/compiler-cli": "^22.2.0",
+    "@playwright/test": "^1.65.0",
+    "@types/geojson": "^7946.0.16",
+    "jsdom": "^30.0.0",
+    "prettier": "^3.8.1",
+    "typescript": "~6.0.2",
+    "vitest": "^5.0.0"
   }
 }

@@ -1,0 +1,119 @@
+<aside class="side">
+  <h1>Ws components</h1>
+  <ws-list class="wide-only" [items]="demos" [rememberState]="true" label="Components" [(active)]="demo" />
+  <ws-select class="narrow-only" label="Component" [items]="demos" [(value)]="demo" />
+</aside>
+
+<div class="content">
+  @switch (demo()[0]) {
+    @case ('overview') {
+      <h2>GeoJSON</h2>
+      <p>
+        <code>ws-point</code> finds a place by name (OpenStreetMap Nominatim) or by coordinates, and
+        <code>ws-map</code> shows it through <code>WsMapService</code>.
+      </p>
+      <div class="ws-card stack">
+        <ws-point label="Starting point" (changed)="showPoint($event)" />
+        <div class="map-box"><ws-map [theme]="mapTheme()" /></div>
+      </div>
+    }
+    @case ('autocomplete') {
+      <h2>Autocomplete</h2>
+      <p>Filters a list of items as you type. Try a Greek god.</p>
+      <div class="ws-card stack">
+        <ws-autocomplete
+          [items]="gods"
+          hint="Search the Greek gods"
+          noResultText="No god by that name"
+          (selected)="picked.set($event.name + ' is ' + $event.value + ' in Rome')"
+        />
+        @if (picked()) {
+          <p>{{ picked() }}</p>
+        }
+      </div>
+    }
+    @case ('card') {
+      <h2>Card</h2>
+      <div class="cards">
+        @for (n of [1, 2, 3]; track n) {
+          <div class="ws-card">This is ws-card {{ n }}</div>
+        }
+      </div>
+    }
+    @case ('input') {
+      <h2>Input</h2>
+      <div class="ws-card stack">
+        <ws-input label="Text input" [(value)]="text" />
+        <ws-input label="Number input" type="number" [(value)]="number" />
+        <p>Values: {{ text() }}, {{ number() }}</p>
+      </div>
+    }
+    @case ('loader') {
+      <h2>Loader</h2>
+      <div class="ws-card stack">
+        <ws-loader />
+        <ws-loader text="Loading with a label" />
+      </div>
+    }
+    @case ('modal') {
+      <h2>Modal</h2>
+      <div class="ws-card row">
+        <button type="button" class="ws-btn" (click)="openModal(true)">Modal with two buttons</button>
+        <button type="button" class="ws-btn" (click)="openModal(false)">Modal with one button</button>
+      </div>
+      @if (modalResult()) {
+        <p>Last modal: {{ modalResult() }}</p>
+      }
+    }
+    @case ('select') {
+      <h2>Select</h2>
+      <div class="ws-card stack narrow">
+        <ws-select label="Single" hint="Select an item" [items]="selectItems" [(value)]="single" />
+        <ws-select
+          label="Multiple"
+          hint="Select several items"
+          [items]="selectItems"
+          [multiple]="true"
+          [(value)]="multiple"
+        />
+      </div>
+    }
+    @case ('tabs') {
+      <h2>Tabs</h2>
+      <div class="ws-card">
+        <ws-tabs [tabs]="tabs" [(active)]="tab" />
+        <p>
+          @switch (tab()) {
+            @case (0) {
+              Switching tabs can be useful in some cases.
+            }
+            @case (1) {
+              iOS, Android and the web all implement this idea in their own way.
+            }
+            @default {
+              Tabs for the win.
+            }
+          }
+        </p>
+      </div>
+    }
+    @case ('toast') {
+      <h2>Toast</h2>
+      <div class="ws-card row">
+        <button type="button" class="ws-btn ws-success" (click)="toaster.success('Success')">Success</button>
+        <button type="button" class="ws-btn ws-warning" (click)="toaster.warning('Warning')">Warning</button>
+        <button type="button" class="ws-btn ws-error" (click)="toaster.error('Error')">Error</button>
+        <button type="button" class="ws-btn" (click)="toaster.show('Default')">Default</button>
+        <button type="button" class="ws-btn ws-btn-ghost" (click)="toaster.notify('Light', true)">Light</button>
+        <button type="button" class="ws-btn ws-btn-ghost" (click)="toaster.notify('Dark')">Dark</button>
+      </div>
+    }
+    @case ('toggle') {
+      <h2>Toggle</h2>
+      <div class="ws-card narrow">
+        <ws-toggle label="A switch" [(checked)]="switchOn" />
+        <p>It is {{ switchOn() ? 'on' : 'off' }}.</p>
+      </div>
+    }
+  }
+</div>

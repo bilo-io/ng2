@@ -1,63 +1,86 @@
-import { Injectable, Output, EventEmitter } from '@angular/core';
-import { Point, LineString, Polygon } from '../../models/geojson.models';
-import { WsMapLayer, WsMapPoint, WsMapLine, WsMapPolygon } from './ws-map.models';
+import { Injectable, signal } from '@angular/core';
+import { Subject } from 'rxjs';
+import type { Point } from '../../geojson';
+import type {
+  WsMapBounds,
+  WsMapCameraCommand,
+  WsMapLine,
+  WsMapMarker,
+  WsMapMarkerKind,
+  WsMapPoint,
+  WsMapPolygon,
+} from './ws-map.models';
 
-@Injectable()
+/**
+ * Talks to a <ws-map> from anywhere in the app, as the Angular 2 version did:
+ * set what it draws (points, lines, polygons, start and end pins), move its
+ * camera, and listen for clicks, moves and pin drags.
+ */
+@Injectable({ providedIn: 'root' })
 export class WsMapService {
-    public styles: string[] = [];
-    public lines: any[] = [];
-    public stops: any[] = [];
-    public point: Point;
-    public layers: WsMapLayer[] = [];
+  // What the map draws. <ws-map> renders whatever these hold.
+  readonly points = signal<WsMapPoint[]>([]);
+  readonly lines = signal<WsMapLine[]>([]);
+  readonly polygons = signal<WsMapPolygon[]>([]);
+  readonly startMarker = signal<WsMapMarker | null>(null);
+  readonly endMarker = signal<WsMapMarker | null>(null);
 
-    @Output() addLayer$: EventEmitter<WsMapLayer> = new EventEmitter<WsMapLayer>();
-    @Output() removeLayer$: EventEmitter<any> = new EventEmitter<any>();
+  // Camera moves going to the map.
+  private readonly cameraCommands = new Subject<WsMapCameraCommand>();
+  readonly camera$ = this.cameraCommands.asObservable();
 
-    // Events going to MapComponent    
-    @Output() focusPoint$: EventEmitter<Point> = new EventEmitter<Point>();
-    @Output() updateStyle$: EventEmitter<string> = new EventEmitter<string>();
-    @Output() updatedPoint$: EventEmitter<Point> = new EventEmitter<Point>();
-    @Output() updateStartPoint$: EventEmitter<WsMapPoint> = new EventEmitter<WsMapPoint>();
-    @Output() updatedEndPoint$: EventEmitter<WsMapPoint> = new EventEmitter<WsMapPoint>();
-    @Output() updateStartName$: EventEmitter<string> = new EventEmitter<string>();
-    @Output() updateEndName$: EventEmitter<string> = new EventEmitter<string>();
-    @Output() updateCenter: EventEmitter<Point> = new EventEmitter<Point>();
-    @Output() updateBounds$: EventEmitter<Point[]> = new EventEmitter<Point[]>();
+  // Events coming from the map.
+  readonly clicked$ = new Subject<Point>();
+  readonly moved$ = new Subject<WsMapBounds>();
+  readonly markerMoved$ = new Subject<{ kind: WsMapMarkerKind; point: Point }>();
+  readonly markerClicked$ = new Subject<WsMapMarkerKind>();
 
-    
-    @Output() addLines: EventEmitter<WsMapLine[]> = new EventEmitter<WsMapLine[]>();
-    @Output() removeLines = new EventEmitter();
-    @Output() addPoints$: EventEmitter<WsMapPoint[]> = new EventEmitter<WsMapPoint[]>();
-    @Output() addCircles$: EventEmitter<WsMapPoint[]> = new EventEmitter<WsMapPoint[]>();
-    @Output() removePoints = new EventEmitter();
-    @Output() showPolygons$: EventEmitter<WsMapPolygon[]> = new EventEmitter<WsMapPolygon[]>();
-    @Output() hidePolygons$: EventEmitter<WsMapPolygon[]> = new EventEmitter<WsMapPolygon[]>();
-    
-    // Events coming from MapComponent    
-    @Output() didClickStartMarker$ = new EventEmitter();
-    @Output() didClickEndMarker$ = new EventEmitter();
-    @Output() didMoveStartMarker$: EventEmitter<Point> = new EventEmitter<Point>();
-    @Output() didMoveEndMarker$: EventEmitter<Point> = new EventEmitter<Point>();
-    @Output() didMove$: EventEmitter<any> = new EventEmitter();
+  /** The last point clicked on the map. */
+  readonly lastClicked = signal<Point | null>(null);
 
+  showPoints(points: WsMapPoint[]): void {
+    this.points.set(points);
+  }
 
+  clearPoints(): void {
+    this.points.set([]);
+  }
 
-    constructor() {
-        this.initMapService();
-    }
+  showLines(lines: WsMapLine[]): void {
+    this.lines.set(lines);
+  }
 
-    initMapService() {
-        this.styles = [
-            'streets',
-            'satellite',
-            'light',
-            'dark'
-        ];
-    }
-    
-    public setPoint(point: Point) {
-        // console.log('Point:', point);
-        this.point = point;
-        this.updatedPoint$.emit(this.point);
-    }
+  addLines(lines: WsMapLine[]): void {
+    this.lines.update((current) => [...current, ...lines]);
+  }
+
+  clearLines(): void {
+    this.lines.set([]);
+  }
+
+  showPolygons(polygons: WsMapPolygon[]): void {
+    this.polygons.set(polygons);
+  }
+
+  clearPolygons(): void {
+    this.polygons.set([]);
+  }
+
+  setMarker(kind: WsMapMarkerKind, marker: WsMapMarker | null): void {
+    (kind === 'start' ? this.startMarker : this.endMarker).set(marker);
+  }
+
+  panTo(point: Point, zoom?: number): void {
+    this.cameraCommands.next({ kind: 'panTo', point, zoom });
+  }
+
+  fitBounds(points: Point[]): void {
+    if (points.length > 0) this.cameraCommands.next({ kind: 'fitBounds', points });
+  }
+
+  /** Called by <ws-map>. */
+  emitClick(point: Point): void {
+    this.lastClicked.set(point);
+    this.clicked$.next(point);
+  }
 }

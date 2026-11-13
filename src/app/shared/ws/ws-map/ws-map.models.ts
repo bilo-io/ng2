@@ -1,38 +1,48 @@
-import { Point, LineString, Polygon } from '../../models/geojson.models';
+import type { LineString, Point, Polygon, Position } from '../../geojson';
 
-export enum WsMapState {
-    Journeys,
-    Transit,
-    Realtime,
-    Simulator
+/** A named point, drawn as a coloured circle with a popup. */
+export interface WsMapPoint {
+  name: string;
+  point: Point;
+  color: string;
 }
-export class WsMapLine {
-    constructor(
-        public color: string,
-        public line: LineString,
-        public alpha: number = 1.0,
-        public dotted: boolean = false) { }
+
+export interface WsMapLine {
+  color: string;
+  line: LineString;
+  /** 0 to 1. */
+  alpha?: number;
+  dotted?: boolean;
 }
-export class WsMapPoint {
-    constructor(
-        public name: string,
-        public point: Point,
-        public color: string) { }
+
+export interface WsMapPolygon {
+  color: string;
+  polygon: Polygon;
 }
-export class WsMapPolygon {
-    constructor(
-        public color: string,
-        public polygon: Polygon) { }
+
+/** Which draggable pin: green start or red end. */
+export type WsMapMarkerKind = 'start' | 'end';
+
+export interface WsMapMarker {
+  name: string;
+  point: Point;
 }
-export class WsMapLayer {
-    constructor(
-        public name: string,
-        public type: WsMapLayerType,
-        public data: any) { }
+
+export interface WsMapBounds {
+  northEast: Point;
+  southWest: Point;
 }
-export enum WsMapLayerType {
-    None,
-    Points,
-    Lines,
-    Polygons
+
+/** The camera after the map stops moving. */
+export interface WsMapView {
+  center: Position;
+  zoom: number;
+  pitch: number;
+  bearing: number;
+  bounds: WsMapBounds;
 }
+
+/** A camera move asked for through WsMapService. */
+export type WsMapCameraCommand =
+  | { kind: 'panTo'; point: Point; zoom?: number }
+  | { kind: 'fitBounds'; points: Point[] };

@@ -1,27 +1,27 @@
-import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
-export class WsModalContent {
-    constructor(
-        public title: string,
-        public message: string,
-        public dismissButton: string,
-        public confirmButton: string
-    ) {
-
-    }
+export interface WsModalContent {
+  title: string;
+  message: string;
+  dismissButton: string;
+  confirmButton?: string;
 }
-@Injectable()
+
+/** Opens <ws-modal>. `show` resolves true on confirm, false on dismiss. */
+@Injectable({ providedIn: 'root' })
 export class WsModalService {
+  readonly content = signal<WsModalContent | null>(null);
+  private resolve?: (confirmed: boolean) => void;
 
-    @Output() showModal$: EventEmitter<WsModalContent> = new EventEmitter<WsModalContent>();
-    @Output() hideModal$: EventEmitter<any> = new EventEmitter();
-    constructor() { }
-    
-    public showModal(title: string, message: string, dismissButton: string, confirmButton: string = undefined) {
-        this.showModal$.emit(new WsModalContent(title, message, dismissButton, confirmButton));
-    }
+  show(content: WsModalContent): Promise<boolean> {
+    this.resolve?.(false);
+    this.content.set(content);
+    return new Promise((resolve) => (this.resolve = resolve));
+  }
 
-    public hideModal() {
-        this.hideModal$.emit(undefined);
-    }
+  close(confirmed: boolean): void {
+    this.content.set(null);
+    this.resolve?.(confirmed);
+    this.resolve = undefined;
+  }
 }

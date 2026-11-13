@@ -1,47 +1,46 @@
-import { Injectable, Inject } from '@angular/core';
-import { Http } from '@angular/http';
-import { Point } from '../models/geojson.models';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
+import { Observable, map } from 'rxjs';
+import { Point } from '../geojson';
 
-@Injectable()
+export interface GeocodeResult {
+  name: string;
+  point: Point;
+}
+
+interface NominatimPlace {
+  display_name: string;
+  lat: string;
+  lon: string;
+}
+
+/**
+ * Place search on OpenStreetMap's Nominatim (free, no key). Its usage policy
+ * allows about one request a second, so callers debounce what they send.
+ * https://operations.osmfoundation.org/policies/nominatim/
+ */
+@Injectable({ providedIn: 'root' })
 export class GeocoderService {
+  static readonly BASE_URL = 'https://nominatim.openstreetmap.org';
+  private readonly http = inject(HttpClient);
 
-    private geocodeUrl: string = 'https://maps.googleapis.com/maps/api/geocode/json?';
+  search(query: string, limit = 5): Observable<GeocodeResult[]> {
+    return this.http
+      .get<NominatimPlace[]>(`${GeocoderService.BASE_URL}/search`, {
+        params: { q: query, format: 'jsonv2', limit },
+      })
+      .pipe(map((places) => places.map(toResult)));
+  }
 
-    constructor(@Inject(Http) private http: Http) {
-    }
+  reverse(point: Point): Observable<GeocodeResult | null> {
+    return this.http
+      .get<NominatimPlace | { error: string }>(`${GeocoderService.BASE_URL}/reverse`, {
+        params: { lat: point.latitude, lon: point.longitude, format: 'jsonv2' },
+      })
+      .pipe(map((place) => ('display_name' in place ? toResult(place) : null)));
+  }
+}
 
-    public addressFromPoint(point: Point) {
-        let url: string = this.geocodeUrl + 'latlng=' + encodeURIComponent(point.latLong());
-        console.log(url);
-        return this.http.get(url);
-    }
-
-    public addressToPoint(address: string) {
-        let url: string = this.geocodeUrl + 'address=' + encodeURIComponent(address);
-        console.log(url);
-        return this.http.get(url);
-    }
-    
-    private testGeocoderService() {
-        this.testGeocoding();
-        this.testReverseGeocoding();
-    }
-
-    private testGeocoding() {
-        this.addressToPoint('22 Jarvis Street')
-            .subscribe(
-            response => console.log(response),
-            error => console.log('could not get point'),
-            () => { }
-            );
-    }
-
-    private testReverseGeocoding() {
-        this.addressFromPoint(new Point([18.4606, -33.9575]))
-            .subscribe(
-            response => console.log(response),
-            error => console.log('could not get address'),
-            () => console.log('done reverse-geocoding')
-            );
-    }
+function toResult(place: NominatimPlace): GeocodeResult {
+  return { name: place.display_name, point: new Point([Number(place.lon), Number(place.lat)]) };
 }

@@ -1,54 +1,55 @@
-import { Injectable, Output, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Injectable, signal } from '@angular/core';
 
-export class WsToast {
-    public timeout: any;
-    public isShowing: boolean = true;
-    constructor(
-        public message: string,
-        public style: string,
-        public duration: number 
-    ) {
-        this.timeout = setTimeout(this.kill.bind(this), duration);
-        this.isShowing = true;
-    }
+export type WsToastKind = 'default' | 'light' | 'dark' | 'success' | 'warning' | 'error';
 
-    private kill() {
-        this.isShowing = false;
-    }
+export interface WsToast {
+  id: number;
+  message: string;
+  kind: WsToastKind;
 }
-@Injectable()
+
+const DURATIONS: Record<WsToastKind, number> = {
+  default: 3000,
+  light: 3000,
+  dark: 3000,
+  success: 2000,
+  warning: 5000,
+  error: 5000,
+};
+
+/** Short messages that show in <ws-toast> and leave on their own. */
+@Injectable({ providedIn: 'root' })
 export class WsToastService {
-    @Output() pushToast$: EventEmitter<WsToast> = new EventEmitter<WsToast>();
-    private defaultDuration: number = 3000;
-    private successDuration: number = 2000;
-    private warningDuration: number = 5000;
-    private errorDuration: number = 5000;
+  private nextId = 0;
+  readonly toasts = signal<WsToast[]>([]);
 
-    constructor() {
-    }
+  show(message: string, duration?: number): void {
+    this.push(message, 'default', duration);
+  }
 
-    public push(toast: WsToast) {
-        this.pushToast$.emit(toast);
-    }
+  notify(message: string, light = false, duration?: number): void {
+    this.push(message, light ? 'light' : 'dark', duration);
+  }
 
-    public show(message: string, duration: number = this.defaultDuration) {
-        this.push(new WsToast(message, 'toast-default', duration));
-    }
+  success(message: string, duration?: number): void {
+    this.push(message, 'success', duration);
+  }
 
-    public notify(message: string, light:boolean = false, duration: number = this.defaultDuration) {
-        this.push(new WsToast(message, light ? 'toast-light' : 'toast-dark', duration));
-    }
+  warning(message: string, duration?: number): void {
+    this.push(message, 'warning', duration);
+  }
 
-    public success(message: string, duration: number = this.successDuration) {
-        this.push(new WsToast(message, 'toast-success', duration));
-    }
+  error(message: string, duration?: number): void {
+    this.push(message, 'error', duration);
+  }
 
-    public warning(message: string, duration: number = this.warningDuration) {
-        this.push(new WsToast(message, 'toast-warning', duration));
-    }
+  dismiss(id: number): void {
+    this.toasts.update((toasts) => toasts.filter((toast) => toast.id !== id));
+  }
 
-    public error(message: string, duration: number = this.errorDuration) {
-        this.push(new WsToast(message, 'toast-error', duration));
-    }
+  private push(message: string, kind: WsToastKind, duration = DURATIONS[kind]): void {
+    const toast: WsToast = { id: this.nextId++, message, kind };
+    this.toasts.update((toasts) => [...toasts, toast]);
+    setTimeout(() => this.dismiss(toast.id), duration);
+  }
 }
