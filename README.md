@@ -80,6 +80,27 @@ Switching themes keeps the view and re-applies 3D on the new style. The theme, 3
 choices and the last view are kept in `localStorage` (`ws-map-settings`); the app theme is kept
 under `ws-ui-theme`.
 
+## Look and theme
+
+The app is styled with [midnite-ui](https://github.com/bilo-io/midnite-ui), the owner's React
+design system. Its tokens, brand styles and Tailwind theme are vendored in
+`src/vendor/midnite-ui/` (see its README for the pinned commit), and Tailwind 3 builds on them.
+Every colour comes from a token, so light and dark read the same way midnite-ui does.
+
+| Piece | Where | Notes |
+| --- | --- | --- |
+| Button | `button[mnButton]`, `a[mnButton]` | Variants `default`, `secondary`, `ghost`, `outline`, `destructive`, `success`; sizes `default`, `sm`, `lg`, `icon` |
+| Card | `[mnCard]` | `solid` or `glass` |
+| Chip | `[mnChip]` | Small pill, optionally interactive and `active` |
+| Icon | `mn-icon` | Lucide icons by name |
+| Segmented | `mn-segmented` | Radio group drawn as a segmented control |
+| Panel | `mn-panel` | Glass collapsible panel (the map controls) |
+| Theme menu | `mn-theme-toggle` | Light, Dark or System |
+
+The theme is the `dark` class on `<html>`. An inline script in `index.html` applies the saved
+choice before the app loads, so there is no flash. Under **Auto** the map follows the app theme;
+picking a map theme overrides it. Motion is CSS only and stops under `prefers-reduced-motion`.
+
 ## The ws library
 
 `src/app/shared/ws/` holds the reusable components, all standalone, `OnPush` and signal-based.
@@ -93,12 +114,12 @@ under `ws-ui-theme`.
 | Input | `ws-input` | Labelled text or number input with two-way `value` |
 | List | `ws-list` | Single or multiple choice list; can remember its state |
 | Select | `ws-select` | Drop-down on top of `ws-list`, single or multiple |
-| Tabs | `ws-tabs` | Tab bar with two-way `active` |
+| Tabs | `ws-tabs` | Segmented tab bar with two-way `active` and arrow-key focus |
 | Toggle | `ws-toggle` | Accessible switch (replaces the old `ws-toggle` and `ws-switch`) |
 | Loader | `ws-loader` | Spinner with an optional label (replaces `ws-spinner` and `ws-loader-label`) |
 | Toast | `WsToastService` + `ws-toast` | `success`, `warning`, `error`, `show` and `notify` |
 | Modal | `WsModalService` + `ws-modal` | `show()` returns a `Promise<boolean>` |
-| Navbar, sidenav | `ws-navbar`, `ws-sidenav` | Top bar with links, menu and the system/light/dark switch |
+| Navbar, sidenav | `ws-navbar`, `ws-sidenav` | Glass top bar with links, menu and the theme menu |
 
 Drawing on the map from anywhere:
 
@@ -114,7 +135,7 @@ map.clicked$.subscribe((point) => console.log(point.latitude, point.longitude));
 - Gulp, JSPM, SystemJS and Karma are replaced by the Angular CLI (`@angular/build`), Vitest
   and Playwright.
 - Leaflet, Mapbox and the Google geocoder are replaced by MapLibre GL and Nominatim.
-- MaterializeCSS and Material Icons are replaced by CSS variables with light and dark themes
-  (`src/styles.scss`).
+- MaterializeCSS and Material Icons are replaced by midnite-ui's tokens and Tailwind theme, with
+  light and dark themes (`src/styles.css`, `src/vendor/midnite-ui/`).
 - The WhereIsMyTransport, Uber and principal API clients, the transit models and the `.ng2`
   blueprints are removed: they needed private keys, and those APIs have since changed.
