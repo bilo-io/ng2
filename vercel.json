@@ -1,0 +1,1 @@
+{ "outputDirectory": "dist/ng2/browser", "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
